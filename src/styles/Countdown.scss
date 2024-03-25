@@ -1,0 +1,81 @@
+
+.flash-sale-container{
+    width: 85%;
+    height: fit-content;
+    margin: 35px 0px;
+
+    .flash-time{
+        display: flex;
+        height: 62px;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: #f2f2f2 1px solid;
+        .flash-left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a{
+                font-size: 32px;
+                font-family: 'Mulish', sans-serif;
+                color: #000000; 
+                font-weight: bold;
+            }
+            width: 30%;
+            img{
+                width: 50px;
+                margin-left: 20px;
+                margin-bottom: 15px;
+            }
+        }
+        .flash-right{
+            width: 30%;
+            display: flex;
+            justify-content: flex-end;
+            .flashsale__countdown-label{
+                width: 35%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                font-size: 16px;
+                font-family: 'Mulish', sans-serif;
+                color: red; 
+                margin-right: 5px;
+            }
+            .flashsale__countdown{
+                width: 50%;
+            }
+        }
+    }
+}
+.container-countdown{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 62px;
+    .countdown-item{
+        background: #000000;
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .countdown-run {
+            font-size: 25px;
+            font-family: 'Mulish', sans-serif;
+            font-weight: bold;
+            color: #ffffff; 
+            padding-bottom: 5px;
+          }
+        .text-under{
+            width: 100%;
+            border-top: 1px solid #ffffff;
+            padding-top: 2px;
+            font-size: 10px;
+            font-family: 'Mulish', sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+    }
+  }

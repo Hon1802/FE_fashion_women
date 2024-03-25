@@ -1,0 +1,32 @@
+.tab-design{
+
+    button{
+        color: #9c9c9c !important;
+        font-size: 18px !important;
+        font-family: 'Mulish', sans-serif !important ;
+    }
+    :hover {
+        font-size: 18px !important;
+        font-family: 'Mulish', sans-serif !important;
+        color: #000000 !important;
+    }
+    .ant-tabs-tab-active{
+        div{
+            color: #000000 !important;
+            font-size: 18px !important;
+            font-family: 'Mulish', sans-serif !important ;
+        }
+    }
+    
+    .ant-tabs-tab {
+        padding: 15px 15px !important;
+        .ant-tabs-tab-btn{
+            color: #c9c9c9;
+            font-size: 18px !important;
+            font-family: 'Mulish', sans-serif !important;
+        }
+    }
+    .ant-tabs-ink-bar-animated{
+        background: #000000 ;
+    }
+}
