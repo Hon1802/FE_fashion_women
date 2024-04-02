@@ -1,0 +1,1 @@
+export const img_top = require("./collection_main_banner.webp");

@@ -4,8 +4,6 @@
   "private": true,
   "proxy": "https://web-service-booking-tour.onrender.com/",
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
@@ -13,7 +11,6 @@
     "@hookform/resolvers": "^3.1.1",
     "@iconify/react": "^4.1.0",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.5",
     "@mui/x-data-grid": "^6.18.1",
     "@mui/x-date-pickers": "^6.18.0",
     "@paypal/react-paypal-js": "^8.1.3",
@@ -95,11 +92,19 @@
     ]
   },
   "devDependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@material-ui/core": "^4.12.4",
+    "@mui/joy": "^5.0.0-beta.32",
     "@mui/lab": "^5.0.0-alpha.169",
+    "@mui/material": "^5.15.14",
     "@mui/styles": "^5.15.14",
     "react-countdown": "^2.3.5",
     "react-dev-utils": "^12.0.1",
+    "react-google-maps": "^9.4.5",
+    "react-modal-video": "^2.0.1",
     "stream-browserify": "^3.0.0"
   }
 }

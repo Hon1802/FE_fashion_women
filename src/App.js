@@ -14,7 +14,7 @@ function App() {
   const router = createBrowserRouter([
     {
       element: <Layout />,
-      errorElement: <PageNotFound />,
+      // errorElement: <PageNotFound />,
       children: routes
     }
   ]);

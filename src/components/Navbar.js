@@ -1,8 +1,10 @@
 import { useState, useEffect} from 'react'
+import * as React from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {icon_menu} from '../assets/logo'
+
 import { hover } from '@testing-library/user-event/dist/hover';
 const navs = [
     {
@@ -208,7 +210,7 @@ const navs = [
 //Mobile expand button
 
 const Navbar = () => {
-
+  
     const [clicked, setClicked] = useState(false);
 
     const [btnState, setBtnState] = useState(false);
@@ -304,6 +306,8 @@ const Navbar = () => {
         updateState(numberPrev, numberNext)
         setClicked(!clicked);
     };
+
+    
     const handleShowRemainingItemsNext = () => {
         const displayedNavsLength = displayedNavs.length;
         const navsLength = navs.length;
@@ -330,7 +334,8 @@ const Navbar = () => {
 
     return (
         <div id="ftc-nav">
-            <div className="navbar-navb-mobile-btn" style={{ backgroundPosition: btnState ? "center left 50px, center" : "center, center left 50px" }} onClick={clickMenuBtn}></div>
+            
+            
             <div className='navigation-horizontal'>
                 <ul className="navbar-navb">
                     {displayedNavs.map((nav, index) => {
@@ -384,21 +389,6 @@ const Navbar = () => {
                     <button id='btn-prev' className={isFirstItem ? 'disable-button' : ''} disabled={isFirstItem} onClick={handleShowRemainingItemsPrev}><ArrowBackIosNewIcon sx={{ fontSize: 18 }}/></button>
                     <button id='btn-next' className={isLastItem ? 'disable-button' : ''} disabled={isLastItem} onClick={handleShowRemainingItemsNext}><ArrowForwardIosIcon sx={{ fontSize: 18 }}/></button>
                 </div>
-            </div>
-            <div className="navbar-navb-mobile" style={{ display: btnState ? "block" : "none" , overflowY: "auto", maxHeight: "60vh" }}>
-                <ul className="navb-list-mobile">
-                    {navs.map((nav, index) => {
-                        return (
-                            <>
-                                <li className="navb-item-mobile" key={index} >
-                                    <a href={nav.id} className="navb-link-mobile" >
-                                        <span>{nav.value}</span>
-                                    </a>
-                                </li>                                
-                            </>
-                        );
-                    })}
-                </ul>
             </div>
         </div>
     );

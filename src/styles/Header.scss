@@ -4,6 +4,9 @@
 }
 
 #header{
+  .btn-mobile{
+    display: none;
+  }
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 40px;
@@ -64,6 +67,9 @@
     .user-dropdown{
       width: 15%;
       padding-bottom: 10px;
+    }
+    .menu-mobile{
+      display: none;
     }
   }
   .overlay{

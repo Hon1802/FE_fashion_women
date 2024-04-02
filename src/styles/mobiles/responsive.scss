@@ -1,0 +1,335 @@
+@media only screen and (max-width: 600px) {
+    #root{
+        width: 100%;
+        overflow-x: hidden;
+        #top-banner-home{
+            height: auto;
+            a{
+                font-size: 0.6em;
+            }
+            button{
+                height: 5vh;
+                width: 5vh;
+                top: 0px
+            }
+        }
+    }
+    #header{
+        width: 100%;
+        .navb{
+            width: 100%;
+            justify-content: space-around !important;
+            .btn-mobile{
+                display: block;
+                width: 2em;
+            }
+            .user-dropdown {
+                width: 25%;
+                padding-bottom: 10px;
+            }
+            .navbar-title {
+                margin-top: 1em;
+            }
+            .menu-mobile{
+                display: flex;
+              }
+        }
+    }
+    .MuiPaper-root{
+        .MuiDialogContent-root{
+            .navbar-title, .use-select{
+                display: none;
+            }            
+            .col-6{
+                width: 95% !important;
+            }
+        }
+    }
+    .custom-menu{
+        width: 300px;
+        height: 100%;
+        div{
+            padding: 0px;
+            margin: 0px;
+        }
+        .menu-top{
+            background: #080808;
+            display: grid;
+            grid-template-columns: 2fr 8fr;
+            align-items: center;
+        }
+        .list-menu-mobile{
+            ul{
+                padding-left: 0.6rem;
+                li{
+                    display: flex;
+                    width: 100%;
+                    height: 2em;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    #policies{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: fit-content;
+        width: 90%;
+        .policies-item {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em 0;
+            .policies-info{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    #container-session{
+        .navigation-arrows{
+            display: block;
+        }
+    }
+    #container-coupons{
+        display: inline-flex;
+        gap: 20px;
+        overflow-x: auto;
+        .coupons-item{
+            width: 320px;
+            .coupons-info {
+                padding-left: 0px; 
+                width: 230px;
+                .popup-content .popup-style {
+                    transform: translate(-50%, 17%);
+                    width: 100%;
+                    .text-coupon{
+                        font-size: 0.8em;
+                    }
+                    .btn-popup 
+                    {
+                        padding: 15px 0;
+                        .close-popup, .coppy-btn{
+                            width: 160px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .flash-sale-container{
+        .flash-time{
+            .flash-right{
+                width: 40%;
+                flex-direction: column;
+                .flashsale__countdown-label{
+                    width: 100%;
+                }
+                .flashsale__countdown{
+                    width: 100%;
+                    .text-under{
+                        display: none;
+                    }
+                    .countdown-run{
+                        padding-bottom: 0px;
+                    }
+                    .container-countdown {
+                        height: 30px;
+                    }
+                }
+            }
+            .flash-left{
+                width: 60%;
+                a{
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+    .flash-body{
+        .tab_first {
+            grid-template-columns: auto auto;
+            .cart-container {
+                padding: 0px 5px;
+            }
+        }
+    }
+    .section-section-video .video-play-button-wrap {
+        position: absolute;
+        top: 14%;
+        left: 44%; 
+        .video-play-button .icon {
+            width: 50px;
+        }
+    }
+    .section-section-video iframe {
+        width: 100%;
+        height: 220px;
+    }
+    .collection-container-bottom{
+        .collection-header{
+            flex-direction: column;
+            h2{
+                font-size: 1em !important;
+            }
+            .ant-select-show-arrow .ant-select-selector {
+                span {
+                font-size: 1.4em;
+                padding-top: 0.2em;
+                padding-left: 0.7em;
+            }}
+        }
+    }
+    #look-book{
+        h2{
+            font-size: 1.3em !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .look-book-body{
+            display: inlne-flex;
+            gap: 1em;
+            overflow-x: auto;
+            .container-cart{
+                width: 100vw;
+            }
+            .container-cart{
+                h3.text, a.text {
+                    padding-right: 4em;
+                    font-size: 0.9em !important;
+                }
+            }
+        }
+    }
+
+
+    .comment-container{
+        h2{ 
+            font-size: 1.2em !important;
+        }
+        .body {
+            width: 90%;
+            display: inline-flex;
+            gap: 20px;
+            overflow-x: auto;
+            .content-cover {
+                min-width: 98%;
+            }
+        }
+    }
+    #fashion-trends 
+    {
+        width: 100%;
+        height: fit-content;
+        h2{
+            font-size: 1.2em !important;
+            font-weight: 700;
+        }
+        .trend-top {
+            width: 90%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 0px;
+            margin: 0;
+            align-items: center;
+            
+        }
+        .trend-follow{
+            width: 100%;
+            overflow-x: auto;
+            gap: 20px;
+            .content-trend-follow{
+                width: fit-content;
+                gap: 20px;
+                .insta_item {
+                    width: 100vw;
+                    height: auto;
+                }
+            }
+        }
+        .news{
+            width: 100%;
+            .mobile-custom-blog{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .post-list .post-item .content-blog-b p {
+                text-align: justify;
+                max-height: 20px;
+                overflow: hidden;
+            }
+        }
+    }
+    #footer{
+        .footer-block{
+            width: 100%;
+            ul{
+                display: none ;
+            }
+        }
+    }
+    #bottom-nav{
+        width: 100%;
+        position: fixed;
+        bottom: 0px;
+        z-index: 20;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ul{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            padding-left: 0;
+            a{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                span{
+                    font-size: 0.6em;
+                    color: #000000;
+                }
+                i{
+                    color: #000000;
+                }
+            }
+        }
+
+      }
+    .text{
+        font-family: 'Mulish', sans-serif;
+        font-size: 0.7em !important;
+    }
+    .text-1{
+        font-family: 'Mulish', sans-serif;
+        color: #fff;
+    }
+    .text-2{
+        font-family: 'Mulish', sans-serif;
+        color: #000000;
+    }
+    .text-font-1em{
+        font-size: 1em;
+    }
+    .text-font-0-8em{
+        font-size: 0.8em;
+    }
+    .text-font-1-3em{
+        font-size: 1.3em;
+    }
+    .btn-mobile{
+        display: block;
+    }
+}

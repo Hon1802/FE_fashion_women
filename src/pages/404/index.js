@@ -9,9 +9,6 @@ const PageNotFound = () => {
     return (
         <div className="misc-wrapper">
             <Link className="brand-logo" to="/" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <h2 className="text-primary" style={{ fontWeight: "bold" }}>
-                    Booking Now
-                </h2>
             </Link>
             <div className="misc-inner p-2 p-sm-3">
                 <div className="w-100 text-center">
