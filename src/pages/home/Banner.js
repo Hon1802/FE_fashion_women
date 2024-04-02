@@ -61,8 +61,8 @@ const Banner = () => {
 
     return (
         <div className="home-banner-wrapper">
-            <img className="mySlides" src={slider1} ></img>
-            <img className="mySlides" src={slider2} ></img>
+            <img alt='slider' className="mySlides" src={slider1} ></img>
+            <img alt='slider' className="mySlides" src={slider2} ></img>
             <button className='btn-prev' onClick={() => plusDivs(-1)}>&#10094;</button>
             <button className='btn-next' onClick={() => plusDivs(1)}>&#10095;</button>
             <div class="dot_slide" >

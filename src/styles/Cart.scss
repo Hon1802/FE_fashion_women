@@ -1,4 +1,103 @@
-.cart-container{
-    width: 330px;
-    height: 710px;
+#cart-look{
+    .container-cart{
+        width: 100%;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 15px ;
+        position: relative;
+        margin-bottom: 20px;
+        .cart-image{
+            width: inherit;
+            height: inherit;
+            img{
+                width: 100%;
+            }
+            margin-bottom: 20px;
+        }
+        .dot_btn{
+            position: absolute;
+            .item_dot{
+                background: var(--white-color);
+                border-radius: 50%;
+                display: flex;
+                width: 25px;
+                height: 25px;
+                justify-content: center;
+                align-items: center;
+                svg{
+                    width: 20px !important;
+                }
+                .rotate-icon.rotated {
+                    transform: rotate(90deg);
+                    transition: transform 0.3s ease; /*Thêm hiệu ứng transition để trơn tru khi xoay*/
+                }
+            }
+            .info-popup{
+                visibility: hidden;
+                position: absolute;
+                height: 80px;
+                width: 250px;
+                top: -90px;
+                left: -100px;
+                div{
+                    display: inline-flex;
+                    height: inherit;
+                    width: inherit;
+                    gap: 5px;
+                    background: rgba($color: #ffffff, $alpha: 0.7);
+                    padding: 5px;
+                    overflow: hidden;
+                    img{
+                        height: 100%;
+                        width: auto;
+                        padding: 0px 5px;
+                        border: 1px solid #aebdc7;
+                    }
+                    div{
+                        height: inherit;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        align-items: flex-start;
+                        text-wrap: nowrap;
+                        h4, span{
+                            font-size: 13px; 
+                            padding-left: 5px;                       
+                        }
+                        span{
+                            color: var(--price-color)
+                        }
+                        div{
+                            padding: 0px;
+                            display: flex;
+                            flex-direction: row;
+                            .discount{
+                                color: var(--text-secondary-color);
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        
+    }
 }
+.rotate-on-click {
+    width: 100px;
+    height: 100px;
+    background-color: #007bff;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .rotateEffect { 
+    transform: rotate(45deg) scale(0.7);
+  }
+  
+

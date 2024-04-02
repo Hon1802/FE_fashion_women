@@ -1,115 +1,73 @@
-import Button from '@mui/material/Button'
-import { useState, useEffect } from 'react'
-import TextField from '@mui/material/TextField'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import { Link } from "react-router-dom"
-import FormControl from '@mui/material/FormControl'
-import FormHelperText from '@mui/material/FormHelperText'
-import { useForm, Controller } from 'react-hook-form'
-import Banner from "../../../components/Banner"
-import { Form } from "reactstrap"
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { banner } from '../../../assets'
-
-
-const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(8).required()
-})
 
 const ForgotPassword = () => {
-    const [showPassword, setShowPassword] = useState(false)
-    const {
-        setValue,
-        control,
-        register,
-        formState: { errors },
-        handleSubmit,
-        getValues
-    } = useForm({
-        mode: 'onBlur',
-        resolver: yupResolver(schema)
-    })
-
-    const onSubmit = (data) => {
-        console.log(data.email)
-    }
     return (
-        <div id="login">
-            <Banner title="Forgot Password" subtitle="Forgot password" banner={banner} />
-            <Box className='content-right' >
-                <Box
-                    sx={{
-                        paddingTop: '30px',
-                        height: '100%',
-                        width: '100%',
-                        alignItems: 'center',
-                        mb: "20px",
-                        mt: "20px",
-                    }}
-                >
-                    <Box sx={{
-                        my: 6,
-                        borderRadius: "25px",
-                        padding: "50px",
-                        boxShadow: "0 0.5rem 1rem rgba(0,0,0,.1)",
-                        height: '100%',
-                        maxHeight: '700px',
-                        width: '100%', maxWidth: 500, display: 'inline-block', position: 'relative', left: '50%', transform: 'translateX(-50%)',
-                        textAlign: 'center', alignItems: 'center'
-                    }}>
-                        <Form autoComplete="off" className="auth-login-form mt-2" onSubmit={handleSubmit(onSubmit)}>
-                            <FormControl fullWidth sx={{ mb: 4 }}>
-                                <Controller
-                                    name='email'
-                                    control={control}
-                                    id="email"
-                                    defaultValue={""}
-                                    rules={{ required: true }}
-                                    render={({ field: { value, onChange, onBlur } }) => (
-                                        <TextField
-                                            type='email'
-                                            autoFocus
-                                            label='Email'
-                                            value={value}
-                                            onBlur={onBlur}
-                                            onChange={onChange}
-                                            error={Boolean(errors.email)}
-                                            placeholder='username@gmail.com'
-                                        />
-                                    )}
-                                />
-                                {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
-                            </FormControl>
-                            <Box
-                                sx={{
-                                    mb: 1.75,
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between'
-                                }}
-                            >
-                            </Box>
-                            <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                                Reset password
-                            </Button>
-                            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                                <Typography sx={{ color: 'text.secondary', mr: 2 }}>New on our platform?</Typography>
-                                <Typography variant='body2'>
-                                    <Link to="/register" className='link' sx={{ fontSize: '1rem' }}>
-                                        Create an account
-                                    </Link>
-                                </Typography>
-                            </Box>
-                        </Form>
-                    </Box>
-                </Box>
-            </Box>
-        </div >
-    );
+        <div id="login-page" className="dflex-center-column">
+        <div className="w85-per">
+            <div>
+                <ul className="d-inline-flex g-2"> 
+                    <li>
+                        <a href="/">
+                            <span className="text" style={{color:"#000000"}}>Trang chủ</span>
+                        </a>
+                    </li> 
+                    <p>/</p>
+                    <li>
+                        <a href="/login">
+                            <span style={{color:"#BFBFBF"}} className="text">Quên mật khẩu</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div className="container">
+                    <div className="wrap-background-aside">
+                        <div className="heading-bar text-center">
+                            <h1 className="title-page text mb-0">Đăng nhập tài khoản</h1>
+                            <p className="mb-0 text">Bạn chưa có tài khoản ?
+                            <a href="/account/register" className="btn-link-style btn-register"> Đăng ký tại đây</a></p>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 col-md-6 col-lg-5 offset-md-3 py-3 mx-auto">
+                                <div className="page-login ">
+                                    <div id="recover-password" className="form-signup page-login text-center">
+                                        <h2>
+                                            Đặt lại mật khẩu
+                                        </h2>
+                                        <p>
+                                            Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+                                        </p>			
+                                        <form accept-charset='UTF-8' action='/account/recover' method='post'>
+                                            <input name='form_type' type='hidden' value='recover_customer_password'/>
+                                            <input name='utf8' type='hidden' value='✓'/>
 
+                                            <div className="form-signup" style={{color: 'red'}}>
+                                                
+                                            </div>
+                                            <div className="form-signup clearfix">
+                                                <fieldset className="form-group">
+                                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" value="" name="Email" id="recover-email" placeholder="Email" Required />
+                                                </fieldset>
+                                            </div>
+                                            <div className="action_bottom my-3">
+                                                <input className="btn btn-style btn-recover btn-block" type="submit" value="Lấy lại mật khẩu" />
+                                                <a href="/account/login" className="btn btn-style link btn-style-active ">Quay lại</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                    <div className="block social-login--facebooks margin-top-20 text-center">
+                                    <p className="a-center text-secondary">
+                                        Hoặc đăng nhập bằng
+                                    </p>
+                                    <div id="wrap-social-login-plus"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div> 
+    )
 }
-export default ForgotPassword
+export default ForgotPassword;

@@ -1,32 +1,129 @@
-.container {
-  max-width: 95vw !important;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
+.dflex-center-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.wrapper {
-  max-width: 80vw !important;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
+.w85-per{
+  width: 85%;
 }
-img{
-  object-fit: cover;
+.dfl-center{
+  display: flex;
+  justify-content: center;
 }
-
-
-.modal-loader,
-.modal.fade.show {
-  z-index: 9998 !important;
+.dfl-start{
+  display: flex;
+  justify-content: flex-start;
 }
-
-.text-link{
+.dgrid-2{
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+.dfl-center-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dfl-start-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.dflex-center-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-center{
+  align-items: center;
+}
+.btn-view{
+  color: #000000;
+  width: 200px;
+  height: 50px;
+  border: 1px solid;
+  margin-bottom: 30px;
+}
+.btn-view:hover{
   cursor: pointer;
-  color: var(--color-hover);
-  &:hover{
-    text-decoration: underline;
-  } 
+  background: #000000;
+  color: #fff;
+}
+.d-grid-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.w-85{
+  width: 85%;
+}
+.text-h3{
+  font-size: 18px;
+  padding: 20px 20px 10px 0px;
+  color: #000000;
+}
+.pl10{
+  padding-left: 10px;
+}
+.pb10{
+  padding-bottom: 10px;
+}
+.pr20{
+  padding-right: 20px;
+}
+.pr10{
+  padding-right: 10px;
+}
+.text-2{
+  color: var(--text-color-3);
+}
+.text-footer{
+  color: #ffffff;
+  font-family: 'Mulish', sans-serif;
+  font-size: 15px;
+}
+.text-footer-1{
+  color: #ffffff;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+}
+.text-footer-3{
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+}
+.text-footer-4{
+  color: #ffffff;
+  font-family: 'Mulish', sans-serif;
+  font-size: 16px;
+}
+.m-item{
+  margin: 50px 0px;
+}
+// icon
+.size-icon{
+  width: 22.4px;
+  height: 22.4px;
+  margin-left: 15px;
+}
+.content-top-page{
+  ul{
+    gap: 10px;
+    li{
+        span{
+            font-size: 16px !important;
+        }
+    }
+  }
+  .title-page{
+      font-size: 25px !important;
+      text-transform: uppercase;
+  }
+}
+.btn-mobile{
+  display: none;
+}
+#bottom-nav{
+  display: none;
+  position: fixed;
+  bottom: 0px;
 }

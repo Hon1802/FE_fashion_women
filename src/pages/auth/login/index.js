@@ -1,240 +1,100 @@
-import Button from '@mui/material/Button'
-import Checkbox from '@mui/material/Checkbox'
-import { useState, useEffect } from 'react'
-import TextField from '@mui/material/TextField'
-import Typography from '@mui/material/Typography'
-import InputLabel from '@mui/material/InputLabel'
-import IconButton from '@mui/material/IconButton'
-import Box from '@mui/material/Box'
-import { Link, useNavigate } from "react-router-dom"
-import FormControl from '@mui/material/FormControl'
-import OutlinedInput from '@mui/material/OutlinedInput'
-import { styled, useTheme } from '@mui/material/styles'
-import FormHelperText from '@mui/material/FormHelperText'
-import InputAdornment from '@mui/material/InputAdornment'
-import MuiFormControlLabel from '@mui/material/FormControlLabel'
-import { useForm, Controller } from 'react-hook-form'
-import Banner from "../../../components/Banner"
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Form } from "reactstrap"
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { banner } from '../../../assets'
-import { useDispatch, useSelector } from "react-redux"
-import { USER_STATUS } from "../../../constants/user-constant"
-import { encrypt, decrypt, parseHexString } from "../../../utility/Crypto"
-import toast from "react-hot-toast"
-import useJwt from "../../../auth/jwt/useJwt"
-import jwtDefaultConfig from "../../../@core/auth/jwt/jwtDefaultConfig"
 
-const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
-    '& .MuiFormControlLabel-label': {
-        fontSize: '0.875rem',
-        color: theme.palette.text.secondary
-    }
-}))
-
-const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(5).required()
-})
-const config = useJwt.jwtConfig
 const Login = () => {
-    const [showPassword, setShowPassword] = useState(false)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const [remember, setRemember] = useState(!!localStorage.getItem(jwtDefaultConfig.rememberUser))
-    const isObjEmpty = (obj) => Object.keys(obj).length === 0
+    return ( 
+        <div id="login-page" className="dflex-center-column">
+            <div className="w85-per">
+                <div>
+                    <ul className="d-inline-flex g-2"> 
+                        <li>
+                            <a href="/">
+                                <span className="text" style={{color:"#000000"}}>Trang chủ</span>
+                            </a>
+                        </li> 
+                        <p>/</p>
+                        <li>
+                            <a href="/login">
+                                <span style={{color:"#BFBFBF"}} className="text">Đăng nhập</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div className="container">
+                        <div className="wrap-background-aside">
+                            <div className="heading-bar text-center">
+                                <h1 className="title-page text mb-0">Đăng nhập tài khoản</h1>
+                                <p className="mb-0 text">Bạn chưa có tài khoản ?
+                                <a href="/account/register" className="btn-link-style btn-register"> Đăng ký tại đây</a></p>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6 col-lg-5 offset-md-3 py-3 mx-auto">
+                                    <div className="page-login ">
+                                        <div id="login" >
+                                            <form accept-charset='UTF-8' action='/account/login' id='customer_login' method='post'>
+                                                <input name='form_type' type='hidden' value='customer_login'/>
+                                                <input name='utf8' type='hidden' value='✓'/>
 
-    const {
-        setValue,
-        control,
-        register,
-        formState: { errors },
-        handleSubmit,
-        getValues
-    } = useForm({
-        mode: 'onBlur',
-        resolver: yupResolver(schema)
-    })
+                                                <div className="form-signup margin-bottom-15" style={{color: 'red'}}>
+                                                
+                                                </div>
+                                                <div className="form-signup clearfix">
+                                                    <fieldset className="form-group">
+                                                        <label>Email <span className="required">*</span></label>
+                                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control " value="" name="email" id="customer_email" placeholder="Email" Required />
+                                                    </fieldset>
+                                                    <fieldset className="form-group">
+                                                        <label>Mật khẩu <span className="required">*</span> </label>
+                                                        <input type="password" className="form-control " value="" name="password" id="customer_password" placeholder="Mật khẩu" Required/>
+                                                        <small className="d-block my-2">Quên mật khẩu? Nhấn vào<a href="/account/forgot-password" className="btn-link-style text-primary" > đây </a></small>
+                                                    </fieldset>
+                                                    <div className="pull-xs-left button_bottom a-center  mb-3">
+                                                        <button className="btn btn-block btn-style  btn-login"  type="submit" value="Đăng nhập">Đăng nhập</button>
+                                                    </div>
+                                                </div>
+                                            
+                                                <input id='b7622ec08b704d2ba194cf869f58cf21' name='g-recaptcha-response' type='hidden'/>
+                                            </form>
+                                        </div>
+                                        
+                                        <div id="recover-password" style={{display: 'none'}} className="form-signup page-login text-center">
+                                            <h2>
+                                                Đặt lại mật khẩu
+                                            </h2>
+                                            <p>
+                                                Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+                                            </p>			
+                                            <form accept-charset='UTF-8' action='/account/recover' method='post'>
+                                                <input name='form_type' type='hidden' value='recover_customer_password'/>
+                                                <input name='utf8' type='hidden' value='✓'/>
 
-    // useEffect(() => {
-    //     const rememberUser = localStorage.getItem(jwtDefaultConfig.rememberUser)
-    //     const userRemember = localStorage.getItem(jwtDefaultConfig.storageUserRemember)
-    //     if (rememberUser) {
-    //         setValue("email", decrypt(parseHexString(JSON.parse(userRemember).email.split("@")[0]), JSON.parse(userRemember).email.split("@")[1]))
-    //         setValue("password", decrypt(parseHexString(JSON.parse(userRemember).password.split("@")[0]), JSON.parse(userRemember).password.split("@")[1]))
-    //     }
-    // }, [])
-    const onSubmit = (data) => {
-        if (isObjEmpty(errors)) {
-            localStorage.removeItem("userDataUser")
-            localStorage.removeItem("accessTokenUser")
-            // const emailCipher = encrypt(data.email)
-            // const passwordCipher = encrypt(data["password"])
-            // localStorage.setItem(
-            //     config.storageUserRemember,
-            //     JSON.stringify({
-            //         email: emailCipher,
-            //         password: passwordCipher
-            //     })
-            // )
-            // if (remember) {
-            //     localStorage.setItem(config.rememberUser, true)
-            // } else {
-            //     localStorage.removeItem(config.rememberUser)
-            // }
-            useJwt
-                .login({ email: data.email, password: data.password })
-                .then((res) => {
-                    /* Login condition */
-                    if (res?.data?.userData) {
-                        const userData = res?.data?.userData.data
-                        localStorage.setItem(config.storageUserData, JSON.stringify({ ...userData }))
-                        localStorage.setItem(config.storageTokenKeyName, userData.token)
-                        navigate("/", { state: { isLogin: true } })
-                    }
-                }
-                )
-                .catch((error) => {
-                    switch (error?.response?.data?.errCode) {
-                        case USER_STATUS.NOT_FOUND:
-                            toast.error("Email doesn't exist!")
-                            break
-                        case USER_STATUS.INCORRECT_PASSWORD:
-                            toast.error("Password is wrong!")
-                            break
-                        default:
-                            break
-                    }
-                })
-        }
-    }
-    return (
-        <div id="login">
-            <Banner title="Login" subtitle="Login" banner={banner} />
-            <Box className='content-right'>
-                <Box
-                    sx={{
-                        paddingTop: '30px',
-                        height: '100%',
-                        width: '100%',
-                        alignItems: 'center',
-                        mb: "20px",
-                        mt: "20px",
-                    }}
-                >
-                    <Box sx={{
-                        borderRadius: "25px",
-                        padding: "50px",
-                        boxShadow: "0 0.5rem 1rem rgba(0,0,0,.1)",
-                        height: '100%',
-                        maxHeight: '700px',
-                        width: '100%', maxWidth: 500, display: 'inline-block', position: 'relative', left: '50%', transform: 'translateX(-50%)',
-                        textAlign: 'center', alignItems: 'center'
-                    }}>
-                        <Box sx={{ my: 6 }}>
-                            <Typography sx={{ color: 'text.secondary', textAlign: 'left' }}>
-                                Please sign-in to your account and start the adventure
-                            </Typography>
-                        </Box>
-                        <Form autoComplete="off" className="auth-login-form mt-2" onSubmit={handleSubmit(onSubmit)}>
-                            <FormControl fullWidth sx={{ mb: 4 }}>
-                                <Controller
-                                    name='email'
-                                    control={control}
-                                    id="email"
-                                    defaultValue={""}
-                                    rules={{ required: true }}
-                                    render={({ field: { value, onChange, onBlur } }) => (
-                                        <TextField
-                                            type='email'
-                                            autoFocus
-                                            label='Email'
-                                            value={value}
-                                            onBlur={onBlur}
-                                            onChange={onChange}
-                                            error={Boolean(errors.email)}
-                                            placeholder='username@gmail.com'
-                                        />
-                                    )}
-                                />
-                                {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
-                            </FormControl>
-                            <FormControl fullWidth sx={{ mb: 1.5 }}>
-                                <InputLabel htmlFor='auth-login-v2-password' error={Boolean(errors.password)}>
-                                    Password
-                                </InputLabel>
-                                <Controller
-                                    name='password'
-                                    control={control}
-                                    rules={{ required: true }}
-                                    defaultValue={""}
-                                    render={({ field: { value, onChange, onBlur } }) => (
-                                        <OutlinedInput
-                                            value={value}
-                                            onBlur={onBlur}
-                                            label='Password'
-                                            onChange={onChange}
-                                            id='auth-login-v2-password'
-                                            error={Boolean(errors.password)}
-                                            type={showPassword ? 'text' : 'password'}
-                                            endAdornment={
-                                                <InputAdornment position='end'>
-                                                    <IconButton
-                                                        sx={{ color: 'black' }}
-                                                        edge='end'
-                                                        onMouseDown={e => e.preventDefault()}
-                                                        onClick={() => setShowPassword(!showPassword)}
-                                                    >
-                                                        {showPassword ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            }
-                                        />
-                                    )}
-                                />
-                                {errors.password && (
-                                    <FormHelperText sx={{ color: 'error.main' }} id=''>
-                                        {errors.password.message}
-                                    </FormHelperText>
-                                )}
-                            </FormControl>
-                            <Box
-                                sx={{
-                                    mb: 1.75,
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between'
-                                }}
-                            >
-                                <FormControlLabel
-                                    label='Remember Me'
-                                    control={<Checkbox checked={remember} onChange={e => setRemember(e.target.checked)} />}
-                                />
-                                <Typography variant='body2'>
-                                    <Link to='/forgot-password' className='link'>Forgot Password?</Link>
-                                </Typography>
-                            </Box>
-                            <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                                Login
-                            </Button>
-                            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                                <Typography sx={{ color: 'text.secondary', mr: 2 }}>New on our platform?</Typography>
-                                <Typography variant='body2'>
-                                    <Link to="/register" className='link' sx={{ fontSize: '1rem' }}>
-                                        Create an account
-                                    </Link>
-                                </Typography>
-                            </Box>
-                        </Form>
-                    </Box>
-                </Box>
-            </Box>
-        </div >
-    );
-
+                                                <div className="form-signup" style={{color: 'red'}}>
+                                                    
+                                                </div>
+                                                <div className="form-signup clearfix">
+                                                    <fieldset className="form-group">
+                                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" value="" name="Email" id="recover-email" placeholder="Email" Required />
+                                                    </fieldset>
+                                                </div>
+                                                <div className="action_bottom my-3">
+                                                    <input className="btn btn-style btn-recover btn-block" type="submit" value="Lấy lại mật khẩu" />
+                                                    <a href="/account/login" className="btn btn-style link btn-style-active ">Quay lại</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                        <div className="block social-login--facebooks margin-top-20 text-center">
+                                        <p className="a-center text-secondary">
+                                            Hoặc đăng nhập bằng
+                                        </p>
+                                        <div id="wrap-social-login-plus"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    )
 }
-export default Login
+export default Login;

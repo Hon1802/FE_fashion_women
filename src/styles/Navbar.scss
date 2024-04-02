@@ -158,72 +158,54 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  #ftc-nav{
+    position: relative;
+  }
+  
+  .navigation-arrows, .account-action {
+    display: none;
+  }
+  .navbar-title{
+    width: auto !important;
+  }
+  svg{
+    width: inherit;
+  }
   .navigation-horizontal{
     display: none;
   }
-
-  .navbar-navb-mobile-btn {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url(../assets/burger-menu.png), url(../assets/close.png);
-    background-size: cover, 20px 20px;
-    background-repeat: no-repeat;
-    background-position: center, center left 50px;
-    transform: translate(-170px, -10px)
-  }
-
-  .navbar-navb-mobile {
-    display: block;
-    position: absolute;
-    right: -50%;
-    width: 95%;
-    height: 100vh;
-    z-index: 900;
-    background-color: white;
-    transform: translate(-54%, -0.5%);
+  .icon-heart, .icon-cart{
+    position: relative;
     span{
-      font-size: 24px;
+      position: absolute;
+      top: -1vh;
+      right: -2vw;
+      width: 5vw;
+      height: 5vw;
+      background: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: #fff;
+    }
+  }
+  .icon-cart{
+    svg{
+      width: 100%;
       color: #000;
     }
   }
-
-  .navb-list-mobile {
-    width: 100%;
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    padding-inline-start: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
+  .cart-item{
+    ul{
+      li{
+        p{
+          display: none;
+        }
+      }
+    }
   }
-
-  .navb-item-mobile, .navb-item-mobile-tour{
-    display: flex;
-    flex-basis: 100%;
-    border-top: 2px solid #000;
-  }
-
-  .navb-item-mobile:last-child {
-    border-bottom: 2px solid #000;
-  }
-
-  .navb-item-mobile-tour {
-    text-align: center;
-    
-  }
-
-  .navb-link-mobile {
-    display: block;
-    height: 100%;
-    font-size: 1rem;
-    padding: 30px 0;
-    flex-basis: 100%;
-    text-align: center;
-  }
-  
-  .navbar-navb {
+  .icon-user {
     display: none;
   }
 }

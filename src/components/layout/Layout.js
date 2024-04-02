@@ -4,6 +4,8 @@ import { Suspense } from "react"
 import { LoadingBackground } from "../loading/LoadingBackground"
 import { useLocation } from "react-router-dom"
 import TopBanner from "../TopBanner"
+import Footer from "../../pages/home/Footer"
+import BottomNav from "../BottomNav"
 export default function Layout() {
     let location = useLocation();
     return (
@@ -15,6 +17,8 @@ export default function Layout() {
                     <Outlet />
                 </Suspense>
             </main>
+            <BottomNav/>
+            <Footer/>
         </>
     )
 }
