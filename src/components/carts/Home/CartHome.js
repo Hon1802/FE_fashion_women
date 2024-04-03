@@ -96,7 +96,6 @@ const CartHome = (props) => {
             console.log(images_list[0]); 
             const image_change = document.getElementById('image-main-left');
             image_change.src = images_list[currentIndex].src;
-            console.log('tets222')
             currentIndex++;
         } else {
             currentIndex = 0;
@@ -124,11 +123,15 @@ const CartHome = (props) => {
             <div className='cart-container'>
                 <div className='detail-item'>
                     <div className='product-thumbnail'>
-                        <img className={`img_1 MSP${item.id}`} alt='product' src={item.img_1} />
-                        <img className={`img_2 MSP${item.id}`} alt='product'  src={item.img_2} />
+                        <a href={`/products/${item.id}`}>
+                            <img className={`img_1 MSP${item.id}`} alt='product' src={item.img_1} />
+                        </a>
+                        <a href={`/products/${item.id}`}>
+                            <img className={`img_2 MSP${item.id}`} alt='product'  src={item.img_2} />
+                        </a>
                         <div className='action-bar'>
                             <div className='anchor'>
-                                <a href={item.url}>
+                                <a href={`/products/${item.id}`}>
                                     <FontAwesomeIcon icon={shoppingCart}/>
                                 </a>
                                 <a>
@@ -157,7 +160,7 @@ const CartHome = (props) => {
                             </div>
                         </div>
                         <div className='product-name'>
-                            <a className='text' href={item.url}>{item.title}</a>
+                            <a className='text' href={`/products/${item.id}`}>{item.title}</a>
                         </div>
                         <div className='product-rating'>
                             {item.rating  && item.rating.trim() !== '' &&(
@@ -240,7 +243,7 @@ const CartHome = (props) => {
                                     </div>
                                 </div>
                                 <div className='content-right'>
-                                    <a href={item.url} className='text'>
+                                    <a href={`/products/${item.id}`} className='text'>
                                         {item.title}
                                     </a>
                                     <div className='left_vend text'>

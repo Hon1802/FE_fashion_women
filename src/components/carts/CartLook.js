@@ -68,7 +68,7 @@ const CartLook = (props) => {
                         </>
                     ))}
                     <h3 className='text' style={{fontSize: '24px'}}>Set đồ tập Yoga Xuân Hè 2022</h3>
-                    <a className='text' style={{fontSize: '16px'}} href={item.url}>Xem chi tiết </a>
+                    <a className='text' style={{fontSize: '16px'}} href={`/products/${item.id}`}>Xem chi tiết </a>
                 </div>
             </div>
         </>

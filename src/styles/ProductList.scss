@@ -7,7 +7,7 @@
         transition: transform 0.3s ease-in-out;
     }
     .body-collection{
-        height: 1270px;
+        height: fit-content;
         margin: 30px 0px;
         .tittle-text{
             font-weight: 400;
@@ -41,4 +41,51 @@
             }
         }
     }
+    .flash-body{
+        .tab_first{
+            width: 100%;
+            min-height: 1330px;
+            height: fit-content;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr ;
+            .flashsale-bottom {
+                display: none;
+            }
+            .product-promotion{
+                display: none;
+            }
+        }
+    }
+    .container-span{
+        max-width: 80%;
+        overflow: hidden;
+    }
+    .nowrap{
+        white-space: nowrap;
+    }
+    .deco-span{
+        white-space: nowrap;
+        width: fit-content;
+        font-size: 12px;
+        padding: 2px 16px;
+        margin-right: 5px;
+    }
+    .seen{
+        h3{
+            font-size: 32px;
+            font-weight: 700;
+        }
+        height: fit-content;
+        .flash-body{
+            .tab_first{
+                width: 100%;
+                min-height: 100px;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+            }
+        }
+    }
+    #shop-system-page {
+        margin-bottom: 0px;
+    }   
 }
+

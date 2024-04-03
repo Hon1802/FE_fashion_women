@@ -90,7 +90,7 @@ const navs = [
                 },
                 {
                     subname: 'Lễ Quốc Tế Thiếu Nhi',
-                    url: '/collections/do-ngu'
+                    url: '/collections/all'
                 },
             ]
         },
@@ -100,27 +100,27 @@ const navs = [
             submenuchill: [
                 {
                     subname: 'Đầm dạ hội',
-                    url: '/collections/dam'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Vest - Blazer',
-                    url: '/collections/vest-blazer'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Áo sơ mi',
-                    url: '/collections/ao-so-mi'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Quần âu',
-                    url: '/collections/quan-au'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Đồ ngủ',
-                    url: '/collections/do-ngu'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Đồ lót',
-                    url: '/collections/do-lot'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Chân váy',
@@ -130,35 +130,35 @@ const navs = [
         },
         {
             title: 'Thời trang vận động',
-            url: '/collections/do-the-thao',
+            url: '/collections/all',
             submenuchill: [
                 {
                     subname: 'Đồ thể thao',
-                    url: '/collections/do-the-thao'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Đồ bơi',
-                    url: '/collections/do-boi'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Đồ tập gym',
-                    url: '/collections/do-the-thao'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Đồ tập yoga',
-                    url: '/collections/do-the-thao'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Đồ bộ',
-                    url: '/collections/do-ngu'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Phụ kiện gym',
-                    url: '/collections/phu-kien'
+                    url: '/collections/all'
                 },
                 {
                     subname: 'Phụ kiện yoga',
-                    url: '/collections/phu-kien'
+                    url: '/collections/all'
                 },
             ]
         }
@@ -178,11 +178,11 @@ const navs = [
         },
         {
             title: 'Landing Page - Xmas',
-            url: '/pages/landing-page-xmas',
+            url: 'https://ega-style.myharavan.com/pages/landing-page-xmas',
         },
         {
             title: 'Landing Page - OnePage',
-            url: '/pages/landing-page-onepage',
+            url: 'https://ega-style.myharavan.com/pages/landing-page-onepage',
         }
     ],
 
