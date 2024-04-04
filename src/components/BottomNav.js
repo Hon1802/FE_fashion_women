@@ -15,7 +15,7 @@ const BottomNav = () => {
             <div id='bottom-nav'>
                 <ul>
                     <li>
-                        <a href='call'>
+                        <a href='tel:19001393'>
                             <i>
                                 <FontAwesomeIcon icon={ICONFONTAWE.faPhoneVolume} fontSize={17}/>
                             </i>
@@ -23,7 +23,7 @@ const BottomNav = () => {
                         </a>
                     </li>
                     <li>
-                        <a href='mess'>
+                        <a href='mailto:support@egany.com'>
                             <i>
                                 <ChatIcon style={{ fontSize: 17 }}/>
                             </i>
@@ -47,7 +47,7 @@ const BottomNav = () => {
                         </a>
                     </li>
                     <li>
-                        <a href='cagetory'>
+                        <a href='/collections/all'>
                             <i>
                                 <CategoryIcon style={{ fontSize: 17 }}/>
                             </i>
@@ -55,7 +55,7 @@ const BottomNav = () => {
                         </a>
                     </li>
                     <li>
-                        <a href='store'>
+                        <a href='/pages/he-thong-cua-hang'>
                             <i>
                                 <FontAwesomeIcon icon={ICONFONTAWE.faLocationDot} fontSize={17}/>
                             </i>

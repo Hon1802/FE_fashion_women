@@ -14,19 +14,23 @@ import CollectionBottom from "./CollectionBottom";
 import LookBook from "./LookBook";
 import Comments from "./Comments";
 import FashionTrends from "./FashionTrends";
+import ModalHome from "../../components/modals/home";
+
 const Home = () => {
     const [isOpen, setOpen] = useState(false);
+   
     const openVideo = (event) => {
-        // event.preventDefault();
-        // const videoUrl = "https://www.youtube.com/watch?v=AXOfw9x-hVw?width=800&height=450&autoplay=1";
-        // window.open(videoUrl, "_self");
+       
         setOpen(!isOpen);
         console.log(isOpen);
     };
 
+    
+
     return (
         <div id="home">
             <div className="main-wrapper">
+                <ModalHome isOpen='true'/>
                 <Banner/>
                 <Policies/>
                 <SessionCollection/>
@@ -71,6 +75,7 @@ const Home = () => {
                 <LookBook/>
                 <Comments/>
                 <FashionTrends/>
+                
                 {/* <Footer/> */}
             </div>
         </div>

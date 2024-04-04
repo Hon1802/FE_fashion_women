@@ -13,7 +13,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // 
-import { Modal, Button } from 'antd';
+import { Modal, Button, Result } from 'antd';
 // 
 import * as IMAGE_LIST from "../../assets/home";
 import CartHome from '../../components/carts/Home/CartHome';
@@ -246,7 +246,7 @@ const ProductDetail = (props) => {
                         </ul>                    
                     </div>
                     <div className='container-product-detail row'>
-                        <div className='col-6 row' style={{maxHeight: '700px'}}>
+                        <div className='col-6 row row-img' style={{maxHeight: '700px'}}>
                             <div className='col-3 image-list'>
                             <ul className='image-list-ul'>
                                 <li>
@@ -349,7 +349,7 @@ const ProductDetail = (props) => {
                                         <NumberInput/>
                                         <button className='btn-add' onClick={showModal}>THÊM VÀO GIỎ HÀNG</button>
                                 </div>
-                                <a href='/mua-ngay' className='buy-now text d-flex justify-content-center align-items-center'>
+                                <a href={`/checkout/${product.id}`} className='buy-now text d-flex justify-content-center align-items-center'>
                                     MUA NGAY
                                 </a>
                                 <span>Gọi đặt mua 1800.0000 (7:30 - 22:00)</span>
@@ -440,7 +440,7 @@ Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, b�
                                 </p>                                
                             </div>
                         </div>
-                       <div className='col-6 d-inline-flex justify-content-center align-items-center' style={{gap: '20px'}}>
+                       <div className='cs-moblie-2 col-6 d-inline-flex justify-content-center align-items-center' style={{gap: '20px'}}>
                             <NumberInput/>
                             <button className='btn-add' onClick={showModal}>THÊM VÀO GIỎ HÀNG</button>
                        </div>
@@ -504,18 +504,25 @@ Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, b�
                             onCancel={handleCancel}
                             >
                             <div className='d-flex flex-column justify-content-center align-items-center'>
-                                <div className='d-inline-flex' style={{gap: '20px'}}>
+                                <div style={{borderBottom: '1px solid', marginBottom:'10px'}}>
+
+                                    <Result
+                                        status="success"
+                                        title="Thêm vào giỏ thành công"/>
+                                </div>
+                                <h4 className='text'> Sản phẩm :</h4>
+                                <div className='d-inline-flex' style={{gap: '20px', background:'#ced4da'}}>
                                     <img alt='' src={product.img_1} style={{width: '20%'}} />  
                                     <div className='d-flex flex-column'> 
                                         <span className='text'>{product.title}</span>
                                         <span className='text'>{product.item_color_chosen[0].color}</span>
                                     </div>
                                 </div>
-                                <div className='d-flex justify-content-between' style={{width:'100%', marginTop:'10px'}}>
+                                <div className='d-flex justify-content-between' style={{width:'100%', marginTop:'10px', padding:'10px 40px'}}>
                                     <span className='text'>
                                         Giỏ hàng hiện có
                                     </span>
-                                    <span className='text'>
+                                    <span className='text' style={{color:'red'}}>
                                         {product.price}
                                     </span>
                                 </div>

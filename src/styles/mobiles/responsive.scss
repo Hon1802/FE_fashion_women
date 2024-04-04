@@ -367,16 +367,99 @@
         }
     }
     .cont-detail{
+        .w85-per{
+            width: 100%;
+        }
         .container-product-detail{
             display: inline-flex;
             flex-direction: column;
+            .row-img{
+                padding-right: 0px;
+            }
             .col-6{
                 width: 100% !important;
             }
             .content-right{
+                padding-top: 37px;
                 .group-promotion{
                     height: fit-content;
                 }
+            }
+        }
+        .seen{
+            .flash-body{
+                .tab_first{
+                    overflow-x: auto;
+                    .cart-container{
+                        min-width: 50vw;
+                    }
+                }
+            }
+        }
+        .cs-moblie-2{
+            width: 100% !important;
+        }
+    }
+    #blackDay{
+        .block {
+            .block-width{
+                display: none !important;
+            }
+        }
+        h2{
+            font-size: 1em !important;
+        }
+        .col-3{
+            width: 0% !important;
+        }
+        .col-9{
+            width: 100% !important;
+        }
+        .cart-black{
+            grid-template-columns: 1fr 1fr !important;
+        }
+    }
+    #checkout-page{
+        .cs-moblie{
+            display: flex;
+            flex-direction: column-reverse;
+            .left, .right{
+                width: 100%;
+            }
+        }
+    }
+    #shop-system-page{
+        .w85-per{
+            width: 95%;
+        }
+        .custom-row-shop{
+            display: inline-flex;
+            flex-direction: column;
+            gap: 20px;
+            .col-3{
+                width: 100%;
+            }
+            .col-9{
+                width: 100%;
+            }
+            .col-6{
+                width: 100%;
+            }
+        }
+    }
+    #news-page{
+        .news{
+            width: 100%;
+            .mobile-custom-blog{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .post-list .post-item .content-blog-b p {
+                text-align: justify;
+                max-height: 20px;
+                overflow: hidden;
             }
         }
     }

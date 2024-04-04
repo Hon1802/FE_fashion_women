@@ -30,5 +30,7 @@ export const img25 = require("./day_2.webp");
 export const img26 = require("./ao3.webp");
 export const img27 = require("./quan3.webp");
 export const img28 = require("./ao_choang3.webp");
-
+export const img29 = require("./banner-popup-img.webp");
+export const img30 = require("./blackfriday_001_coll_banner_img_1.jpg");
+export const img31 = require("./blackfriday_001_coll_banner_img_2.jpg");
 

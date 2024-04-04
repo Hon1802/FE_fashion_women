@@ -9,9 +9,12 @@ import { icon_promo } from '../../../assets/logo';
 import React, { useState, useRef, useEffect } from 'react';
 import { display } from '@mui/system';
 import NumberInput from '../../inputs/NumberInput'
-
+import { Modal, Result } from 'antd';
 const CartHome = (props) => {
     const {item} = props;
+    const [visible, setvisible] = useState(false);
+    const [confirmLoading, setconfirmLoading] = useState(false);
+
     const [showPopupIndex, setShowPopupIndex] = useState(null);
     const popupRef = useRef(null);
     const [isLike, setIsLike] = useState(item.like === '0' ? true : false);
@@ -101,7 +104,11 @@ const CartHome = (props) => {
             currentIndex = 0;
         }
     }
+    //show modal
+    
 
+    
+    // 
     useEffect(() => { 
         const intervalId = setInterval(printNextImage, 3000);
         function handleClickOutside(event) {
@@ -304,8 +311,12 @@ const CartHome = (props) => {
                                     </div>
                                     <div className='button-bottom'>
                                         <NumberInput/>
-                                        <button className='btn-add'>THÊM VÀO GIỎ HÀNG</button>
+                                        <a href={`/products/${item.id}`}>
+
+                                            <button className='btn-add'>THÊM VÀO GIỎ HÀNG</button>
+                                        </a>
                                     </div>
+                                   
                                 </div>
                                 {/* <button onClick={() => togglePopup(item.id)} className="close-popup text">Đóng </button>
                                 <button onClick={(e) => handleCopy(item.title, e)} className="coppy-btn text btn-coppy">Sao chép</button>
