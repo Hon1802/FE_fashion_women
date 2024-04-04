@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
 import { Button, Form, Input, Space } from 'antd';
 
 const SubmitButton = ({ form, children }) => {
@@ -133,9 +135,19 @@ const Register = () => {
                                         <p className="a-center text-secondary">
                                             Hoặc đăng nhập bằng
                                         </p>
-                                        <div id="wrap-social-login-plus">
-                                            <button>Đăng nhập google</button>
-                                            <button>Đăng nhập facebooks</button>
+                                        <div className="wrap-social-login-plus d-inline-flex " style={{gap:'30px'}}>
+                                            <button className="d-inline-flex btn justify-content-center align-items-center " style={{gap:'10px', border: '1px solid red', width:'200px'}}>
+                                                <i>
+                                                    <FontAwesomeIcon icon={iconGG} color="red"/>
+                                                </i>
+                                                Google
+                                            </button>
+                                            <button className="d-inline-flex btn justify-content-center align-items-center " style={{gap:'10px', border: '1px solid #3b5998', width:'200px'}}>
+                                                <i>
+                                                    <FontAwesomeIcon icon={iconFA} color="#3b5998"/>
+                                                </i>
+                                                Facebook
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

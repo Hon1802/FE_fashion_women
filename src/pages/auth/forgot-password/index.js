@@ -1,4 +1,5 @@
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
 const ForgotPassword = () => {
     return (
         <div id="login-page" className="dflex-center-column">
@@ -36,7 +37,7 @@ const ForgotPassword = () => {
                                         <p>
                                             Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
                                         </p>			
-                                        <form accept-charset='UTF-8' action='/account/recover' method='post'>
+                                        <form accept-charset='UTF-8' action='/#' method='post'>
                                             <input name='form_type' type='hidden' value='recover_customer_password'/>
                                             <input name='utf8' type='hidden' value='✓'/>
 
@@ -49,8 +50,8 @@ const ForgotPassword = () => {
                                                 </fieldset>
                                             </div>
                                             <div className="action_bottom my-3">
-                                                <input className="btn btn-style btn-recover btn-block" type="submit" value="Lấy lại mật khẩu" />
-                                                <a href="/account/login" className="btn btn-style link btn-style-active ">Quay lại</a>
+                                                <input className="btn btn-style btn-recover btn-block" type="submit" value="Lấy lại mật khẩu"  style={{border: '1px solid #3b5998', width:'200px', marginRight:'20px'}}/>
+                                                <a href="/account/login" className="btn btn-style link btn-style-active " style={{ border: '1px solid red', width:'200px'}}>Quay lại</a>
                                             </div>
                                         </form>
                                     </div>
@@ -59,7 +60,20 @@ const ForgotPassword = () => {
                                     <p className="a-center text-secondary">
                                         Hoặc đăng nhập bằng
                                     </p>
-                                    <div id="wrap-social-login-plus"></div>
+                                    <div className="wrap-social-login-plus d-inline-flex " style={{gap:'30px'}}>
+                                        <button className="d-inline-flex btn justify-content-center align-items-center " style={{gap:'10px', border: '1px solid red', width:'200px'}}>
+                                            <i>
+                                                <FontAwesomeIcon icon={iconGG} color="red"/>
+                                            </i>
+                                            Google
+                                        </button>
+                                        <button className="d-inline-flex btn justify-content-center align-items-center " style={{gap:'10px', border: '1px solid #3b5998', width:'200px'}}>
+                                            <i>
+                                                <FontAwesomeIcon icon={iconFA} color="#3b5998"/>
+                                            </i>
+                                            Facebook
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
