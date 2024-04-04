@@ -1,0 +1,39 @@
+
+.block{
+    position: relative;
+    max-height: 473px;
+    overflow: hidden;
+    .block__title{
+        img{
+            width: 100%;
+        }
+    }
+    .block-width{
+        height: fit-content;
+        background: #000000;
+        position: absolute;
+        bottom: -70px;
+        left: 0;
+        width: 100%;
+        transition: bottom 0.5s ease;
+        span, a{
+            color: #ffffff;
+        }
+    }
+}
+.block:hover > .block-width{
+    cursor: pointer;
+    bottom: 0px;
+}
+#blackDay{
+    h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+    }
+    .cart-black{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

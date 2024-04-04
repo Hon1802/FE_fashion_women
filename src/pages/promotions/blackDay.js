@@ -1,5 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import {faExternalLink as faLink} from "@fortawesome/free-solid-svg-icons"
+import { img30, img31 } from '../../assets/home';
+import ListProduct from '../../datas/data_product';
 
+import MultiActionAreaCard from '../../components/carts/Promotion';
 function HomeBanner() {
   return (
     <div className="home-banner" data-setting="banner">
@@ -10,54 +15,84 @@ function HomeBanner() {
   );
 }
 
-function BannerTop() {
-  return (
-    <div id="banner-top" className="block--top" data-setting="sub_banner">
-      <div className="ega-row"> 
-        <div className="ega-col-12 ega-col-md-4" data-setting="sub_banner__1">
-          <a className="block--top__item scroll-to" href="#block-1">
-            <div className="block--top__img">
-              <img src="https://mixcdn.egany.com/salespage/ega-style/blackfriday_001_banner_top_img_1.jpg" alt="blackfriday_001_banner_top_img_1.jpg"/>
-            </div>
-            <div className="block--top__caption">
-              <h3>HÀNG HIỆU TRIỆU ƯU ĐÃI</h3>
-              <span className="button__action">XEM NGAY</span>
-            </div>
-          </a>
-        </div>
-        {/* Repeat the above structure for sub_banner__2 and sub_banner__3 */}
-      </div>
-    </div>
-  );
-}
 
-function Block1() {
+
+const Block1=({url, title}) =>{
   return (
     <div id="block-1" className="block block--deals-1" data-setting="collection__1">
       <h2 className="block__title">
-        <img src="//theme.hstatic.net/200000525857/1001199676/14/blackfriday_001_coll_title_icon_img_1.png?v=6" alt="blackfriday_001_coll_title_icon_img_1.png" data-setting="collection__1__title_icon__img_url"/>
-        <span>THỜI THƯỢNG VƯỢT ĐẲNG CẤP</span>
+        <img alt='block' src={url}/>
       </h2>
-      <div className="block__viewall">
-        <a className="fa fa-external-link" href="/collections/dam">Xem tất cả</a>
-      </div>
-      <div className="block__content">
-        <div className="ega-row">
-          {/* Repeat the product items structure */}
-        </div>
+      <div className="d-inline-flex flex-column justify-content-center align-items-center block-width ">
+        <span>{title}</span>
+        <a className="fa fa-external-link" href="/collections/all">Xem tất cả</a>
       </div>
     </div>
   );
 }
 
-// Define other components and their structure accordingly
 
+// Define other components and their structure accordingly
 const BlackDay=()=> {
+  const firstEightProducts = ListProduct.slice(0, 8);
+
   return (
-    <div>
+    <div id='blackDay'>
       <HomeBanner />
-      <BannerTop />
-      <Block1 />
+      <div className='d-inline-flex row'>
+        
+        <div className='col-4'>
+          <Block1 url="https://mixcdn.egany.com/salespage/ega-style/blackfriday_001_banner_top_img_1.jpg" alt="blackfriday_001_banner_top_img_1.jpg" title="HÀNG TRIỆU ƯU ĐÃI"/>
+        </div>
+        <div className='col-4'> 
+          <Block1 url="https://mixcdn.egany.com/salespage/ega-style/blackfriday_001_banner_top_img_2.jpg" title="SĂN HÀNG NGÀN KHUYẾN MÃI"/>
+        </div>
+        <div className='col-4'> 
+          <Block1 url="https://mixcdn.egany.com/salespage/ega-style/blackfriday_001_banner_top_img_3.jpg" title="CHÀO HÈ RỰC CHÁY 2022"/>
+        </div>
+      </div>
+      <h2>THỜI THƯỢNG VƯỢT QUA ĐẲNG CẤP</h2>
+      <span style={{width:"100%"}}>
+        <a className='d-inline-flex justify-content-center align-items-center text' style={{width:"100%", gap:'10px'}} href='/collections/all' >Xem tất cả
+          <i>
+            <FontAwesomeIcon icon={faLink} fontSize={14} color='red'/>
+          </i>
+        </a>
+        </span>
+        <div className='row'>
+          <div className='col-3'>
+            <img alt='left' src={img30} style={{width:'100%'}}/>
+          </div>
+          <div className='col-9'>
+            <div className='cart-black'>
+              {firstEightProducts.map((item, index)=>(
+                <MultiActionAreaCard item={item}/>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <h2>NĂNG ĐỘNG KHOE ĐƯỜNG CON</h2>
+      <span style={{width:"100%"}}>
+        <a className='d-inline-flex justify-content-center align-items-center text' style={{width:"100%", gap:'10px'}} href='/collections/all' >Xem tất cả
+          <i>
+            <FontAwesomeIcon icon={faLink} fontSize={14} color='red'/>
+          </i>
+        </a>
+        </span>
+        <div className='row'>
+         
+          <div className='col-9'>
+            <div className='cart-black'>
+              {firstEightProducts.map((item, index)=>(
+                <MultiActionAreaCard item={item}/>
+              ))}
+            </div>
+          </div>
+          <div className='col-3'>
+            <img alt='left' src={img31} style={{width:'100%'}}/>
+          </div>
+        </div>
       {/* Add other components */}
     </div>
   );

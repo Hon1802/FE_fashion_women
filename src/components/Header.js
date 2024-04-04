@@ -279,13 +279,17 @@ const Header = () => {
                                                         {item.submenu ? (
                                                             <>
                                                                 <li className="text-font-1em">
-                                                                    {item.value} <ExpandMoreIcon sx={{ fontSize: 20 }} />
+                                                                    <a href={item.id} style={{color:'#000000'}} >
+                                                                        {item.value} <ExpandMoreIcon sx={{ fontSize: 20 }} />
+                                                                    </a>
                                                                 </li>
                                                             </>
                                                         ):(
 
                                                             <li className="text-font-1em">
-                                                                {item.value}
+                                                                <a href={item.id} style={{color:'#000000'}} >
+                                                                    {item.value}
+                                                                </a>
                                                             </li>
                                                         )}
                                                     </>
