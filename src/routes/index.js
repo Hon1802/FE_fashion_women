@@ -6,6 +6,8 @@ import BlackDay from "../pages/promotions/blackDay"
 import ContactUS from "../pages/contacts"
 import CheckOut from "../pages/checkout"
 import News from "../pages/news"
+import WishList from "../pages/wishs"
+import Carts from "../pages/carts"
 
 const Home = React.lazy(() => import("../pages/home"))
 const Login = React.lazy(() => import("../pages/auth/login"))
@@ -34,7 +36,9 @@ const routes = [
     { path: "/pages/landing-page-onepage", element: <CollectionAll /> },
     { path: "/blogs/news", element: <News /> },
     { path: "/pages/he-thong-cua-hang", element: <ShopSystem /> },
-    { path: "/pages/lien-he", element: <ContactUS /> },
+    { path: "/pages/lien-he", element: <ContactUS /> }, 
+    { path: "/pages/wishlist", element: <WishList /> }, 
+    { path: "/cart", element: <Carts /> },
     // other mappings ...
     { path: "/unauthorized", element: <Unauthorized /> }
 ]
