@@ -1,4 +1,5 @@
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
 const Login = () => {
     return ( 
         <div id="login-page" className="dflex-center-column">
@@ -86,7 +87,20 @@ const Login = () => {
                                         <p className="a-center text-secondary">
                                             Hoặc đăng nhập bằng
                                         </p>
-                                        <div id="wrap-social-login-plus"></div>
+                                        <div className="wrap-social-login-plus d-inline-flex " style={{gap:'30px'}}>
+                                            <button className="d-inline-flex btn justify-content-center align-items-center " style={{gap:'10px', border: '1px solid red', width:'200px'}}>
+                                                <i>
+                                                    <FontAwesomeIcon icon={iconGG} color="red"/>
+                                                </i>
+                                                Google
+                                            </button>
+                                            <button className="d-inline-flex btn justify-content-center align-items-center " style={{gap:'10px', border: '1px solid #3b5998', width:'200px'}}>
+                                                <i>
+                                                    <FontAwesomeIcon icon={iconFA} color="#3b5998"/>
+                                                </i>
+                                                Facebook
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
