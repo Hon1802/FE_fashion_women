@@ -13,7 +13,7 @@ const listItem_1 =  [
         add_Info:[{
             name_product: 'Catarina',
             img: img1,
-            url: 'Catarina'
+            url: '/products/001'
         }]
     },
     {
@@ -25,7 +25,7 @@ const listItem_1 =  [
         add_Info:[{
             name_product: 'Taylor',
             img: img3,
-            url: 'Taylor'
+            url: '/products/002'
         }]
     },
     {
@@ -37,7 +37,7 @@ const listItem_1 =  [
         add_Info:[{
             name_product: 'Maxi',
             img:img5,
-            url: 'Maxi'
+            url: '/products/003'
         }]
     },
 ]
