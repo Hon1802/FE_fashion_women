@@ -2,7 +2,8 @@
   "name": "tour-ecommerce",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://web-service-booking-tour.onrender.com/",
+  "proxy": "https://demo.thietkewebuytin.vn/test/VanHon/fashion_women",
+  "homepage": "https://demo.thietkewebuytin.vn/test/VanHon/fashion_women/ThoiTrangNu2/build/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
@@ -33,6 +34,7 @@
     "clsx": "^1.2.1",
     "crypto-browserify": "^3.12.0",
     "date-fns": "^2.30.0",
+    "gh-pages": "^6.1.1",
     "http-proxy-middleware": "^2.0.6",
     "mdb-react-ui-kit": "^6.1.0",
     "mdb-ui-kit": "^6.4.0",
@@ -68,6 +70,8 @@
     "yup": "^1.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

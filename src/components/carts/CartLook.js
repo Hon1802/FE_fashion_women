@@ -1,4 +1,5 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
+import { Link } from 'react-router-dom';
 const CartLook = (props) => {
     const {item} = props;
     let statebefore = 'dot_99';
@@ -68,7 +69,7 @@ const CartLook = (props) => {
                         </>
                     ))}
                     <h3 className='text' style={{fontSize: '24px'}}>Set đồ tập Yoga Xuân Hè 2022</h3>
-                    <a className='text' style={{fontSize: '16px'}} href={`/products/${item.id}`}>Xem chi tiết </a>
+                    <Link className='text' style={{fontSize: '16px'}} to={`/products/${item.id}`}>Xem chi tiết </Link>
                 </div>
             </div>
         </>

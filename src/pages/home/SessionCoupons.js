@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { img_1, img_2, img_3, img_4 } from "../../assets/coupons";
+import { Link } from 'react-router-dom';
 
 const coupons_list = [
   {
@@ -79,7 +80,7 @@ const SessionCoupons = () => {
           </div>
           <div className="coupons-info">
             <h2 className="text" id="coupons_code" value={item.title}>NHẬP MÃ: {item.title}</h2>
-            <span className="text"> {item.desc} <a href="/collections/san-pham-dong-gia/">{item.link}</a></span>
+            <span className="text"> {item.desc} <Link to="/collections/san-pham-dong-gia/">{item.link}</Link></span>
             <div className="coupons-btn">
               <button onClick={(e) => handleCopy(item.title, e)} className="coppy-btn text btn-coppy">Sao chép</button>
               <button onClick={() => togglePopup(index)} className="condition-btn text">Điều kiện</button>
@@ -98,7 +99,7 @@ const SessionCoupons = () => {
                     <div className="condition-popup">
                       <div className="text-condi text">Điều kiện: </div>
                       <div className="text-condi2 text">
-                        <p> - {item.condition} <a href='/collections/san-pham-dong-gia/'>{item.link}</a> <br /> - {item.condition2}</p>
+                        <p> - {item.condition} <Link to='/collections/san-pham-dong-gia/'>{item.link}</Link> <br /> - {item.condition2}</p>
                       </div>
                     </div>
                     <div className="btn-popup">

@@ -3,6 +3,7 @@ import * as IMAGELIST from "../../assets/profile";
 import {img1, img3, img5} from "../../assets/home"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as lightStar } from '@fortawesome/free-regular-svg-icons';
+import { Link } from "react-router-dom";
 const listItem_1 =  [
     {
         id: '001',
@@ -121,9 +122,9 @@ const Comments = () => {
                                             <img alt="product" src={product.img}/>
                                         </div>
                                         <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
-                                            <a className='style-a text' href={product.url}>
+                                            <Link className='style-a text' to={product.url}>
                                                 {product.name_product}
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </>

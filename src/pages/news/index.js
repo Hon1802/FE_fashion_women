@@ -3,6 +3,7 @@ import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const postsList = [
     {
@@ -55,15 +56,15 @@ const News = () => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/he-thong-cua-hang">
+                                <Link to="/pages/he-thong-cua-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Tin tức</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -73,25 +74,25 @@ const News = () => {
                     {/* start */}
                             <div class="title-module-main" style={{backgroundColor: '#212121'}}>
                                 <h2 class="dflex-center-row text "> 
-                                    <a class='link' href="/blogs/news" title="TIN TỨC"  style={{color: '#ffffff', fontSize:'32px', padding:'10px'}}>TIN TỨC</a>
+                                    <Link class='link' to="/blogs/news" title="TIN TỨC"  style={{color: '#ffffff', fontSize:'32px', padding:'10px'}}>TIN TỨC</Link>
                                 </h2>
                             </div>
                             <div class='dflex-center-column '> 
                                 <div class="d-grid-2 mobile-custom-blog">
                                     <div class="blog-list">
                                         <div class="blogwp " >
-                                            <a  class="text"
-                                            href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" 
+                                            <Link  class="text"
+                                            to="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" 
                                             title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022"
                                             >
                                                 <img loading="lazy" 
                                                     class="img-fluid m-auto mh-100 w-auto"
                                                     src="https://file.hstatic.net/200000525857/article/frame_1_d23a5649648b4bc9b2ebcd350d088af2.jpg"
                                                     alt="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022"/>
-                                            </a>
+                                            </Link>
                                             <div class="content-blog">
                                                 <h3 class='text-h3 '>
-                                                    <a class='text-h3' href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022">Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022</a>
+                                                    <Link class='text-h3' to="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022">Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022</Link>
                                                 </h3>
                                                 <div class="media">
                                                     <div class="media-body">
@@ -109,7 +110,7 @@ const News = () => {
                                                     <span class="text text-2 pr20"> 
                                                         Trong khi những chiếc túi xách có xu hướng nhỏ dần đều, phụ kiện bông tai càng dài lại càng được lòng các&nbsp;fashionistas trong mùa mốt...
                                                     </span>
-                                                    <a class="button_link text" href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Đọc tiếp">Đọc tiếp</a>
+                                                    <Link class="button_link text" to="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Đọc tiếp">Đọc tiếp</Link>
                                                 </p>
                                             </div>
                                         </div>									
@@ -117,35 +118,35 @@ const News = () => {
                                     <div class="post-list">
                                         {postsList.map((post, index)=>(
                                             <div className='post-item'>
-                                                <a href={post.href}>
+                                                <Link to={post.href}>
                                                     <img loading="lazy" class="img-fluid" src={post.img} alt={post.alt}/>
-                                                </a> 
+                                                </Link> 
                                                 <div class="content-blog-b dflex-center-column">
-                                                    <a href={post.href} 
+                                                    <Link to={post.href} 
                                                     title={post.title}>
                                                         {post.title}
-                                                        </a>
+                                                        </Link>
                                                     <span>
                                                         {post.time}
                                                     </span>
                                                     <p class="text"> 
                                                         {post.content}
                                                     </p>                                    
-                                                    <a class="button_custome link" 
-                                                        href={post.href} 
+                                                    <Link class="button_custome link" 
+                                                        to={post.href} 
                                                         title="Đọc tiếp">
                                                             Đọc tiếp
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         ))}
                                     </div> 
                                 </div>
                                 <div class="text-center">
-                                    <a href="blogs/news" title="Xem tất cả" class="btn-view dflex-center-row">
+                                    <Link to="blogs/news" title="Xem tất cả" class="btn-view dflex-center-row">
                                         Xem tất cả 
                                         <ArrowForwardIosIcon sx={{ fontSize: 18 }}/>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                     {/* end */}

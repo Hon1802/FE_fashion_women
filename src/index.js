@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import "./styles/style.scss"
 import { store } from './redux/storeConfig/store'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom';
 // ** Toast
 import { Toaster } from 'react-hot-toast'
 const root = ReactDOM.createRoot(document.getElementById('root'));

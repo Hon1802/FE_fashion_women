@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "react-router-dom";
 const Login = () => {
     return ( 
         <div id="login-page" className="dflex-center-column">
@@ -7,15 +8,15 @@ const Login = () => {
                 <div>
                     <ul className="d-inline-flex g-2"> 
                         <li>
-                            <a href="/">
+                            <Link to="/">
                                 <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                            </a>
+                            </Link>
                         </li> 
                         <p>/</p>
                         <li>
-                            <a href="/login">
+                            <Link to="/login">
                                 <span style={{color:"#BFBFBF"}} className="text">Đăng nhập</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -25,7 +26,7 @@ const Login = () => {
                             <div className="heading-bar text-center">
                                 <h1 className="title-page text mb-0">Đăng nhập tài khoản</h1>
                                 <p className="mb-0 text">Bạn chưa có tài khoản ?
-                                <a href="/account/register" className="btn-link-style btn-register"> Đăng ký tại đây</a></p>
+                                <Link to="/account/register" className="btn-link-style btn-register"> Đăng ký tại đây</Link></p>
                             </div>
                             <div className="row">
                                 <div className="col-12 col-md-6 col-lg-5 offset-md-3 py-3 mx-auto">
@@ -46,7 +47,7 @@ const Login = () => {
                                                     <fieldset className="form-group">
                                                         <label>Mật khẩu <span className="required">*</span> </label>
                                                         <input type="password" className="form-control " value="" name="password" id="customer_password" placeholder="Mật khẩu" Required/>
-                                                        <small className="d-block my-2">Quên mật khẩu? Nhấn vào<a href="/account/forgot-password" className="btn-link-style text-primary" > đây </a></small>
+                                                        <small className="d-block my-2">Quên mật khẩu? Nhấn vào<Link to="/account/forgot-password" className="btn-link-style text-primary" > đây </Link></small>
                                                     </fieldset>
                                                     <div className="pull-xs-left button_bottom a-center  mb-3">
                                                         <button className="btn btn-block btn-style  btn-login"  type="submit" value="Đăng nhập">Đăng nhập</button>
@@ -78,7 +79,7 @@ const Login = () => {
                                                 </div>
                                                 <div className="action_bottom my-3">
                                                     <input className="btn btn-style btn-recover btn-block" type="submit" value="Lấy lại mật khẩu" />
-                                                    <a href="/account/login" className="btn btn-style link btn-style-active ">Quay lại</a>
+                                                    <Link to="/account/login" className="btn btn-style link btn-style-active ">Quay lại</Link>
                                                 </div>
                                             </form>
                                         </div>

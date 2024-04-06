@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 import {logo} from '../assets/logo'
 import Navbar from "./Navbar"
+import { Link } from 'react-router-dom';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -81,9 +82,9 @@ const UserDropdown = () => {
           >
             <DialogContent>
               <div className='dflex-center-row row'>
-                <a to="/" className="navbar-title col-2">
-                    <img src={logo}></img>               
-                </a>
+                <Link to="/" className="navbar-title col-2">
+                    <img alt='logo' src={logo}></img>               
+                </Link>
                 <div className="search_actions col-6">
                    <input type="text" placeholder={placeholderTexts[currentTextIndex].substring(0, currentCharIndex)}>
                    </input>
@@ -122,18 +123,18 @@ const UserDropdown = () => {
                       <path d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
                     </svg>
                     <div className='account-action'>
-                      <a href='/account/login'>Đăng nhập</a>
-                      <a href='/account/register'>Đăng ký</a>
+                      <Link to='/account/login'>Đăng nhập</Link>
+                      <Link to='/account/register'>Đăng ký</Link>
                     </div>
                   </div>
                   <div className='icon-heart' >
-                    <a href='/pages/wishlist' className='size-icon'>
+                    <Link to='/pages/wishlist' className='size-icon'>
                       <FavoriteBorderIcon style={{ color: '#000' }} sx={{ fontSize: 27 }} />
-                    </a>
+                    </Link>
                     <span title='Sản phẩm yêu thích'>0</span>
                   </div>
                   <div className='icon-cart size-icon'>
-                    <a href='/cart'>
+                    <Link to='/cart'>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width= "100%"
@@ -143,7 +144,7 @@ const UserDropdown = () => {
                       >
                         <path d="M15.594 16.39a.703.703 0 0 1-.703.704h-.704v.703a.703.703 0 0 1-1.406 0v-.703h-.703a.703.703 0 0 1 0-1.407h.703v-.703a.703.703 0 1 1 1.406 0v.704h.704c.388 0 .703.314.703.703Zm0-10.968v6.75a.703.703 0 0 1-1.406 0V6.125H12.78v2.11a.703.703 0 1 1-1.406 0v-2.11h-6.75v2.11a.703.703 0 1 1-1.406 0v-2.11H1.813v10.969h7.453a.703.703 0 1 1 0 1.406H1.109a.703.703 0 0 1-.703-.703V5.422c0-.388.315-.703.703-.703h2.143A4.788 4.788 0 0 1 8 .5a4.788 4.788 0 0 1 4.748 4.219h2.143c.388 0 .703.315.703.703Zm-4.266-.703A3.38 3.38 0 0 0 8 1.906 3.38 3.38 0 0 0 4.672 4.72h6.656Z"></path>
                       </svg>
-                    </a>
+                    </Link>
                     <span>0</span>
                     <div className='cart-item'>
                       <ul>
@@ -169,18 +170,18 @@ const UserDropdown = () => {
             <path d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
           </svg>
           <div className='account-action'>
-            <a href='/account/login'>Đăng nhập</a>
-            <a href='/account/register'>Đăng ký</a>
+            <Link to='/account/login'>Đăng nhập</Link>
+            <Link to='/account/register'>Đăng ký</Link>
           </div>
         </div>
         <div className='icon-heart' >
-          <a href='/pages/wishlist' className='size-icon'>
+          <Link to='/pages/wishlist' className='size-icon'>
             <FavoriteBorderIcon style={{ color: '#000' }} sx={{ fontSize: 27 }} />
-          </a>
+          </Link>
           <span title='Sản phẩm yêu thích'>0</span>
         </div>
         <div className='icon-cart size-icon'>
-          <a href='/cart'>
+          <Link to='/cart'>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width= "100%"
@@ -190,7 +191,7 @@ const UserDropdown = () => {
             >
               <path d="M15.594 16.39a.703.703 0 0 1-.703.704h-.704v.703a.703.703 0 0 1-1.406 0v-.703h-.703a.703.703 0 0 1 0-1.407h.703v-.703a.703.703 0 1 1 1.406 0v.704h.704c.388 0 .703.314.703.703Zm0-10.968v6.75a.703.703 0 0 1-1.406 0V6.125H12.78v2.11a.703.703 0 1 1-1.406 0v-2.11h-6.75v2.11a.703.703 0 1 1-1.406 0v-2.11H1.813v10.969h7.453a.703.703 0 1 1 0 1.406H1.109a.703.703 0 0 1-.703-.703V5.422c0-.388.315-.703.703-.703h2.143A4.788 4.788 0 0 1 8 .5a4.788 4.788 0 0 1 4.748 4.219h2.143c.388 0 .703.315.703.703Zm-4.266-.703A3.38 3.38 0 0 0 8 1.906 3.38 3.38 0 0 0 4.672 4.72h6.656Z"></path>
             </svg>
-          </a>
+          </Link>
           <span>0</span>
           <div className='cart-item'>
             <ul>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Select } from 'antd';
 import Map from "../../components/ggMap";
+import { Link } from 'react-router-dom';
 const filterOption = (input, option) =>
   (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 const listStore =[
@@ -113,15 +114,15 @@ const ShopSystem = () => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/he-thong-cua-hang">
+                                <Link to="/pages/he-thong-cua-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Hệ thống cửa hàng</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

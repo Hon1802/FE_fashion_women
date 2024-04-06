@@ -7,9 +7,8 @@ import * as ICONFORTAWESOME  from '@fortawesome/free-solid-svg-icons';
 import imgFire from '../../../assets/home/fire-icon.svg'; 
 import { icon_promo } from '../../../assets/logo';
 import React, { useState, useRef, useEffect } from 'react';
-import { display } from '@mui/system';
 import NumberInput from '../../inputs/NumberInput'
-import { Modal, Result } from 'antd';
+import { Link } from 'react-router-dom';
 const CartHome = (props) => {
     const {item} = props;
     const [visible, setvisible] = useState(false);
@@ -130,22 +129,22 @@ const CartHome = (props) => {
             <div className='cart-container'>
                 <div className='detail-item'>
                     <div className='product-thumbnail'>
-                        <a href={`/products/${item.id}`}>
+                        <Link to={`/products/${item.id}`}>
                             <img className={`img_1 MSP${item.id}`} alt='product' src={item.img_1} />
-                        </a>
-                        <a href={`/products/${item.id}`}>
+                        </Link>
+                        <Link to={`/products/${item.id}`}>
                             <img className={`img_2 MSP${item.id}`} alt='product'  src={item.img_2} />
-                        </a>
+                        </Link>
                         <div className='action-bar'>
                             <div className='anchor'>
-                                <a href={`/products/${item.id}`}>
+                                <Link to={`/products/${item.id}`}>
                                     <FontAwesomeIcon icon={shoppingCart}/>
-                                </a>
-                                <a>
+                                </Link>
+                                <Link>
                                     <button onClick={() => togglePopup(item.id)}>
                                         <FontAwesomeIcon icon={solidEyes}/>
                                     </button>
-                                </a>                            
+                                </Link>                            
                             </div>
                         </div>
                     </div>
@@ -167,7 +166,7 @@ const CartHome = (props) => {
                             </div>
                         </div>
                         <div className='product-name'>
-                            <a className='text' href={`/products/${item.id}`}>{item.title}</a>
+                            <Link className='text' to={`/products/${item.id}`}>{item.title}</Link>
                         </div>
                         <div className='product-rating'>
                             {item.rating  && item.rating.trim() !== '' &&(
@@ -250,9 +249,9 @@ const CartHome = (props) => {
                                     </div>
                                 </div>
                                 <div className='content-right'>
-                                    <a href={`/products/${item.id}`} className='text'>
+                                    <Link to={`/products/${item.id}`} className='text'>
                                         {item.title}
-                                    </a>
+                                    </Link>
                                     <div className='left_vend text'>
                                         <p>Thương hiệu: <span>{item.vendor}</span> | Mã sản phẩm: <span>{item.id}</span> </p>
                                     </div>
@@ -311,10 +310,10 @@ const CartHome = (props) => {
                                     </div>
                                     <div className='button-bottom'>
                                         <NumberInput/>
-                                        <a href={`/products/${item.id}`}>
+                                        <Link to={`/products/${item.id}`}>
 
                                             <button className='btn-add'>THÊM VÀO GIỎ HÀNG</button>
-                                        </a>
+                                        </Link>
                                     </div>
                                    
                                 </div>

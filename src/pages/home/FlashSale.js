@@ -5,6 +5,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Tabs } from 'antd';
 import Countdown from 'react-countdown';
 import jsonData from '../../datas/data.json';
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap"
 const {TabPane} = Tabs;
 
 const listItem_1 =  [
@@ -314,7 +316,7 @@ const FlashSale = () => {
             <div className="flash-sale-container">
                 <div className="flash-time">
                     <div className="flash-left">
-                        <a href="https://ega-style.myharavan.com/collections/san-pham-noi-bat" title="GIẢM SỐC 50%">GIẢM SỐC 50%</a>
+                        <Link to="https://ega-style.myharavan.com/collections/san-pham-noi-bat" title="GIẢM SỐC 50%">GIẢM SỐC 50%</Link>
                         <img  alt='sale_icon' src={flash_sale_icon} title="flash sale icon"></img>
                     </div>
                     <div className="flash-right">
@@ -356,7 +358,7 @@ const FlashSale = () => {
                     </Tabs>
                 </div>
                 <div className="btn-botton-flash">
-                    <button>Xem Tất Cả &gt; </button>
+                    <Button tag={Link} to="/collections/all">Xem Tất Cả &gt; </Button>
                 </div>
             </div>
             

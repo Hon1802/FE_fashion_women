@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Oders = () => {
     return (
@@ -7,15 +8,15 @@ const Oders = () => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/kiem-tra-don-hang">
+                                <Link to="/pages/kiem-tra-don-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Kiểm tra đơn hàng</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

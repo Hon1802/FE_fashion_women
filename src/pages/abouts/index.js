@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
     return ( 
@@ -6,15 +7,15 @@ const AboutUs = () => {
                 <div>
                     <ul className="d-inline-flex g-2"> 
                         <li>
-                            <a href="/">
+                            <Link to="/">
                                 <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                            </a>
+                            </Link>
                         </li> 
                         <p>/</p>
                         <li>
-                            <a href="/login">
+                            <Link to="/login">
                                 <span style={{color:"#BFBFBF"}} className="text">Giới thiệu</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

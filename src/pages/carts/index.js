@@ -1,6 +1,7 @@
 import React from 'react';
 import * as IMAGE_LIST from "../../assets/home";
 import { DatePicker, Space, Select} from 'antd';
+import { Link } from 'react-router-dom';
 const { RangePicker } = DatePicker;
 
 const listItem_2 =  [
@@ -139,21 +140,21 @@ const Carts = () => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Giỏ hàng</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/kiem-tra-don-hang">
+                                <Link to="/pages/kiem-tra-don-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Giỏ hàng</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div >
                         <h3 className="title-page">Thông tin đơn hàng</h3>
-                        <span className="text">Bạn đã có tài khoản ? <a className="text" href="/account/login">Đăng nhập</a></span>
+                        <span className="text">Bạn đã có tài khoản ? <Link className="text" to="/account/login">Đăng nhập</Link></span>
                     </div>
                     <div className='row cs-moblie'>
                         <div className='col-9 d-flex flex-column right' style={{background:'#ffffff', height:'fit-content'}}>
@@ -191,7 +192,7 @@ const Carts = () => {
                                     {totalPrice.toLocaleString()}
                                 </div>
                             </div>
-                            <a href='/checkout/001' className='btn text w-100' style={{background:'#000000', color:'#fff'}}>Thanh toán</a>
+                            <Link to='/checkout/001' className='btn text w-100' style={{background:'#000000', color:'#fff'}}>Thanh toán</Link>
                         </div>
                     </div>
                     

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as IMAGE_LIST from "../../assets/home";
 import { Button, Form, Input, Space, Select} from 'antd';
+import { Link } from 'react-router-dom';
 const { Option } = Select;
 const listItem_2 =  [
     {
@@ -203,21 +204,21 @@ const CheckOut = () => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Giỏ hàng</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/kiem-tra-don-hang">
+                                <Link to="/pages/kiem-tra-don-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Thông tin đơn hàng</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div >
                         <h3 className="title-page">Thông tin đơn hàng</h3>
-                        <span className="text">Bạn đã có tài khoản ? <a className="text" href="/account/login">Đăng nhập</a></span>
+                        <span className="text">Bạn đã có tài khoản ? <Link className="text" to="/account/login">Đăng nhập</Link></span>
                     </div>
                     <div className='row cs-moblie'>
                         <div className='col-6 left'>

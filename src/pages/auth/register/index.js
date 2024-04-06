@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
 import { Button, Form, Input, Space } from 'antd';
+import { Link } from 'react-router-dom';
 
 const SubmitButton = ({ form, children }) => {
     const [submittable, setSubmittable] = React.useState(false);
@@ -32,15 +33,15 @@ const Register = () => {
                 <div>
                     <ul className="d-inline-flex g-2"> 
                         <li>
-                            <a href="/">
+                            <Link to="/">
                                 <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                            </a>
+                            </Link>
                         </li> 
                         <p>/</p>
                         <li>
-                            <a href="/login">
+                            <Link to="/login">
                                 <span style={{color:"#BFBFBF"}} className="text">Đăng ký</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +51,7 @@ const Register = () => {
                             <div className="heading-bar text-center">
                                 <h1 className="title-page text mb-0">Đăng ký tài khoản</h1>
                                 <p className="mb-0 text">Bạn đã có tài khoản ?
-                                <a href="/account/login" className="btn-link-style btn-register"> Đăng nhập tại đây</a></p>
+                                <Link to="/account/login" className="btn-link-style btn-register"> Đăng nhập tại đây</Link></p>
                             </div>
                             <div className="row">
                                 <div className="col-12 col-md-6 col-lg-5 offset-md-3 py-3 mx-auto">

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck as regularCheck, faTruck as solidTruck, faMoneyBillTrendUp as solidMoney, faWallet as solidWallet } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ListProduct from "../../datas/data_product"
 import { icon_promo } from '../../assets/logo';
 import NumberInput from '../../components/inputs/NumberInput'
@@ -227,21 +227,21 @@ const ProductDetail = (props) => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/collections/all">
+                                <Link to="/collections/all">
                                     <span className="text" style={{color:"#000000"}}>Tất cả sản phẩm</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/he-thong-cua-hang">
+                                <Link to="/pages/he-thong-cua-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">{product.title}</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>                    
                     </div>
@@ -277,9 +277,9 @@ const ProductDetail = (props) => {
                         </div>
                         <div className='col-6'>
                             <div className='content-right'>
-                                <a href={`/products/${product.id}`} className='text'>
+                                <Link to={`/products/${product.id}`} className='text'>
                                     {product.title}
-                                </a>
+                                </Link>
                                 <div className='left_vend text'>
                                     <p>Thương hiệu: <span>{product.vendor}</span> | Mã sản phẩm: <span>{product.id}</span> </p>
                                 </div>
@@ -349,9 +349,9 @@ const ProductDetail = (props) => {
                                         <NumberInput/>
                                         <button className='btn-add' onClick={showModal}>THÊM VÀO GIỎ HÀNG</button>
                                 </div>
-                                <a href={`/checkout/${product.id}`} className='buy-now text d-flex justify-content-center align-items-center'>
+                                <Link to={`/checkout/${product.id}`} className='buy-now text d-flex justify-content-center align-items-center'>
                                     MUA NGAY
-                                </a>
+                                </Link>
                                 <span>Gọi đặt mua 1800.0000 (7:30 - 22:00)</span>
                                 <div className='row delive-con'>
                                     <div className='col-4 row'>

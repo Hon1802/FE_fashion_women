@@ -1,5 +1,8 @@
 import CartHome from "../../components/carts/Home/CartHome";
 import * as IMAGE_LIST from "../../assets/home";
+// ** React Imports
+import { Link } from "react-router-dom"
+import { Button } from "reactstrap"
 import { flash_sale_icon } from "../../assets/logo";
 import React, { useState, useRef, useEffect } from 'react';
 import { Tabs } from 'antd';
@@ -313,7 +316,7 @@ const CollectionSummer = () => {
                     </Tabs>
                 </div>
                 <div className="btn-botton-flash">
-                    <button>Xem Tất Cả &gt; </button>
+                    <Button tag={Link} to="/collections/all">Xem Tất Cả &gt; </Button>
                 </div>
             </div>
             

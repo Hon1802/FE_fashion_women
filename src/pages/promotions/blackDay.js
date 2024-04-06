@@ -5,12 +5,13 @@ import { img30, img31 } from '../../assets/home';
 import ListProduct from '../../datas/data_product';
 
 import MultiActionAreaCard from '../../components/carts/Promotion';
+import { Link } from 'react-router-dom';
 function HomeBanner() {
   return (
     <div className="home-banner" data-setting="banner">
       <img src="https://mixcdn.egany.com/themes/assets/blackfriday_001_banner_img.jpg" alt="blackfriday_001_banner_img"/>
       <div id="countdown" data-setting="clock"></div>
-      <a href="#banner-top" className="next-section scroll-to fa fa-angle-down ega-hidden ega-block--sm"></a>
+      <Link id="#banner-top" className="next-section scroll-to fa fa-angle-down ega-hidden ega-block--sm"></Link>
     </div>
   );
 }
@@ -25,7 +26,7 @@ const Block1=({url, title}) =>{
       </h2>
       <div className="d-inline-flex flex-column justify-content-center align-items-center block-width ">
         <span>{title}</span>
-        <a className="fa fa-external-link" href="/collections/all">Xem tất cả</a>
+        <Link className="fa fa-external-link" to="/collections/all">Xem tất cả</Link>
       </div>
     </div>
   );
@@ -53,11 +54,11 @@ const BlackDay=()=> {
       </div>
       <h2>THỜI THƯỢNG VƯỢT QUA ĐẲNG CẤP</h2>
       <span style={{width:"100%"}}>
-        <a className='d-inline-flex justify-content-center align-items-center text' style={{width:"100%", gap:'10px'}} href='/collections/all' >Xem tất cả
+        <Link className='d-inline-flex justify-content-center align-items-center text' style={{width:"100%", gap:'10px'}} to='/collections/all' >Xem tất cả
           <i>
             <FontAwesomeIcon icon={faLink} fontSize={14} color='red'/>
           </i>
-        </a>
+        </Link>
         </span>
         <div className='row'>
           <div className='col-3'>
@@ -74,11 +75,11 @@ const BlackDay=()=> {
 
         <h2>NĂNG ĐỘNG KHOE ĐƯỜNG CON</h2>
       <span style={{width:"100%"}}>
-        <a className='d-inline-flex justify-content-center align-items-center text' style={{width:"100%", gap:'10px'}} href='/collections/all' >Xem tất cả
+        <Link className='d-inline-flex justify-content-center align-items-center text' style={{width:"100%", gap:'10px'}} to='/collections/all' >Xem tất cả
           <i>
             <FontAwesomeIcon icon={faLink} fontSize={14} color='red'/>
           </i>
-        </a>
+        </Link>
         </span>
         <div className='row'>
          

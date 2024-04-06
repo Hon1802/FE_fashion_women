@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "react-router-dom";
 const ForgotPassword = () => {
     return (
         <div id="login-page" className="dflex-center-column">
@@ -7,15 +8,15 @@ const ForgotPassword = () => {
             <div>
                 <ul className="d-inline-flex g-2"> 
                     <li>
-                        <a href="/">
+                        <Link to="/">
                             <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                        </a>
+                        </Link>
                     </li> 
                     <p>/</p>
                     <li>
-                        <a href="/login">
+                        <Link to="/login">
                             <span style={{color:"#BFBFBF"}} className="text">Quên mật khẩu</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -25,7 +26,7 @@ const ForgotPassword = () => {
                         <div className="heading-bar text-center">
                             <h1 className="title-page text mb-0">Đăng nhập tài khoản</h1>
                             <p className="mb-0 text">Bạn chưa có tài khoản ?
-                            <a href="/account/register" className="btn-link-style btn-register"> Đăng ký tại đây</a></p>
+                            <Link to="/account/register" className="btn-link-style btn-register"> Đăng ký tại đây</Link></p>
                         </div>
                         <div className="row">
                             <div className="col-12 col-md-6 col-lg-5 offset-md-3 py-3 mx-auto">
@@ -51,7 +52,7 @@ const ForgotPassword = () => {
                                             </div>
                                             <div className="action_bottom my-3">
                                                 <input className="btn btn-style btn-recover btn-block" type="submit" value="Lấy lại mật khẩu"  style={{border: '1px solid #3b5998', width:'200px', marginRight:'20px'}}/>
-                                                <a href="/account/login" className="btn btn-style link btn-style-active " style={{ border: '1px solid red', width:'200px'}}>Quay lại</a>
+                                                <Link to="/account/login" className="btn btn-style link btn-style-active " style={{ border: '1px solid red', width:'200px'}}>Quay lại</Link>
                                             </div>
                                         </form>
                                     </div>

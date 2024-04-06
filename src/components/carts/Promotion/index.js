@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Drawer, message } from 'antd';
+import { Link } from 'react-router-dom';
 export default function MultiActionAreaCard(props) {
     const {item} = props;
     const [open, setOpen] = React.useState(false);
@@ -34,7 +35,7 @@ export default function MultiActionAreaCard(props) {
     };
   return (      
     <Card sx={{ maxWidth: '100%' }}>
-        <a href={`/products/${item.id}`}>
+        <Link to={`/products/${item.id}`}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -60,7 +61,7 @@ export default function MultiActionAreaCard(props) {
                 </Typography>
                 </CardContent>
             </CardActionArea>
-        </a>
+        </Link>
         <CardActions>
             <Button onClick={showDrawer} size="small" color="primary">
             Thêm giỏ hàng

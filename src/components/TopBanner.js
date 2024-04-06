@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const TopBanner = () => {
     const [isVisible, setIsVisible] = useState(true);
 
@@ -32,7 +33,7 @@ const TopBanner = () => {
         <>
             {isVisible && (
                 <div id="top-banner-home">
-                    <a href='#'>CHÀO HÈ SÔI NỔI - MỎI TAY SĂN QUÀ - ƯU ĐÃI X3</a>
+                    <Link to='/'>CHÀO HÈ SÔI NỔI - MỎI TAY SĂN QUÀ - ƯU ĐÃI X3</Link>
                     <button onClick={handleButtonClick}><span>x</span></button>
                 </div>
             )}

@@ -6,6 +6,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {icon_menu} from '../assets/logo'
 
 import { hover } from '@testing-library/user-event/dist/hover';
+import { Link } from 'react-router-dom';
 const navs = [
     {
         id: "/",
@@ -343,19 +344,24 @@ const Navbar = () => {
                             <>
                                 {nav.submenu ? (
                                     <li className="navb-item" key={index} style={{ cursor: "pointer" }}>
-                                        <a className="navb-link" >
-                                            <span><img src={nav.icon}></img>{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
-                                        </a>
+                                        <Link className="navb-link" >
+                                            {nav.icon?(
+
+                                                <span><img alt='t' src={nav.icon}></img>{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
+                                            ):(
+                                                <span>{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
+                                            )}
+                                        </Link>
 
                                         {nav.subchill ? (
                                             <div className='dropdown2'>
                                                 {nav.submenu.map((submenu, index) =>(
                                                     <div className='grid-item'>
-                                                        <a key={index} href={submenu.url}><span>{submenu.title}</span></a>
+                                                        <Link key={index} to={submenu.url}><span>{submenu.title}</span></Link>
                                                         <ul>
                                                             {submenu.submenuchill.map((chillmenu, index2)=>(
                                                                 <li key={index2}>
-                                                                    <a href={chillmenu.url}>{chillmenu.subname}</a>
+                                                                    <Link to={chillmenu.url}>{chillmenu.subname}</Link>
                                                                 </li>
                                                             ))}
                                                         </ul>
@@ -366,7 +372,7 @@ const Navbar = () => {
                                                 <ul className="dropdown">
                                                     {nav.submenu.map((submenu, index) => (
                                                         <li key={index} className="dropdown-item">
-                                                            <a href={submenu.url}><span>{submenu.title} </span></a>
+                                                            <Link to={submenu.url}><span>{submenu.title} </span></Link>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -375,9 +381,9 @@ const Navbar = () => {
                                     </li >                                   
                                 ) : (
                                     <li className="navb-item" key={index} >
-                                        <a href={nav.id} className="navb-link" >
+                                        <Link to={nav.id} className="navb-link" >
                                             <span>{nav.icon}{nav.value}</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                 )
                                 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import ListProduct from '../../datas/data_product';
 import { img29 } from '../../assets/home';
+import { Link } from "react-router-dom"
 const ModalHome = (props) => {
   const {isOpen} = props;
   const randomList = ['001', '002', '003', '004','005', '006', '007', '008' ];
@@ -27,7 +28,11 @@ const ModalHome = (props) => {
       <Modal open={isModalOpen} 
         onOk={handleOk} 
         onCancel={handleCancel}>
-        <img alt='img-banner' src={img29} style={{width:'100%'}}/>
+        
+          <Link to="/collections/all" >
+
+            <img alt='img-banner' src={img29} style={{width:'100%'}}/>
+          </Link>
       </Modal>
     </>
   );

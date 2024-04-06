@@ -6,6 +6,7 @@ import { Tag } from 'antd';
 import { Pagination } from 'antd';
 import CartHome from "../../components/carts/Home/CartHome";
 import { Select } from 'antd';
+import { Link } from "react-router-dom";
 
 const { Option } = Select;
 const ListInfor =
@@ -761,21 +762,21 @@ const CollectionAll = (props) => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/he-thong-cua-hang">
+                                <Link to="/pages/he-thong-cua-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Tất cả sản phẩm</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
-                    <a href="/collections/all" >
+                    <Link to="/collections/all" >
                         <img className="image-top" alt="top" src={IMAGECOLLECTION.img_top}/>
-                    </a>
+                    </Link>
                 </div>
                 <SessionCoupons/>    
                 <div className="row body-collection w85-per">

@@ -1,5 +1,6 @@
 // ** React Imports
 import { Link } from "react-router-dom"
+import React, { useEffect } from 'react';
 
 // ** Reactstrap Imports
 import { Button } from "reactstrap"
@@ -8,7 +9,7 @@ const PageNotFound = () => {
 
     return (
         <div className="misc-wrapper">
-            <Link className="brand-logo" to="/" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <Link className="brand-logo" to="/test/VanHon/fashion_women/ThoiTrangNu2/build/" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             </Link>
             <div className="misc-inner p-2 p-sm-3">
                 <div className="w-100 text-center">

@@ -269,7 +269,7 @@ const Header = () => {
                                             <FontAwesomeIcon className="" icon={faUserCircle} fontSize={50} color="#fff"/>
                                             <div className="">
                                                 <h3 className="text-1 text-font-1-3em">Tài khoản</h3>
-                                                <a className="text-1 text-font-14" href='/login'>Đăng nhập</a>
+                                                <Link className="text-1 text-font-14" to='/account/login'>Đăng nhập</Link>
                                             </div>
                                         </div>
                                         <div className="list-menu-mobile">
@@ -279,17 +279,17 @@ const Header = () => {
                                                         {item.submenu ? (
                                                             <>
                                                                 <li className="text-font-1em">
-                                                                    <a href={item.id} style={{color:'#000000'}} >
+                                                                    <Link to={item.id} style={{color:'#000000'}} >
                                                                         {item.value} <ExpandMoreIcon sx={{ fontSize: 20 }} />
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             </>
                                                         ):(
 
                                                             <li className="text-font-1em">
-                                                                <a href={item.id} style={{color:'#000000'}} >
+                                                                <Link to={item.id} style={{color:'#000000'}} >
                                                                     {item.value}
-                                                                </a>
+                                                                </Link>
                                                             </li>
                                                         )}
                                                     </>
@@ -303,9 +303,9 @@ const Header = () => {
                             </Dialog>
                         </div>
                     </div>
-                    <a to="/" className="navbar-title">
-                        <img src={logo}></img>               
-                    </a>
+                    <Link to="/" className="navbar-title">
+                        <img alt="link" src={logo}></img>               
+                    </Link>
                     <nav className="nav_actions">
                         <Navbar />
                     </nav>

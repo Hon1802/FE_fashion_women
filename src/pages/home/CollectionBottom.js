@@ -1,9 +1,11 @@
 import CartHome from "../../components/carts/Home/CartHome";
 import * as IMAGE_LIST from "../../assets/home";
+import { Link } from "react-router-dom"
 import { Select } from 'antd';
 import React, { useState, useRef, useEffect } from 'react';
 import { Tabs } from 'antd';
 import jsonData from '../../datas/data.json';
+import { Button } from "reactstrap"
 const {TabPane} = Tabs;
 const { Option } = Select;
 const listItem_1 =  [
@@ -213,7 +215,7 @@ const CollectionBottom = () => {
                     </Tabs>
                 </div>
                 <div className="btn-botton-flash">
-                    <button>Xem Tất Cả &gt; </button>
+                    <Button tag={Link} to="/collections/all"  >Xem Tất Cả &gt; </Button>
                 </div>
             </div>
             

@@ -6,6 +6,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { useState, useEffect} from 'react'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Link } from 'react-router-dom';
 
 const collection = [
     {
@@ -212,13 +213,13 @@ const FashionTrends = () => {
                         <p className="text">
                             Khoe eo! Mùa Hè mang đến lời mời gọi hãy để chiếc eo thon là tâm điểm phong cách. BST Miu Miu ngập tràn crop top với hơi hướng Y2K đầy sức sống. Versace cũng cho thấy làn da rám nắng tuyệt đẹp khi diện crop top mang dấu ấn thập niên 80. Và crop top còn được thấy ở khắp các BST thời trang mùa Xuân – Hè 2022 của Chanel, Salvatore Ferragamo, Givenchy, Lanvin,…
                         </p>
-                        <a class="link" href="/collections/all">Xem chi tiết</a>
+                        <Link class="link" to="/collections/all">Xem chi tiết</Link>
                     </div>
                 </div> 
                 <h2 className="text" style={{fontSize: '32px', fontWeight:'700'}}>@ Follow Instagram</h2>
                 <div className="trend-follow">
                     <div className="content-trend-follow">
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <Link class="insta_item " to="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_1_img.jpg?v=6" 
                                 alt="insta_1_img.jpg"/>
@@ -227,8 +228,8 @@ const FashionTrends = () => {
                                     <FontAwesomeIcon icon={faInstagram} />				
                                 </div>
                             </div>
-                        </a>
-                        <a class="insta_item " href="https://www.instagram.com">
+                        </Link>
+                        <Link class="insta_item " to="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_2_img.jpg?v=6" 
                                 alt="insta_2_img.jpg"/>
@@ -237,9 +238,9 @@ const FashionTrends = () => {
                                     <FontAwesomeIcon icon={faInstagram} />						
                                 </div>
                             </div>
-                        </a>
+                        </Link>
 																								
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <Link class="insta_item " to="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_3_img.jpg?v=6" 
                                 alt="insta_3_img.jpg"/>
@@ -248,9 +249,9 @@ const FashionTrends = () => {
                                      <FontAwesomeIcon icon={faInstagram} />							
                                 </div>
                             </div>
-                        </a>
+                        </Link>
 																								
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <Link class="insta_item " to="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_4_img.jpg?v=6" 
                                 alt="insta_4_img.jpg"/>
@@ -259,9 +260,9 @@ const FashionTrends = () => {
                                      <FontAwesomeIcon icon={faInstagram} />							
                                 </div>
                             </div>
-                        </a>
+                        </Link>
 																								
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <Link class="insta_item " to="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_5_img.jpg?v=6" 
                                 alt="insta_5_img.jpg"/>
@@ -270,18 +271,18 @@ const FashionTrends = () => {
                                      <FontAwesomeIcon icon={faInstagram} />							
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 </div>  
                 <div className="outstanding-brand">
                     <h2 class="text">
-                        <a class='link' href="/" title="Thương hiệu nổi bật">Thương hiệu nổi bật</a>
+                        <Link class='link' to="/" title="Thương hiệu nổi bật">Thương hiệu nổi bật</Link>
                     </h2>
                     <div className='body-outstanding-brand'>
                         {displayedcollection.map((coll, index) => (
                             <> 
                                 <div className="item " key={index}>
-                                    <a href="/collections/all" 
+                                    <Link to="/collections/all" 
                                     title={coll.title}
                                     style={{width:'157px',height: '67px' }}
                                     > 					
@@ -290,7 +291,7 @@ const FashionTrends = () => {
                                             alt= {coll.alt}
                                             width="157" 
                                             height="67"/>
-                                    </a>
+                                    </Link>
                                 </div> 
                             </>
                         ))}
@@ -315,14 +316,14 @@ const FashionTrends = () => {
                     {/* start */}
                     <div class="title-module-main" style={{backgroundColor: '#212121'}}>
                         <h2 class="dflex-center-row text "> 
-                            <a class='link' href="/blogs/news" title="TIN TỨC"  style={{color: '#ffffff', fontSize:'32px', padding:'10px'}}>TIN TỨC</a>
+                            <Link class='link' to="/blogs/news" title="TIN TỨC"  style={{color: '#ffffff', fontSize:'32px', padding:'10px'}}>TIN TỨC</Link>
                         </h2>
                     </div>
                     <div class='dflex-center-column '> 
                         <div class="d-grid-2 mobile-custom-blog">
                             <div class="blog-list">
                                 <div class="blogwp " >
-                                    <a  class="text"
+                                    <Link  class="text"
                                     href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" 
                                     title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022"
                                     >
@@ -330,10 +331,10 @@ const FashionTrends = () => {
                                             class="img-fluid m-auto mh-100 w-auto"
                                             src="https://file.hstatic.net/200000525857/article/frame_1_d23a5649648b4bc9b2ebcd350d088af2.jpg"
                                             alt="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022"/>
-                                    </a>
+                                    </Link>
                                     <div class="content-blog">
                                         <h3 class='text-h3 '>
-                                            <a class='text-h3' href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022">Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022</a>
+                                            <Link class='text-h3' to="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022">Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022</Link>
                                         </h3>
                                         <div class="media">
                                             <div class="media-body">
@@ -351,7 +352,7 @@ const FashionTrends = () => {
                                             <span class="text text-2 pr20"> 
                                                 Trong khi những chiếc túi xách có xu hướng nhỏ dần đều, phụ kiện bông tai càng dài lại càng được lòng các&nbsp;fashionistas trong mùa mốt...
                                             </span>
-                                            <a class="button_link text" href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Đọc tiếp">Đọc tiếp</a>
+                                            <Link class="button_link text" href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Đọc tiếp">Đọc tiếp</Link>
                                         </p>
                                     </div>
                                 </div>									
@@ -359,35 +360,35 @@ const FashionTrends = () => {
                             <div class="post-list">
                                 {postsList.map((post, index)=>(
                                     <div className='post-item'>
-                                        <a href={post.href}>
+                                        <Link to={post.href}>
                                             <img loading="lazy" class="img-fluid" src={post.img} alt={post.alt}/>
-                                        </a> 
+                                        </Link> 
                                         <div class="content-blog-b dflex-center-column">
-                                            <a href={post.href} 
+                                            <Link to={post.href} 
                                             title={post.title}>
                                                 {post.title}
-                                                </a>
+                                                </Link>
                                             <span>
                                                 {post.time}
                                             </span>
                                             <p class="text"> 
                                                 {post.content}
                                             </p>                                    
-                                            <a class="button_custome link" 
-                                                href={post.href} 
+                                            <Link class="button_custome link" 
+                                                to={post.href} 
                                                 title="Đọc tiếp">
                                                     Đọc tiếp
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 ))}
                             </div> 
                         </div>
                         <div class="text-center">
-                            <a href="blogs/news" title="Xem tất cả" class="btn-view dflex-center-row">
+                            <Link to="blogs/news" title="Xem tất cả" class="btn-view dflex-center-row">
                                 Xem tất cả 
                                 <ArrowForwardIosIcon sx={{ fontSize: 18 }}/>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     {/* end */}

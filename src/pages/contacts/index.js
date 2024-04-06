@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as ICONSFONT from '@fortawesome/free-solid-svg-icons';
 import { Button, Form, Input, Space } from 'antd';
+import { Link } from 'react-router-dom';
 const SubmitButton = ({ form, children }) => {
     const [submittable, setSubmittable] = React.useState(false);
   
@@ -31,15 +32,15 @@ const ContactUS = () => {
                     <div className="content-top-page">
                         <ul className="d-inline-flex g-2"> 
                             <li>
-                                <a href="/">
+                                <Link to="/">
                                     <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
+                                </Link>
                             </li> 
                             <p>/</p>
                             <li>
-                                <a href="/pages/he-thong-cua-hang">
+                                <Link to="/pages/he-thong-cua-hang">
                                     <span style={{color:"#BFBFBF"}} className="text">Liên hệ</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
