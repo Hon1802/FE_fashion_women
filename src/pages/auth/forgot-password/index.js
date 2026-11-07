@@ -13,7 +13,7 @@ const ForgotPassword = () => {
                     </li> 
                     <p>/</p>
                     <li>
-                        <a href="/login">
+                        <a href="/account/forgot-password">
                             <span style={{color:"#BFBFBF"}} className="text">Quên mật khẩu</span>
                         </a>
                     </li>

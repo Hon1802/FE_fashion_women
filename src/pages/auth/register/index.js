@@ -38,7 +38,7 @@ const Register = () => {
                         </li> 
                         <p>/</p>
                         <li>
-                            <a href="/login">
+                            <a href="/account/register">
                                 <span style={{color:"#BFBFBF"}} className="text">Đăng ký</span>
                             </a>
                         </li>

@@ -269,7 +269,7 @@ const Header = () => {
                                             <FontAwesomeIcon className="" icon={faUserCircle} fontSize={50} color="#fff"/>
                                             <div className="">
                                                 <h3 className="text-1 text-font-1-3em">Tài khoản</h3>
-                                                <a className="text-1 text-font-14" href='/login'>Đăng nhập</a>
+                                                <a className="text-1 text-font-14" href='/account/login'>Đăng nhập</a>
                                             </div>
                                         </div>
                                         <div className="list-menu-mobile">
@@ -303,9 +303,9 @@ const Header = () => {
                             </Dialog>
                         </div>
                     </div>
-                    <a to="/" className="navbar-title">
-                        <img src={logo}></img>               
-                    </a>
+                    <Link to="/" className="navbar-title" aria-label="Trang chủ">
+                        <img src={logo} alt="Logo cửa hàng" />
+                    </Link>
                     <nav className="nav_actions">
                         <Navbar />
                     </nav>

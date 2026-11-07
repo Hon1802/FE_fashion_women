@@ -9,7 +9,7 @@ export const LoadingBackground = () => {
         <div className={"d-flex justify-content-center"}>
           <Spinner type="border" color="primary" />
         </div>
-        <p className={"mt-2 mb-0"}>Please wait...</p>
+        <p className={"mt-2 mb-0"}>Đang tải...</p>
       </Card>
     </Modal>
   )

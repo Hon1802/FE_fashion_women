@@ -820,7 +820,7 @@ const CollectionAll = (props) => {
                                                     checked={checkedValues.includes(brand.value)}
                                                     onChange={handleCheckboxChange}
                                                 />
-                                                <label className="text" for={index}>{brand.value}</label>
+                                                <label className="text" htmlFor={index}>{brand.value}</label>
                                             </li>
                                         ))}
                                     </ul>
@@ -842,7 +842,7 @@ const CollectionAll = (props) => {
                                                     checked={checkedValues.includes(color.color)}
                                                     onChange={handleCheckboxChange}
                                                     />
-                                                <label className="text" for={index}>{color.color}</label>
+                                                <label className="text" htmlFor={index}>{color.color}</label>
                                             </li>
                                         ))}
                                     </ul>
@@ -863,7 +863,7 @@ const CollectionAll = (props) => {
                                                     name={index}
                                                     checked={checkedValues.includes(budget.budget)}
                                                     onChange={handleCheckboxChange}/>
-                                                <label className="text" for={index}>{budget.budget}</label>
+                                                <label className="text" htmlFor={index}>{budget.budget}</label>
                                             </li>
                                         ))}
                                     </ul>
@@ -884,7 +884,7 @@ const CollectionAll = (props) => {
                                                     name={index}
                                                     checked={checkedValues.includes(type.type)}
                                                     onChange={handleCheckboxChange}/>
-                                                <label className="text" for={index}>{type.type}</label>
+                                                <label className="text" htmlFor={index}>{type.type}</label>
                                             </li>
                                         ))}
                                     </ul>
@@ -905,7 +905,7 @@ const CollectionAll = (props) => {
                                                     name={index}
                                                     checked={checkedValues.includes(delivery.delivery)}
                                                     onChange={handleCheckboxChange}/>
-                                                <label className="text" for={index}>{delivery.delivery}</label>
+                                                <label className="text" htmlFor={index}>{delivery.delivery}</label>
                                             </li>
                                         ))}
                                     </ul>

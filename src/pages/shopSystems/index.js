@@ -129,7 +129,7 @@ const ShopSystem = () => {
                         <h3 className="title-page">Hệ thống cửa hàng</h3>
                     </div>
                     <div className="row custom-row-shop">
-                        <div class="col-3 col-left">
+                        <div className="col-3 col-left">
                             <h3 className='text'>Tìm cửa hàng</h3>
                             <h4 className='text'>Chọn tỉnh thành</h4>
                             <Select
@@ -176,12 +176,12 @@ const ShopSystem = () => {
                             </span>
                             <p></p>
                         </div>
-                        <div class="col-9">
+                        <div className="col-9">
                             <iframe
                                 title='map'
                                 width="100%"
                                 height="100%"
-                                frameborder="0"
+                                frameBorder="0"
                                 src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31763.945883780425!2d108.2153874!3d16.0698641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183420c6dfab%3A0xd38332774d11f1dc!2z${encodeURIComponent(addressStore)}!5e0!3m2!1sen!2suk!4v1649345807392!5m2!1sen!2suk`}
                                 allowfullscreen=""
                                 aria-hidden="false"

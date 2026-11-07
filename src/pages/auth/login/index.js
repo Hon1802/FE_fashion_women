@@ -13,7 +13,7 @@ const Login = () => {
                         </li> 
                         <p>/</p>
                         <li>
-                            <a href="/login">
+                            <a href="/account/login">
                                 <span style={{color:"#BFBFBF"}} className="text">Đăng nhập</span>
                             </a>
                         </li>

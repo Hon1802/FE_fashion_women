@@ -1,37 +1,23 @@
+import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart } from "@fortawesome/free-regular-svg-icons"
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb"
 
-import React, { useState } from 'react';
-
-const WishList= () => {
-    
+const WishList = () => {
     return (
-        <>
-        <div id="wish-list" className="dflex-center-column">
-                <div className="w85-per">
-                    <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">Wish list</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="d-flex flex-column" >
-                        <h3 className="title-page">Wish List</h3>
-                        <span className='text'> Bạn chưa có sản phẩm yêu thích</span>
-                    </div>
-                    <div className="row custom-row-shop">
-                        
-                    </div>
-                </div>
+        <section id="wish-list" className="static-page">
+            <Breadcrumb items={[{ label: "Danh sách yêu thích" }]} />
+            <h1 className="static-page-title">Danh sách yêu thích</h1>
+
+            <div className="empty-state">
+                <FontAwesomeIcon icon={faHeart} className="empty-state-icon" aria-hidden="true" />
+                <h2 className="empty-state-title">Bạn chưa có sản phẩm yêu thích</h2>
+                <p className="empty-state-desc">
+                    Nhấn vào biểu tượng trái tim trên sản phẩm để lưu lại những món đồ bạn thích.
+                </p>
+                <Link to="/collections/all" className="page-btn">Khám phá sản phẩm</Link>
             </div>
-        </>
+        </section>
     )
 }
 export default WishList;

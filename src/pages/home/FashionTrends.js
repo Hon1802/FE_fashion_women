@@ -205,68 +205,68 @@ const FashionTrends = () => {
             <div id="fashion-trends">
                <div className="trend-top">
                     <div className="left">
-                        <img class="img-fluid mx-auto" src="//theme.hstatic.net/200000525857/1001199676/14/imgtext_2_img.jpg?v=6" width="795" height="475" alt="imgtext_img"/>
+                        <img className="img-fluid mx-auto" src="//theme.hstatic.net/200000525857/1001199676/14/imgtext_2_img.jpg?v=6" width="795" height="475" alt="imgtext_img"/>
                     </div>
                     <div className="right">
                         <h2 className="text">Xu hướng thời trang 2022</h2>
                         <p className="text">
                             Khoe eo! Mùa Hè mang đến lời mời gọi hãy để chiếc eo thon là tâm điểm phong cách. BST Miu Miu ngập tràn crop top với hơi hướng Y2K đầy sức sống. Versace cũng cho thấy làn da rám nắng tuyệt đẹp khi diện crop top mang dấu ấn thập niên 80. Và crop top còn được thấy ở khắp các BST thời trang mùa Xuân – Hè 2022 của Chanel, Salvatore Ferragamo, Givenchy, Lanvin,…
                         </p>
-                        <a class="link" href="/collections/all">Xem chi tiết</a>
+                        <a className="link" href="/collections/all">Xem chi tiết</a>
                     </div>
                 </div> 
                 <h2 className="text" style={{fontSize: '32px', fontWeight:'700'}}>@ Follow Instagram</h2>
                 <div className="trend-follow">
                     <div className="content-trend-follow">
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <a className="insta_item " href="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_1_img.jpg?v=6" 
                                 alt="insta_1_img.jpg"/>
-                            <div class="insta-icon-wrap">
-                                <div class="insta-icon">
+                            <div className="insta-icon-wrap">
+                                <div className="insta-icon">
                                     <FontAwesomeIcon icon={faInstagram} />				
                                 </div>
                             </div>
                         </a>
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <a className="insta_item " href="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_2_img.jpg?v=6" 
                                 alt="insta_2_img.jpg"/>
-                            <div class="insta-icon-wrap">
-                                <div class="insta-icon">
+                            <div className="insta-icon-wrap">
+                                <div className="insta-icon">
                                     <FontAwesomeIcon icon={faInstagram} />						
                                 </div>
                             </div>
                         </a>
 																								
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <a className="insta_item " href="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_3_img.jpg?v=6" 
                                 alt="insta_3_img.jpg"/>
-                            <div class="insta-icon-wrap">
-                                <div class="insta-icon">
+                            <div className="insta-icon-wrap">
+                                <div className="insta-icon">
                                      <FontAwesomeIcon icon={faInstagram} />							
                                 </div>
                             </div>
                         </a>
 																								
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <a className="insta_item " href="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_4_img.jpg?v=6" 
                                 alt="insta_4_img.jpg"/>
-                            <div class="insta-icon-wrap">
-                                <div class="insta-icon">
+                            <div className="insta-icon-wrap">
+                                <div className="insta-icon">
                                      <FontAwesomeIcon icon={faInstagram} />							
                                 </div>
                             </div>
                         </a>
 																								
-                        <a class="insta_item " href="https://www.instagram.com">
+                        <a className="insta_item " href="https://www.instagram.com">
                             <img loading="lazy"
                                 src="//theme.hstatic.net/200000525857/1001199676/14/insta_5_img.jpg?v=6" 
                                 alt="insta_5_img.jpg"/>
-                            <div class="insta-icon-wrap">
-                                <div class="insta-icon">
+                            <div className="insta-icon-wrap">
+                                <div className="insta-icon">
                                      <FontAwesomeIcon icon={faInstagram} />							
                                 </div>
                             </div>
@@ -274,8 +274,8 @@ const FashionTrends = () => {
                     </div>
                 </div>  
                 <div className="outstanding-brand">
-                    <h2 class="text">
-                        <a class='link' href="/" title="Thương hiệu nổi bật">Thương hiệu nổi bật</a>
+                    <h2 className="text">
+                        <a className='link' href="/" title="Thương hiệu nổi bật">Thương hiệu nổi bật</a>
                     </h2>
                     <div className='body-outstanding-brand'>
                         {displayedcollection.map((coll, index) => (
@@ -313,56 +313,56 @@ const FashionTrends = () => {
                 </div> 
                 <div className="news dflex-center w-85">
                     {/* start */}
-                    <div class="title-module-main" style={{backgroundColor: '#212121'}}>
-                        <h2 class="dflex-center-row text "> 
-                            <a class='link' href="/blogs/news" title="TIN TỨC"  style={{color: '#ffffff', fontSize:'32px', padding:'10px'}}>TIN TỨC</a>
+                    <div className="title-module-main" style={{backgroundColor: '#212121'}}>
+                        <h2 className="dflex-center-row text "> 
+                            <a className='link' href="/blogs/news" title="TIN TỨC"  style={{color: '#ffffff', fontSize:'32px', padding:'10px'}}>TIN TỨC</a>
                         </h2>
                     </div>
-                    <div class='dflex-center-column '> 
-                        <div class="d-grid-2 mobile-custom-blog">
-                            <div class="blog-list">
-                                <div class="blogwp " >
-                                    <a  class="text"
+                    <div className='dflex-center-column '> 
+                        <div className="d-grid-2 mobile-custom-blog">
+                            <div className="blog-list">
+                                <div className="blogwp " >
+                                    <a  className="text"
                                     href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" 
                                     title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022"
                                     >
                                         <img loading="lazy" 
-                                            class="img-fluid m-auto mh-100 w-auto"
+                                            className="img-fluid m-auto mh-100 w-auto"
                                             src="https://file.hstatic.net/200000525857/article/frame_1_d23a5649648b4bc9b2ebcd350d088af2.jpg"
                                             alt="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022"/>
                                     </a>
-                                    <div class="content-blog">
-                                        <h3 class='text-h3 '>
-                                            <a class='text-h3' href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022">Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022</a>
+                                    <div className="content-blog">
+                                        <h3 className='text-h3 '>
+                                            <a className='text-h3' href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022">Cảm hứng cổ điển “hồi sinh” thổi làn gió mới vào xu hướng phụ kiện thu đông 2022</a>
                                         </h3>
-                                        <div class="media">
-                                            <div class="media-body">
+                                        <div className="media">
+                                            <div className="media-body">
                                                 <span className='text-2'>
                                                     <FontAwesomeIcon icon={faCalendarDay} fontSize={16} className='pl10 pr10'/>					
                                                     Th 3 14/06/2022	
                                                 </span>
-                                                <span class="text-2">
+                                                <span className="text-2">
                                                     <FontAwesomeIcon icon={faClock}  fontSize={16} className='pl10 pr10'/>    
                                                     2 phút đọc 
                                                 </span>
                                             </div>
                                         </div>
-                                        <p class="dflex-center-column bottom-content-left">
-                                            <span class="text text-2 pr20"> 
+                                        <p className="dflex-center-column bottom-content-left">
+                                            <span className="text text-2 pr20"> 
                                                 Trong khi những chiếc túi xách có xu hướng nhỏ dần đều, phụ kiện bông tai càng dài lại càng được lòng các&nbsp;fashionistas trong mùa mốt...
                                             </span>
-                                            <a class="button_link text" href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Đọc tiếp">Đọc tiếp</a>
+                                            <a className="button_link text" href="/blogs/news/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019" title="Đọc tiếp">Đọc tiếp</a>
                                         </p>
                                     </div>
                                 </div>									
                             </div> 
-                            <div class="post-list">
+                            <div className="post-list">
                                 {postsList.map((post, index)=>(
                                     <div className='post-item'>
                                         <a href={post.href}>
-                                            <img loading="lazy" class="img-fluid" src={post.img} alt={post.alt}/>
+                                            <img loading="lazy" className="img-fluid" src={post.img} alt={post.alt}/>
                                         </a> 
-                                        <div class="content-blog-b dflex-center-column">
+                                        <div className="content-blog-b dflex-center-column">
                                             <a href={post.href} 
                                             title={post.title}>
                                                 {post.title}
@@ -370,10 +370,10 @@ const FashionTrends = () => {
                                             <span>
                                                 {post.time}
                                             </span>
-                                            <p class="text"> 
+                                            <p className="text"> 
                                                 {post.content}
                                             </p>                                    
-                                            <a class="button_custome link" 
+                                            <a className="button_custome link" 
                                                 href={post.href} 
                                                 title="Đọc tiếp">
                                                     Đọc tiếp
@@ -383,8 +383,8 @@ const FashionTrends = () => {
                                 ))}
                             </div> 
                         </div>
-                        <div class="text-center">
-                            <a href="blogs/news" title="Xem tất cả" class="btn-view dflex-center-row">
+                        <div className="text-center">
+                            <a href="blogs/news" title="Xem tất cả" className="btn-view dflex-center-row">
                                 Xem tất cả 
                                 <ArrowForwardIosIcon sx={{ fontSize: 18 }}/>
                             </a>

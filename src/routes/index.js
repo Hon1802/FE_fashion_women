@@ -17,6 +17,7 @@ const CollectionAll = React.lazy(() => import("../pages/collections/collectionAl
 const ProductDetail = React.lazy(() => import("../pages/products"))
 // other page components...
 const Unauthorized = React.lazy(() => import("../pages/403"))
+const PageNotFound = React.lazy(() => import("../pages/404"))
 const routes = [
     { path: "/", element: <Home /> },
     { path: "/account/login", element: <Login /> },
@@ -28,11 +29,10 @@ const routes = [
     { path: "/product/:param", element: <ProductDetail /> },  
     { path: "/checkout/:param", element: <CheckOut/> },
     { path: "/products/:param", element: <ProductDetail /> },
-    { path: "/pages/kiem-tra-don-hang", element: <Oders /> },    
     { path: "/pages/kiem-tra-don-hang", element: <Oders /> },
     { path: "/pages/about-us", element: <AboutUs /> },
     { path: "/pages/landing-page-black-friday", element: <BlackDay /> },
-    { path: "pages/landing-page-xmas", element: <CollectionAll /> },
+    { path: "/pages/landing-page-xmas", element: <CollectionAll /> },
     { path: "/pages/landing-page-onepage", element: <CollectionAll /> },
     { path: "/blogs/news", element: <News /> },
     { path: "/pages/he-thong-cua-hang", element: <ShopSystem /> },
@@ -40,7 +40,8 @@ const routes = [
     { path: "/pages/wishlist", element: <WishList /> }, 
     { path: "/cart", element: <Carts /> },
     // other mappings ...
-    { path: "/unauthorized", element: <Unauthorized /> }
+    { path: "/unauthorized", element: <Unauthorized /> },
+    { path: "*", element: <PageNotFound /> }
 ]
 
 export default routes

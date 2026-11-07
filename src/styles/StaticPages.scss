@@ -1,0 +1,250 @@
+// ================================================================
+//  Styles cho các trang tĩnh: Breadcrumb, Giới thiệu, Wishlist,
+//  Kiểm tra đơn hàng, 404/403
+// ================================================================
+:root {
+  --page-text: #000000;
+  --page-muted: #6c757d;
+  --page-border: #e5e5e5;
+  --page-surface: #f7f7f7;
+  --page-accent: #000000;
+  --page-space-sm: 8px;
+  --page-space-md: 16px;
+  --page-space-lg: 32px;
+  --page-space-xl: 56px;
+  --page-radius: 8px;
+}
+
+// ---------- Breadcrumb ----------
+.breadcrumb-nav {
+  padding: var(--page-space-md) 0;
+}
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--page-space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+}
+.breadcrumb-item-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--page-space-sm);
+  & + &::before {
+    content: "/";
+    color: var(--page-muted);
+  }
+}
+.breadcrumb-link {
+  color: var(--page-text);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.breadcrumb-current {
+  color: #bfbfbf;
+}
+
+// ---------- Khung trang chung ----------
+.static-page {
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: var(--page-space-xl);
+  color: var(--page-text);
+}
+.static-page-title {
+  margin: 0 0 var(--page-space-lg);
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+// ---------- Giới thiệu ----------
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--page-space-lg);
+  align-items: center;
+  margin-bottom: var(--page-space-xl);
+}
+.about-section-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--page-radius);
+}
+.about-section-eyebrow {
+  margin-bottom: var(--page-space-sm);
+  color: var(--page-muted);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.about-section-heading {
+  margin-bottom: var(--page-space-md);
+  font-size: 24px;
+  font-weight: 600;
+}
+.about-section-text {
+  margin-bottom: var(--page-space-md);
+  color: #333333;
+  line-height: 1.7;
+}
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--page-space-md);
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--page-space-md);
+  margin: 0 0 var(--page-space-xl);
+  padding: 0;
+  list-style: none;
+}
+.about-stats-item {
+  padding: var(--page-space-lg) var(--page-space-md);
+  text-align: center;
+  background: var(--page-surface);
+  border-radius: var(--page-radius);
+}
+.about-stats-value {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+}
+.about-stats-label {
+  color: var(--page-muted);
+  font-size: 14px;
+}
+
+// ---------- Empty state / form card ----------
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--page-space-md);
+  padding: var(--page-space-xl) var(--page-space-md);
+  text-align: center;
+  border: 1px dashed var(--page-border);
+  border-radius: var(--page-radius);
+}
+.empty-state-icon {
+  color: #bfbfbf;
+  font-size: 48px;
+}
+.empty-state-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.empty-state-desc {
+  margin: 0;
+  color: var(--page-muted);
+}
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  height: 46px;
+  padding: 0 var(--page-space-lg);
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  background: var(--page-accent);
+  border: 1px solid var(--page-accent);
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    color: var(--page-accent);
+    background: #ffffff;
+  }
+  &--outline {
+    color: var(--page-accent);
+    background: #ffffff;
+    &:hover {
+      color: #ffffff;
+      background: var(--page-accent);
+    }
+  }
+}
+
+.order-lookup {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--page-space-lg) var(--page-space-md);
+  border: 1px solid var(--page-border);
+  border-radius: var(--page-radius);
+}
+.order-lookup-desc {
+  margin-bottom: var(--page-space-lg);
+  color: var(--page-muted);
+}
+.order-lookup-result {
+  margin-top: var(--page-space-md);
+}
+
+// ---------- 404 / 403 ----------
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--page-space-md);
+  padding: var(--page-space-xl) var(--page-space-md);
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+.error-page-code {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+}
+.error-page-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+.error-page-desc {
+  margin: 0;
+  color: var(--page-muted);
+}
+.error-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--page-space-md);
+}
+
+// ---------- Responsive ----------
+@media (max-width: 639px) {
+  .static-page {
+    width: 92%;
+  }
+  .page-btn {
+    width: 100%;
+  }
+}
+@media (min-width: 640px) {
+  .about-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--page-space-xl);
+    &--reverse .about-section-media {
+      order: 2;
+    }
+  }
+}

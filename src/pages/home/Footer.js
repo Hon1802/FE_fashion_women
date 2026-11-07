@@ -24,48 +24,48 @@ const Footer = () => {
     return (
         <>
             <footer id='footer'>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 dfl-center ">
-                            <div class="footer-block dfl-center-column">
-                                <a href="/" class="logo-wrapper mb-3 d-block ">	
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-3 dfl-center ">
+                            <div className="footer-block dfl-center-column">
+                                <a href="/" className="logo-wrapper mb-3 d-block ">	
                                     <img loading="lazy"
                                         src="//theme.hstatic.net/200000525857/1001199676/14/logo-footer.png?v=6" 
                                         alt="logo EGA Style"
                                         width="164" 
                                         height="50"/>
                                 </a> 
-                                <div class="dgrid-2 pb10">
+                                <div className="dgrid-2 pb10">
                                     <FontAwesomeIcon icon={ICONFORTAWESOME.faMapMarkedAlt} fontSize={16} color='white'/>
-                                    <div class="text-footer">Địa chỉ:
+                                    <div className="text-footer">Địa chỉ:
                                         <span className='text-footer'>150/8 Nguyễn Duy Cung, Phường 12, Tp.HCM</span>
                                     </div>
                                 </div>
-                                <div class="dgrid-2 pb10">
+                                <div className="dgrid-2 pb10">
                                     <FontAwesomeIcon icon={ICONFORTAWESOME.faMobileAlt} fontSize={16} color='white'/>
-                                    <div class="text-footer">
-                                        Số điện thoại: <a class="link" title="19001393" href="tel:19001393">19001393</a>
+                                    <div className="text-footer">
+                                        Số điện thoại: <a className="link" title="19001393" href="tel:19001393">19001393</a>
                                     </div>
                                 </div>
-                                <div class="dgrid-2 pb10">
+                                <div className="dgrid-2 pb10">
                                     <FontAwesomeIcon icon={ICONFORTAWESOME.faEnvelope} fontSize={16} color='white'/>
-                                    <div class="text-footer">
-                                        Email: <a title="support@egany.com" class="link" href="mailto:support@egany.com">support@egany.com</a>
+                                    <div className="text-footer">
+                                        Email: <a title="support@egany.com" className="link" href="mailto:support@egany.com">support@egany.com</a>
                                     </div>
                                 </div> 
-                                <div id="copyright" class="fot_copyright mt-3">                               
-                                    <span class="text-footer">
+                                <div id="copyright" className="fot_copyright mt-3">                               
+                                    <span className="text-footer">
                                     © Bản quyền thuộc về <a className='text-footer-3' href="https://egany.com" rel="nofollow" target="_blank">EGANY</a>
                                     | Cung cấp bởi <a className='text-footer-3' href="https://www.haravan.com/?utm_campaign=poweredby&utm_medium=haravan&utm_source=onlinestore" rel="nofollow" title="Haravan" target="_blank">Haravan</a>
                                     </span>
                                 </div> 
                             </div>
                         </div>
-                        <div class="col-lg-9">
-                            <div class="row mobile-footer-custom">
-                                <div class="col-lg-4 dfl-center m-item">
-                                    <div class="footer-block dfl-start-column">
-                                        <h3 class="text-footer-4 d-flex gap-2" onClick={()=>openMenu('ul-poli')}>
+                        <div className="col-lg-9">
+                            <div className="row mobile-footer-custom">
+                                <div className="col-lg-4 dfl-center m-item">
+                                    <div className="footer-block dfl-start-column">
+                                        <h3 className="text-footer-4 d-flex gap-2" onClick={()=>openMenu('ul-poli')}>
                                             CHÍNH SÁCH 
                                             <i>
                                                 <FontAwesomeIcon className='btn-mobile' icon={ICONFORTAWESOME.faArrowDown} fontSize={16} color='white'/>
@@ -73,24 +73,24 @@ const Footer = () => {
                                         </h3>
                                         <ul className='ul-poli' style={{display: `${openMenu_1 ? 'block' : 'none' } ` }}>
                                             <li>
-                                                <a class="text-footer"  href="/pages/about-us" title="Giới thiệu">Giới thiệu</a>
+                                                <a className="text-footer"  href="/pages/about-us" title="Giới thiệu">Giới thiệu</a>
                                             </li>
                                             <li>
-                                                <a class="text-footer"  href="/pages/he-thong-cua-hang" title="Hệ thống cửa hàng">Hệ thống cửa hàng</a>
+                                                <a className="text-footer"  href="/pages/he-thong-cua-hang" title="Hệ thống cửa hàng">Hệ thống cửa hàng</a>
                                             </li>
                                             <li>
-                                                <a class="text-footer"  href="/pages/cau-hoi-thuong-gap" title="Câu hỏi thường gặp">Câu hỏi thường gặp</a>
+                                                <a className="text-footer"  href="/pages/cau-hoi-thuong-gap" title="Câu hỏi thường gặp">Câu hỏi thường gặp</a>
                                             </li>
                                             <li>
-                                                <a class="text-footer"  href="/pages/goi-dien-dat-hang" title="Gọi điện đặt hàng">Gọi điện đặt hàng</a>
+                                                <a className="text-footer"  href="/pages/goi-dien-dat-hang" title="Gọi điện đặt hàng">Gọi điện đặt hàng</a>
                                             </li>
                                             
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 dfl-center m-item">
-                                    <div class="footer-block dfl-start-column">
-                                        <h3 class="text-footer-4 d-flex gap-2" onClick={()=>openMenu('ul-support')}>
+                                <div className="col-lg-4 dfl-center m-item">
+                                    <div className="footer-block dfl-start-column">
+                                        <h3 className="text-footer-4 d-flex gap-2" onClick={()=>openMenu('ul-support')}>
                                             HỖ TRỢ KHÁCH HÀNG
                                             <i>
                                                 <FontAwesomeIcon className='btn-mobile' icon={ICONFORTAWESOME.faArrowDown} fontSize={16} color='white'/>
@@ -117,13 +117,13 @@ const Footer = () => {
                                     <div className="footer-block dfl-start-column">
                                         <h3 className="text-footer-4">ĐĂNG KÝ NHẬN TIN</h3>
                                         <div className="form_register ">
-                                            <form accept-charset='UTF-8' action='/account/contact' class='contact-form' method='post'>
+                                            <form accept-charset='UTF-8' action='/account/contact' className='contact-form' method='post'>
                                                 <input name='form_type' type='hidden' value='customer'/>
                                                 <input name='utf8' type='hidden' value='✓'/>
-                                                <div class="input-group">
+                                                <div className="input-group">
                                                     <input type="hidden" id="newsletter-tags" name="contact[tags]" value="khách hàng tiềm năng, bản tin" />     
-                                                    <input class="form-control" aria-label="Địa chỉ Email" type="email" placeholder="Nhập địa chỉ email"  id="newsletter-email" name="contact[email]"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="off" />
-                                                    <div class="btn-action dflex-center-row">
+                                                    <input className="form-control" aria-label="Địa chỉ Email" type="email" placeholder="Nhập địa chỉ email"  id="newsletter-email" name="contact[email]"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="off" />
+                                                    <div className="btn-action dflex-center-row">
                                                         <button className='text-footer' type="submit" aria-label="Đăng ký nhận tin" name="subscribe">Đăng ký</button>
                                                     </div> 
                                                 </div>
@@ -131,32 +131,32 @@ const Footer = () => {
                                         </div>
                                         <ul className="d-inline-flex flex-wrap align-items-center list-unstyled mt-2" style={{gap:'15px'}}>	
                                             <li>
-                                                <a class="facebook link" href="https://www.facebook.com/egany.tech"
+                                                <a className="facebook link" href="https://www.facebook.com/egany.tech"
                                                 title="Theo dõi Facebook EGA Style">
                                                     <img src="//theme.hstatic.net/200000525857/1001199676/14/facebook.png?v=6" loading="lazy" width="32" height="32" alt="facebook"/>	
                                                 </a>
                                             </li>
                                             
                                             <li>
-                                                <a class="zalo link" href="https://zalo.me/834141234794359440"   title="Theo dõi zalo EGA Style">
+                                                <a className="zalo link" href="https://zalo.me/834141234794359440"   title="Theo dõi zalo EGA Style">
                                                     <img src="//theme.hstatic.net/200000525857/1001199676/14/zalo.png?v=6" loading="lazy" width="32" height="32" alt="zalo"/>	
                                                 </a>
                                             </li>
                                             
                                             
                                             <li>
-                                                <a class="instgram link" href="https://www.instagram.com/an.lihn/"   title="Theo dõi instgram EGA Style">
+                                                <a className="instgram link" href="https://www.instagram.com/an.lihn/"   title="Theo dõi instgram EGA Style">
                                                     <img src="//theme.hstatic.net/200000525857/1001199676/14/instagram.png?v=6" loading="lazy" width="32" height="32" alt="instgram"/>	
                                                 </a>
                                             </li>
                                              
                                             <li>
-                                                <a class="youtube link" href="https://www.youtube.com/channel/UCh5jj4Q-vqQMdEhwRZAeZMA"   title="Theo dõi youtube EGA Style">
+                                                <a className="youtube link" href="https://www.youtube.com/channel/UCh5jj4Q-vqQMdEhwRZAeZMA"   title="Theo dõi youtube EGA Style">
                                                     <img src="//theme.hstatic.net/200000525857/1001199676/14/youtube.png?v=6" loading="lazy" width="36" height="36" alt="youtube"/>	
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a class="tiktok link" href="https://www.tiktok.com/@60giay.com"   title="Theo dõi tiktok EGA Style">
+                                                <a className="tiktok link" href="https://www.tiktok.com/@60giay.com"   title="Theo dõi tiktok EGA Style">
                                                     <img src="//theme.hstatic.net/200000525857/1001199676/14/tiktok.png?v=6" loading="lazy" width="36" height="36" alt="tiktok"/>	
                                                 </a>
                                             </li> 
@@ -164,22 +164,22 @@ const Footer = () => {
                                     </div>
                                 </div>	
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4"> 
-                                    <a class="d-inline-block mt-3"  href="/collections/all" title="Logo bộ công thương">
-                                    <img class="img-fluid" loading="lazy" 
+                            <div className="row">
+                                <div className="col-lg-4"> 
+                                    <a className="d-inline-block mt-3"  href="/collections/all" title="Logo bộ công thương">
+                                    <img className="img-fluid" loading="lazy" 
                                         src="//theme.hstatic.net/200000525857/1001199676/14/logo_bct.png?v=6" 
                                         width="350"
                                         height="50"
                                         alt="Logo bộ công thương" />
                                     </a>
                                 </div>
-                                <div class="col-lg-4"> 
-                                    <div class="trustbadge-wrap mt-4">                                     <div class="product-trustbadge d-flex flex-wrap align-items-center">
+                                <div className="col-lg-4"> 
+                                    <div className="trustbadge-wrap mt-4">                                     <div className="product-trustbadge d-flex flex-wrap align-items-center">
                                         <a href="/collections/all" 
                                         target="_blank"
                                         title="Phương thức thanh toán">
-                                            <img class=" img-fluid" loading="lazy"
+                                            <img className=" img-fluid" loading="lazy"
                                                 src="//theme.hstatic.net/200000525857/1001199676/14/footer_trustbadge.png?v=6" 
                                                 alt="Phương thức thanh toán"
                                                 width=""

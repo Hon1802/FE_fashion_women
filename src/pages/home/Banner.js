@@ -65,12 +65,12 @@ const Banner = () => {
             <img alt='slider' className="mySlides" src={slider2} ></img>
             <button className='btn-prev' onClick={() => plusDivs(-1)}>&#10094;</button>
             <button className='btn-next' onClick={() => plusDivs(1)}>&#10095;</button>
-            <div class="dot_slide" >
+            <div className="dot_slide" >
                     <div >
-                        <span class="dot" onClick={() => showDivsBtn(1)}></span>
+                        <span className="dot" onClick={() => showDivsBtn(1)}></span>
                     </div>
                     <div >
-                        <span class="dot" onClick={() => showDivsBtn(2)}></span>
+                        <span className="dot" onClick={() => showDivsBtn(2)}></span>
                     </div>
             </div>
         </div>
