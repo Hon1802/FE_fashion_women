@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { Alert, Button, Form, Input } from "antd"
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb"
+import { SHOP } from "../../constants/shop-config"
 
 const PHONE_PATTERN = /^(0|\+84)\d{9,10}$/
-const HOTLINE = "19001393"
+const HOTLINE = SHOP.hotline
 
 const Oders = () => {
     const [form] = Form.useForm()
@@ -60,7 +61,7 @@ const Oders = () => {
                         description={
                             <span>
                                 Tra cứu trực tuyến đang được cập nhật. Vui lòng gọi hotline{" "}
-                                <a href={`tel:${HOTLINE}`}>{HOTLINE}</a> để được kiểm tra đơn hàng ngay.
+                                <a href={SHOP.hotlineHref}>{HOTLINE}</a> để được kiểm tra đơn hàng ngay.
                             </span>
                         }
                     />

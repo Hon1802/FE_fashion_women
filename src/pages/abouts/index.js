@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb"
-import { about1, about2 } from "../../assets/about"
+import { img15 as about1, img19 as about2 } from "../../assets/home"
+import { SHOP } from "../../constants/shop-config"
 
 const STATS = [
     { value: "10+", label: "Năm kinh nghiệm" },
-    { value: "12", label: "Cửa hàng toàn quốc" },
+    { value: "9", label: "Cửa hàng toàn quốc" },
     { value: "500+", label: "Mẫu thiết kế mỗi năm" },
     { value: "24/7", label: "Hỗ trợ khách hàng" },
 ]
@@ -17,11 +18,11 @@ const AboutUs = () => {
 
             <div className="about-section">
                 <div className="about-section-media">
-                    <img src={about1} alt="Không gian cửa hàng thời trang nữ" loading="lazy" />
+                    <img src={about1} alt="Đầm cổ vuông hoa nhí Laura" loading="lazy" />
                 </div>
                 <div className="about-section-body">
                     <p className="about-section-eyebrow">Câu chuyện thương hiệu</p>
-                    <h2 className="about-section-heading">Thời trang cho phụ nữ hiện đại</h2>
+                    <h2 className="about-section-heading">{SHOP.tagline}</h2>
                     <p className="about-section-text">
                         Chúng tôi mang đến những thiết kế thanh lịch, dễ mặc và phù hợp với nhịp sống
                         hằng ngày của phụ nữ Việt — từ công sở, dạo phố đến những buổi tiệc quan trọng.
@@ -44,7 +45,7 @@ const AboutUs = () => {
 
             <div className="about-section about-section--reverse">
                 <div className="about-section-media">
-                    <img src={about2} alt="Bộ sưu tập thời trang mới" loading="lazy" />
+                    <img src={about2} alt="Bộ sưu tập đồ đi biển" loading="lazy" />
                 </div>
                 <div className="about-section-body">
                     <p className="about-section-eyebrow">Cam kết</p>
