@@ -8,6 +8,7 @@ import imgFire from '../../../assets/home/fire-icon.svg';
 import { icon_promo } from '../../../assets/logo';
 import React, { useState, useRef, useEffect } from 'react';
 import NumberInput from '../../inputs/NumberInput'
+import { COUPONS, SHOP_POLICIES } from '../../../constants/shop-config';
 const CartHome = (props) => {
     const {item} = props;
     const [visible, setvisible] = useState(false);
@@ -249,7 +250,7 @@ const CartHome = (props) => {
                                         {item.title}
                                     </a>
                                     <div className='left_vend text'>
-                                        <p>Thương hiệu: <span>{item.vendor}</span> | Mã sản phẩm: <span>{item.id}</span> </p>
+                                        <p>Thương hiệu: <span>{item.vendor}</span> | Mã sản phẩm: <span>{item.sku}</span> </p>
                                     </div>
                                     <span style={{ visibility: item.rating ? 'visible' : 'hidden' , paddingLeft: '5px' }}>({item.rating} đánh giá)</span>
                                     <div className='quickview-info'>
@@ -297,11 +298,10 @@ const CartHome = (props) => {
                                     <div className='group-promotion'>
                                         <span><i><img src={icon_promo} alt='icon promotion'/></i>KHUYẾN MÃI - ƯU ĐÃI</span>
                                         <ul>
-                                            <li className='text'>Nhập mã EGANY thêm 5% đơn hàng <button onClick={(e) => handleCopy(item.title, e)}>Sao chép</button> </li>
-                                            <li className='text'></li>
-                                            <li className='text'>Hỗ trợ 10.000 phí Ship cho đơn hàng từ 200.000đ</li>
-                                            <li className='text'>Miễn phí Ship cho đơn hàng từ 300.000đ</li>
-                                            <li className='text'>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì</li>
+                                            <li className='text'>Nhập mã <strong>{COUPONS[0].code}</strong>: {COUPONS[0].desc} <button onClick={(e) => handleCopy(COUPONS[0].code, e)}>Sao chép</button> </li>
+                                            <li className='text'>{SHOP_POLICIES.shipSupport}</li>
+                                            <li className='text'>{SHOP_POLICIES.freeShip}</li>
+                                            <li className='text'>{SHOP_POLICIES.returnPolicy}</li>
                                         </ul>
                                     </div>
                                     <div className='button-bottom'>

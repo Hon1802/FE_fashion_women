@@ -44,10 +44,10 @@
     .flash-body{
         .tab_first{
             width: 100%;
-            min-height: 1330px;
+            min-height: 0;
             height: fit-content;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr ;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             .flashsale-bottom {
                 display: none;
             }
@@ -80,7 +80,7 @@
             .tab_first{
                 width: 100%;
                 min-height: 100px;
-                grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
             }
         }
     }
