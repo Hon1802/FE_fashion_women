@@ -61,7 +61,6 @@
     "sass": "^1.57.1",
     "slick-carousel": "^1.8.1",
     "stream": "^0.0.2",
-    "styled-components": "^6.1.0",
     "typed.js": "^2.0.12",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
@@ -95,15 +94,12 @@
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
-    "@material-ui/core": "^4.12.4",
     "@mui/joy": "^5.0.0-beta.32",
     "@mui/lab": "^5.0.0-alpha.169",
     "@mui/material": "^5.15.14",
     "@mui/styles": "^5.15.14",
     "react-countdown": "^2.3.5",
     "react-dev-utils": "^12.0.1",
-    "react-google-maps": "^9.4.5",
-    "react-modal-video": "^2.0.1",
     "stream-browserify": "^3.0.0"
   }
 }
