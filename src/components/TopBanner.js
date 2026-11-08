@@ -33,7 +33,7 @@ const TopBanner = () => {
         <>
             {isVisible && (
                 <div id="top-banner-home">
-                    <a href='/collections/all'>CHÀO HÈ SÔI NỔI - MỎI TAY SĂN QUÀ - ƯU ĐÃI X3</a>
+                    <a href='/collections/all'>MIỄN PHÍ GIAO HÀNG CHO ĐƠN TỪ 499.000₫ - ĐỔI TRẢ TRONG 15 NGÀY</a>
                     <button type='button' onClick={handleButtonClick} aria-label='Đóng thông báo'><span aria-hidden='true'>×</span></button>
                 </div>
             )}

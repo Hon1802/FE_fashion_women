@@ -1,198 +1,155 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as ICONFORTAWESOME from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faPhone, faEnvelope, faClock, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faInstagram, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import toast from 'react-hot-toast';
+import BrandLogo from '../../components/brand/BrandLogo';
+import { SHOP } from '../../constants/shop-config';
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const FOOTER_MENUS = [
+    {
+        key: 'about',
+        title: 'Về chúng tôi',
+        links: [
+            { label: 'Giới thiệu', to: '/pages/about-us' },
+            { label: 'Hệ thống cửa hàng', to: '/pages/he-thong-cua-hang' },
+            { label: 'Tin tức thời trang', to: '/blogs/news' },
+            { label: 'Liên hệ', to: '/pages/lien-he' },
+        ],
+    },
+    {
+        key: 'support',
+        title: 'Hỗ trợ khách hàng',
+        links: [
+            { label: 'Câu hỏi thường gặp', to: '/pages/cau-hoi-thuong-gap' },
+            { label: 'Kiểm tra đơn hàng', to: '/pages/kiem-tra-don-hang' },
+            { label: 'Chính sách giao hàng', to: '/pages/chinh-sach-giao-hang' },
+            { label: 'Chính sách đổi trả', to: '/pages/chinh-sach-doi-tra' },
+            { label: 'Chính sách bán hàng', to: '/pages/chinh-sach-ban-hang' },
+        ],
+    },
+];
+
+const SOCIALS = [
+    { label: 'Facebook', icon: faFacebookF, href: SHOP.social.facebook },
+    { label: 'Instagram', icon: faInstagram, href: SHOP.social.instagram },
+    { label: 'TikTok', icon: faTiktok, href: SHOP.social.tiktok },
+    { label: 'YouTube', icon: faYoutube, href: SHOP.social.youtube },
+];
+
+const PAYMENTS = ['COD', 'Chuyển khoản', 'Thẻ ATM', 'Visa / Master', 'Ví điện tử'];
 
 const Footer = () => {
-    const [openMenu_1, setOpenMenu_1] = useState(true);
-    const [openMenu_2, setOpenMenu_2] = useState(true);
+    const [openMenus, setOpenMenus] = useState({});
+    const [email, setEmail] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
-    const openMenu = (className) =>{
-        // const menuSelect = document.getElementsByClassName(className);
-        // console.log(menuSelect)
-        // if(menuSelect){
-        //     menuSelect[0].style.display = "flex";
-        // }
-        if(className==='ul-poli')
-        {
-            setOpenMenu_1(!openMenu_1);
-        } else{
-            setOpenMenu_2(!openMenu_2);
+    const toggleMenu = (key) => setOpenMenus((prev) => ({ ...prev, [key]: !prev[key] }));
+
+    // Shop demo chưa có API đăng ký nhận tin: chỉ validate và thông báo phía client
+    const handleSubscribe = (event) => {
+        event.preventDefault();
+        const value = email.trim();
+        if (!EMAIL_PATTERN.test(value)) {
+            toast.error('Vui lòng nhập địa chỉ email hợp lệ');
+            return;
         }
-    }
+        setSubmitting(true);
+        toast.success('Cảm ơn bạn đã đăng ký nhận tin từ ' + SHOP.name + '!');
+        setEmail('');
+        setSubmitting(false);
+    };
+
     return (
-        <>
-            <footer id='footer'>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-3 dfl-center ">
-                            <div className="footer-block dfl-center-column">
-                                <a href="/" className="logo-wrapper mb-3 d-block ">	
-                                    <img loading="lazy"
-                                        src="//theme.hstatic.net/200000525857/1001199676/14/logo-footer.png?v=6" 
-                                        alt="logo EGA Style"
-                                        width="164" 
-                                        height="50"/>
-                                </a> 
-                                <div className="dgrid-2 pb10">
-                                    <FontAwesomeIcon icon={ICONFORTAWESOME.faMapMarkedAlt} fontSize={16} color='white'/>
-                                    <div className="text-footer">Địa chỉ:
-                                        <span className='text-footer'>150/8 Nguyễn Duy Cung, Phường 12, Tp.HCM</span>
-                                    </div>
-                                </div>
-                                <div className="dgrid-2 pb10">
-                                    <FontAwesomeIcon icon={ICONFORTAWESOME.faMobileAlt} fontSize={16} color='white'/>
-                                    <div className="text-footer">
-                                        Số điện thoại: <a className="link" title="19001393" href="tel:19001393">19001393</a>
-                                    </div>
-                                </div>
-                                <div className="dgrid-2 pb10">
-                                    <FontAwesomeIcon icon={ICONFORTAWESOME.faEnvelope} fontSize={16} color='white'/>
-                                    <div className="text-footer">
-                                        Email: <a title="support@egany.com" className="link" href="mailto:support@egany.com">support@egany.com</a>
-                                    </div>
-                                </div> 
-                                <div id="copyright" className="fot_copyright mt-3">                               
-                                    <span className="text-footer">
-                                    © Bản quyền thuộc về <a className='text-footer-3' href="https://egany.com" rel="nofollow noopener noreferrer" target="_blank">EGANY</a>
-                                    | Cung cấp bởi <a className='text-footer-3' href="https://www.haravan.com/?utm_campaign=poweredby&utm_medium=haravan&utm_source=onlinestore" rel="nofollow noopener noreferrer" title="Haravan" target="_blank">Haravan</a>
-                                    </span>
-                                </div> 
-                            </div>
-                        </div>
-                        <div className="col-lg-9">
-                            <div className="row mobile-footer-custom">
-                                <div className="col-lg-4 dfl-center m-item">
-                                    <div className="footer-block dfl-start-column">
-                                        <h3 className="text-footer-4 d-flex gap-2" onClick={()=>openMenu('ul-poli')}>
-                                            CHÍNH SÁCH 
-                                            <i>
-                                                <FontAwesomeIcon className='btn-mobile' icon={ICONFORTAWESOME.faArrowDown} fontSize={16} color='white'/>
-                                            </i>
-                                        </h3>
-                                        <ul className='ul-poli' style={{display: `${openMenu_1 ? 'block' : 'none' } ` }}>
-                                            <li>
-                                                <a className="text-footer"  href="/pages/about-us" title="Giới thiệu">Giới thiệu</a>
-                                            </li>
-                                            <li>
-                                                <a className="text-footer"  href="/pages/he-thong-cua-hang" title="Hệ thống cửa hàng">Hệ thống cửa hàng</a>
-                                            </li>
-                                            <li>
-                                                <a className="text-footer"  href="/pages/cau-hoi-thuong-gap" title="Câu hỏi thường gặp">Câu hỏi thường gặp</a>
-                                            </li>
-                                            <li>
-                                                <a className="text-footer"  href="/pages/goi-dien-dat-hang" title="Gọi điện đặt hàng">Gọi điện đặt hàng</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 dfl-center m-item">
-                                    <div className="footer-block dfl-start-column">
-                                        <h3 className="text-footer-4 d-flex gap-2" onClick={()=>openMenu('ul-support')}>
-                                            HỖ TRỢ KHÁCH HÀNG
-                                            <i>
-                                                <FontAwesomeIcon className='btn-mobile' icon={ICONFORTAWESOME.faArrowDown} fontSize={16} color='white'/>
-                                            </i>
-                                        </h3>
-                                        <ul className='ul-support' style={{display: `${openMenu_2? 'block' : 'none'}`}}>
-                                            <li>
-                                                <a className='text-footer'  href="/pages/lien-he" title="Thông tin liên hệ">Thông tin liên hệ</a>
-                                            </li>
-                                            <li>
-                                                <a className='text-footer'  href="/pages/chinh-sach-giao-hang" title="Chính sách giao hàng">Chính sách giao hàng</a>
-                                            </li>
-                                            <li>
-                                                <a className='text-footer'  href="/pages/chinh-sach-doi-tra" title="Chính sách đổi hàng">Chính sách đổi hàng</a>
-                                            </li>
-                                            <li>
-                                                <a className='text-footer'  href="/pages/chinh-sach-ban-hang" title="Chính sách bán hàng">Chính sách bán hàng</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 dfl-center m-item">
-                                    <div className="footer-block dfl-start-column">
-                                        <h3 className="text-footer-4">ĐĂNG KÝ NHẬN TIN</h3>
-                                        <div className="form_register ">
-                                            <form acceptCharset='UTF-8' action='/account/contact' className='contact-form' method='post'>
-                                                <input name='form_type' type='hidden' value='customer'/>
-                                                <input name='utf8' type='hidden' value='✓'/>
-                                                <div className="input-group">
-                                                    <input type="hidden" id="newsletter-tags" name="contact[tags]" value="khách hàng tiềm năng, bản tin" />     
-                                                    <input className="form-control" aria-label="Địa chỉ Email" type="email" placeholder="Nhập địa chỉ email"  id="newsletter-email" name="contact[email]"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autoComplete="off" />
-                                                    <div className="btn-action dflex-center-row">
-                                                        <button className='text-footer' type="submit" aria-label="Đăng ký nhận tin" name="subscribe">Đăng ký</button>
-                                                    </div> 
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <ul className="d-inline-flex flex-wrap align-items-center list-unstyled mt-2" style={{gap:'15px'}}>	
-                                            <li>
-                                                <a className="facebook link" href="https://www.facebook.com/egany.tech"
-                                                title="Theo dõi Facebook EGA Style">
-                                                    <img src="//theme.hstatic.net/200000525857/1001199676/14/facebook.png?v=6" loading="lazy" width="32" height="32" alt="facebook"/>	
-                                                </a>
-                                            </li>
-                                            
-                                            <li>
-                                                <a className="zalo link" href="https://zalo.me/834141234794359440"   title="Theo dõi zalo EGA Style">
-                                                    <img src="//theme.hstatic.net/200000525857/1001199676/14/zalo.png?v=6" loading="lazy" width="32" height="32" alt="zalo"/>	
-                                                </a>
-                                            </li>
-                                            
-                                            
-                                            <li>
-                                                <a className="instgram link" href="https://www.instagram.com/an.lihn/"   title="Theo dõi instgram EGA Style">
-                                                    <img src="//theme.hstatic.net/200000525857/1001199676/14/instagram.png?v=6" loading="lazy" width="32" height="32" alt="instgram"/>	
-                                                </a>
-                                            </li>
-                                             
-                                            <li>
-                                                <a className="youtube link" href="https://www.youtube.com/channel/UCh5jj4Q-vqQMdEhwRZAeZMA"   title="Theo dõi youtube EGA Style">
-                                                    <img src="//theme.hstatic.net/200000525857/1001199676/14/youtube.png?v=6" loading="lazy" width="36" height="36" alt="youtube"/>	
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a className="tiktok link" href="https://www.tiktok.com/@60giay.com"   title="Theo dõi tiktok EGA Style">
-                                                    <img src="//theme.hstatic.net/200000525857/1001199676/14/tiktok.png?v=6" loading="lazy" width="36" height="36" alt="tiktok"/>	
-                                                </a>
-                                            </li> 
-                                        </ul>
-                                    </div>
-                                </div>	
-                            </div>
-                            <div className="row">
-                                <div className="col-lg-4"> 
-                                    <a className="d-inline-block mt-3"  href="/collections/all" title="Logo bộ công thương">
-                                    <img className="img-fluid" loading="lazy" 
-                                        src="//theme.hstatic.net/200000525857/1001199676/14/logo_bct.png?v=6" 
-                                        width="350"
-                                        height="50"
-                                        alt="Logo bộ công thương" />
+        <footer id="footer" className="site-footer">
+            <div className="site-footer-inner">
+                <div className="site-footer-grid">
+                    <section className="site-footer-brand">
+                        <BrandLogo variant="light" />
+                        <p className="site-footer-desc">{SHOP.description}</p>
+                        <ul className="site-footer-contact">
+                            <li>
+                                <FontAwesomeIcon icon={faLocationDot} fixedWidth />
+                                <span>{SHOP.address}</span>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faPhone} fixedWidth />
+                                <a href={SHOP.hotlineHref}>{SHOP.hotline}</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faEnvelope} fixedWidth />
+                                <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faClock} fixedWidth />
+                                <span>{SHOP.workingHours}</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    {FOOTER_MENUS.map((menu) => (
+                        <nav key={menu.key} className={`site-footer-menu ${openMenus[menu.key] ? 'is-open' : ''}`} aria-label={menu.title}>
+                            <button
+                                type="button"
+                                className="site-footer-heading"
+                                onClick={() => toggleMenu(menu.key)}
+                                aria-expanded={Boolean(openMenus[menu.key])}
+                            >
+                                {menu.title}
+                                <FontAwesomeIcon icon={faChevronDown} className="site-footer-chevron" />
+                            </button>
+                            <ul>
+                                {menu.links.map((link) => (
+                                    <li key={link.to}>
+                                        <Link to={link.to}>{link.label}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    ))}
+
+                    <section className="site-footer-newsletter">
+                        <h3 className="site-footer-heading site-footer-heading--static">Đăng ký nhận tin</h3>
+                        <p className="site-footer-desc">Nhận thông tin bộ sưu tập mới và ưu đãi dành riêng cho thành viên.</p>
+                        <form className="newsletter-form" onSubmit={handleSubscribe} noValidate>
+                            <label htmlFor="newsletter-email" className="visually-hidden">Địa chỉ email</label>
+                            <input
+                                id="newsletter-email"
+                                type="email"
+                                placeholder="Email của bạn"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                autoComplete="email"
+                            />
+                            <button type="submit" disabled={submitting}>Đăng ký</button>
+                        </form>
+                        <ul className="site-footer-social">
+                            {SOCIALS.map((social) => (
+                                <li key={social.label}>
+                                    <a href={social.href} aria-label={`${SHOP.name} trên ${social.label}`} title={social.label}>
+                                        <FontAwesomeIcon icon={social.icon} />
                                     </a>
-                                </div>
-                                <div className="col-lg-4"> 
-                                    <div className="trustbadge-wrap mt-4">                                     <div className="product-trustbadge d-flex flex-wrap align-items-center">
-                                        <a href="/collections/all" 
-                                        target="_blank"
-                                        title="Phương thức thanh toán">
-                                            <img className=" img-fluid" loading="lazy"
-                                                src="//theme.hstatic.net/200000525857/1001199676/14/footer_trustbadge.png?v=6" 
-                                                alt="Phương thức thanh toán"
-                                                width=""
-                                                height=""
-                                                />
-                                        </a>
-                                   </div>
-                                </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
                 </div>
-            </footer>
-        </>
+
+                <p className="site-footer-wordmark" aria-hidden="true">{SHOP.name}</p>
+                <div className="site-footer-bottom">
+                    <p>© {SHOP.copyrightYear} {SHOP.fullName}. Website demo phục vụ mục đích học tập.</p>
+                    <ul className="site-footer-payments" aria-label="Phương thức thanh toán">
+                        {PAYMENTS.map((method) => (
+                            <li key={method}>{method}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </footer>
     );
-}
+};
+
 export default Footer;

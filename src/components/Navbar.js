@@ -160,19 +160,19 @@ const navs = [
         icon: icon_menu,
         submenu: [
             {
-                title: 'Landing Page - Flash Sale',
+                title: 'Flash Sale giờ vàng',
                 url: '/collections/flash-sale',
             },
             {
-                title: 'Landing Page - Black Friday',
+                title: 'Black Friday',
                 url: '/pages/landing-page-black-friday',
             },
             {
-                title: 'Landing Page - Xmas',
+                title: 'Ưu đãi Giáng sinh',
                 url: '/pages/landing-page-xmas',
             },
             {
-                title: 'Landing Page - OnePage',
+                title: 'Sản phẩm đồng giá',
                 url: '/pages/landing-page-onepage',
             }
         ],
@@ -214,27 +214,7 @@ const Navbar = () => {
 
     const [btnState, setBtnState] = useState(false);
     // combine size with displayitem
-    const combineDisplayedItems = (winsize) => {
-   
-        switch (true) {
-            case window.innerWidth <= 900:
-                return 1;
-            case window.innerWidth <= 1200:
-                return 2;
-            case window.innerWidth <= 1350:
-                return 3;
-            case window.innerWidth <= 1450:
-                return 4;
-            case window.innerWidth <= 1700:
-                return 5;
-            case window.innerWidth <= 1900:
-                return 6;
-            case window.innerWidth <= 2100:
-                return 7;
-            default:
-                return 8;
-        }
-    };
+    const combineDisplayedItems = () => navs.length;
     const [displayedItems, setDisplayedItems] = useState(combineDisplayedItems(window.innerWidth)); 
     // 
     
@@ -337,7 +317,7 @@ const Navbar = () => {
                                 {nav.submenu ? (
                                     <li className="navb-item" key={index} style={{ cursor: "pointer" }}>
                                         <a className="navb-link" >
-                                            <span><img src={nav.icon} alt="" aria-hidden="true" />{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
+                                            <span>{nav.icon && <img src={nav.icon} alt="" aria-hidden="true" />}{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
                                         </a>
 
                                         {nav.subchill ? (

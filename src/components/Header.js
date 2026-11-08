@@ -7,7 +7,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-import {logo} from '../assets/logo'
+import BrandLogo from './brand/BrandLogo'
 import { btnMobi } from "../assets";
 import Slide from '@mui/material/Slide';
 import Dialog from '@mui/material/Dialog';
@@ -169,20 +169,20 @@ const navs = [
     value: "Chương trình khuyến mãi",
     submenu: [
         {
-            title: 'Landing Page - Flash Sale',
+            title: 'Flash Sale giờ vàng',
             url: '/collections/flash-sale',
         },
         {
-            title: 'Landing Page - Black Friday',
+            title: 'Black Friday',
             url: '/pages/landing-page-black-friday',
         },
         {
-            title: 'Landing Page - Xmas',
-            url: 'https://ega-style.myharavan.com/pages/landing-page-xmas',
+            title: 'Ưu đãi Giáng sinh',
+            url: '/pages/landing-page-xmas',
         },
         {
-            title: 'Landing Page - OnePage',
-            url: 'https://ega-style.myharavan.com/pages/landing-page-onepage',
+            title: 'Sản phẩm đồng giá',
+            url: '/pages/landing-page-onepage',
         }
     ],
 
@@ -303,9 +303,7 @@ const Header = () => {
                             </Dialog>
                         </div>
                     </div>
-                    <Link to="/" className="navbar-title" aria-label="Trang chủ">
-                        <img src={logo} alt="Logo cửa hàng" />
-                    </Link>
+                    <BrandLogo className="navbar-title" />
                     <nav className="nav_actions">
                         <Navbar />
                     </nav>
