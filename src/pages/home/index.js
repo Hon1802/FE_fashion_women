@@ -1,4 +1,3 @@
-import Footer from "./Footer";
 import Banner from "./Banner";
 import FlashSale from "./FlashSale";
 import Policies from "./Policies";
@@ -7,7 +6,7 @@ import SessionCoupons from "./SessionCoupons";
 import BannerCenter from "./BannerCenter";
 import CollectionSummer from "./CollectionSummer";
 import PlayVideo from "./PlayVideo";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle as playBtn} from '@fortawesome/free-regular-svg-icons';
 import CollectionBottom from "./CollectionBottom";
@@ -22,7 +21,6 @@ const Home = () => {
     const openVideo = (event) => {
        
         setOpen(!isOpen);
-        console.log(isOpen);
     };
 
     
@@ -30,7 +28,7 @@ const Home = () => {
     return (
         <div id="home">
             <div className="main-wrapper">
-                <ModalHome isOpen='true'/>
+                <ModalHome isOpen />
                 <Banner/>
                 <Policies/>
                 <SessionCollection/>
@@ -51,8 +49,8 @@ const Home = () => {
                             <>
                                 <div className="embed-responsive">               
                                     <picture>
-                                        <source media="(max-width: 480px)" srcset="//theme.hstatic.net/200000525857/1001199676/14/section_video_bg_large.jpg?v=6"/>
-                                        <source media="(max-width: 991px)" srcset="//theme.hstatic.net/200000525857/1001199676/14/section_video_bg.jpg?v=6" />		
+                                        <source media="(max-width: 480px)" srcSet="//theme.hstatic.net/200000525857/1001199676/14/section_video_bg_large.jpg?v=6"/>
+                                        <source media="(max-width: 991px)" srcSet="//theme.hstatic.net/200000525857/1001199676/14/section_video_bg.jpg?v=6" />		
                                         <img alt="video" className="img-fluid object-contain" 
                                             src="//theme.hstatic.net/200000525857/1001199676/14/section_video_bg.jpg?v=6" 
                                             width="1170"

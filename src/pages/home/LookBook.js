@@ -1,3 +1,4 @@
+import React from 'react';
 import CartLook from "../../components/carts/CartLook";
 import * as IMAGE_LIST from "../../assets/home";
 const listItem_1 =  [
@@ -112,9 +113,9 @@ const LookBook = () => {
             <h2 className="text">Set đồ cho bạn</h2>
             <div className="look-book-body">
                 {listItem_1.map((item, index)=>(
-                    <>
+                    <React.Fragment key={index}>
                         <CartLook item={item}/> 
-                    </>
+                    </React.Fragment>
                 ))}
             </div>
         </div>

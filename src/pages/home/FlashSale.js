@@ -1,7 +1,7 @@
 import CartHome from "../../components/carts/Home/CartHome";
 import * as IMAGE_LIST from "../../assets/home";
 import { flash_sale_icon } from "../../assets/logo";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs } from 'antd';
 import Countdown from 'react-countdown';
 import jsonData from '../../datas/data.json';
@@ -289,7 +289,6 @@ const FlashSale = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            console.log("jsonData")
             if (Array.isArray(jsonData)) {
                 jsonData.map((item, index) => {
                 //   console.log(item);
@@ -306,7 +305,6 @@ const FlashSale = () => {
       }, []);
 
     const onChange = (key) => {
-        console.log(key);
       };
 
     return (
@@ -329,27 +327,27 @@ const FlashSale = () => {
                         <Tabs.TabPane tab="Hàng hiệu -50%" key="1">
                             <div className="tab_first">
                                 {listItem_1.map((item, index)=>(
-                                    <>
+                                    <React.Fragment key={index}>
                                         <CartHome item={item}/>
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Năng động ngày hè" key="2">
                             <div className="tab_first">
                                 {listItem_1.map((item, index)=>(
-                                    <>
+                                    <React.Fragment key={index}>
                                         <CartHome item={item}/>
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Chào biển nắng mới" key="3">
                         <div className="tab_first">
                             {listItem_1.map((item, index)=>(
-                                <>
+                                <React.Fragment key={index}>
                                     <CartHome item={item}/>
-                                </>
+                                </React.Fragment>
                             ))}
                             </div>
                         </Tabs.TabPane>

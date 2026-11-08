@@ -1,6 +1,7 @@
 import React from 'react';
 import * as IMAGE_LIST from "../../assets/home";
-import { DatePicker, Space, Select} from 'antd';
+import { DatePicker, Space } from 'antd';
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 const { RangePicker } = DatePicker;
 
 const listItem_2 =  [
@@ -137,19 +138,7 @@ const Carts = () => {
             <div id="checkout-page" className="dflex-center-column">
                 <div className="w85-per">
                     <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Giỏ hàng</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/kiem-tra-don-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">Giỏ hàng</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <Breadcrumb items={[{ label: "Giỏ hàng" }]} />
                     </div>
                     <div >
                         <h3 className="title-page">Thông tin đơn hàng</h3>

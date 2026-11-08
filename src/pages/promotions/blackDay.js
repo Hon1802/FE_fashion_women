@@ -10,7 +10,7 @@ function HomeBanner() {
     <div className="home-banner" data-setting="banner">
       <img src="https://mixcdn.egany.com/themes/assets/blackfriday_001_banner_img.jpg" alt="blackfriday_001_banner_img"/>
       <div id="countdown" data-setting="clock"></div>
-      <a href="#banner-top" className="next-section scroll-to fa fa-angle-down ega-hidden ega-block--sm"></a>
+      <a href="#banner-top" className="next-section scroll-to fa fa-angle-down ega-hidden ega-block--sm" aria-label="Xem tiếp"></a>
     </div>
   );
 }

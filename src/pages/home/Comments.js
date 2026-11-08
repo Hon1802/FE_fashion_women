@@ -1,3 +1,4 @@
+import React from 'react';
 
 import * as IMAGELIST from "../../assets/profile";
 import {img1, img3, img5} from "../../assets/home"
@@ -51,7 +52,7 @@ const Comments = () => {
                 </h2>
                 <div className="body">
                     {listItem_1.map((item, index)=>( 
-                        <div className="content-cover">
+                        <div className="content-cover" key={index}>
                             <div  style={{display: 'inline-flex', gap: '20px', marginBottom: '20px'}}>
                                 <div className="img-top">
                                     <img alt="avata" src={item.avatar}/>
@@ -115,7 +116,7 @@ const Comments = () => {
                             </p>
                             <div style={{borderTop: '1px solid #000000', paddingTop:'5px'}}>
                             {item.add_Info.map((product, index)=>(
-                                <>                                    
+                                <React.Fragment key={index}>                                    
                                     <div  style={{display: 'inline-flex', gap: '20px', marginBottom: '20px'}}>
                                         <div className="img-bottom">
                                             <img alt="product" src={product.img}/>
@@ -126,7 +127,7 @@ const Comments = () => {
                                             </a>
                                         </div>
                                     </div>
-                                </>
+                                </React.Fragment>
                             ))}
                             </div>
                         </div>  

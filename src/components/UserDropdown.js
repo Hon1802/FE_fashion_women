@@ -6,7 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 import {logo} from '../assets/logo'
-import Navbar from "./Navbar"
+import { Link } from 'react-router-dom';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -81,9 +81,9 @@ const UserDropdown = () => {
           >
             <DialogContent>
               <div className='dflex-center-row row'>
-                <a to="/" className="navbar-title col-2">
-                    <img src={logo}></img>               
-                </a>
+                <Link to="/" className="navbar-title col-2" aria-label="Trang chủ">
+                    <img src={logo} alt="Logo cửa hàng" />
+                </Link>
                 <div className="search_actions col-6">
                    <input type="text" placeholder={placeholderTexts[currentTextIndex].substring(0, currentCharIndex)}>
                    </input>

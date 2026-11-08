@@ -671,10 +671,25 @@
     }
   }
 }
-.ant-modal-content{
-  padding: 0px 0px !important;
-  .ant-modal-footer{
-    display: none;
+// Popup khuyến mãi trang chủ: ảnh full khung, không footer
+.home-promo-modal{
+  .ant-modal-content{
+    padding: 0;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .ant-modal-close{
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+  }
+  .home-promo-modal-img{
+    display: block;
+    width: 100%;
+    height: auto;
   }
 }
 @media only screen and (max-width: 600px) {

@@ -1,23 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
+import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
 const ForgotPassword = () => {
     return (
         <div id="login-page" className="dflex-center-column">
         <div className="w85-per">
             <div>
-                <ul className="d-inline-flex g-2"> 
-                    <li>
-                        <a href="/">
-                            <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                        </a>
-                    </li> 
-                    <p>/</p>
-                    <li>
-                        <a href="/account/forgot-password">
-                            <span style={{color:"#BFBFBF"}} className="text">Quên mật khẩu</span>
-                        </a>
-                    </li>
-                </ul>
+                <Breadcrumb items={[{ label: "Quên mật khẩu" }]} />
             </div>
             <div>
                 <div className="container">
@@ -37,7 +26,7 @@ const ForgotPassword = () => {
                                         <p>
                                             Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
                                         </p>			
-                                        <form accept-charset='UTF-8' action='/#' method='post'>
+                                        <form acceptCharset='UTF-8' action='/#' method='post'>
                                             <input name='form_type' type='hidden' value='recover_customer_password'/>
                                             <input name='utf8' type='hidden' value='✓'/>
 

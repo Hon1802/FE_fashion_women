@@ -1,7 +1,7 @@
 import CartHome from "../../components/carts/Home/CartHome";
 import * as IMAGE_LIST from "../../assets/home";
 import { Select } from 'antd';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs } from 'antd';
 import jsonData from '../../datas/data.json';
 const {TabPane} = Tabs;
@@ -144,12 +144,9 @@ const CollectionBottom = () => {
     const handleChange = (value) =>{
         if(value.value)
         {
-            console.log(value.value)
             setActiveTab(value.value);
         }else{
-            console.log(value)
             setActiveTab(value);
-            console.log(activeTab)
         }
         }
     // tab
@@ -157,7 +154,6 @@ const CollectionBottom = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            console.log("jsonData")
             if (Array.isArray(jsonData)) {
                 jsonData.map((item, index) => {
                 //   console.log(item);
@@ -195,18 +191,18 @@ const CollectionBottom = () => {
                         <Tabs.TabPane tab="Sản phẩm hot" key="1">
                             <div className="tab_first">
                                 {listItem_1.map((item, index)=>(
-                                    <>
+                                    <React.Fragment key={index}>
                                         <CartHome item={item}/>
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Sản phẩm outfits" key="2">
                             <div className="tab_first">
                                 {listItem_1.map((item, index)=>(
-                                    <>
+                                    <React.Fragment key={index}>
                                         <CartHome item={item}/>
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </Tabs.TabPane>

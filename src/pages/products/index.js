@@ -8,15 +8,15 @@ import NumberInput from '../../components/inputs/NumberInput'
 
 // 
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // 
-import { Modal, Button, Result } from 'antd';
+import { Modal, Result } from 'antd';
 // 
 import * as IMAGE_LIST from "../../assets/home";
 import CartHome from '../../components/carts/Home/CartHome';
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 const listItem_2 =  [
     {
         id: '001',
@@ -225,25 +225,7 @@ const ProductDetail = (props) => {
             <div className="cont-detail dflex-center-column">
                 <div className="w85-per flex-column">
                     <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/collections/all">
-                                    <span className="text" style={{color:"#000000"}}>Tất cả sản phẩm</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">{product.title}</span>
-                                </a>
-                            </li>
-                        </ul>                    
+                        <Breadcrumb items={[{ label: "Tất cả sản phẩm", to: "/collections/all" }, { label: product?.title }]} />                    
                     </div>
                     <div className='container-product-detail row'>
                         <div className='col-6 row row-img' style={{maxHeight: '700px'}}>
@@ -499,7 +481,7 @@ Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, b�
                         <div>
                             <Modal
                             title="Thêm vào giỏ hàng"
-                            visible={visible}
+                            open={visible}
                             onOk={handleOk}
                             onCancel={handleCancel}
                             >

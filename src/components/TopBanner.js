@@ -8,7 +8,7 @@ const TopBanner = () => {
     };
     const handleScroll = () => {
         const header = document.getElementById('header');
-        if(isVisible)
+        if(isVisible && header)
         {
             if (window.scrollY >= 50) {
                 header.style.top = '0px';
@@ -18,8 +18,9 @@ const TopBanner = () => {
         }
     };
     useEffect(() => {
-        if (!isVisible) {
-            document.getElementById('header').style.top = '0px';
+        const header = document.getElementById('header');
+        if (!isVisible && header) {
+            header.style.top = '0px';
         }
         window.addEventListener("scroll", handleScroll);
 
@@ -32,8 +33,8 @@ const TopBanner = () => {
         <>
             {isVisible && (
                 <div id="top-banner-home">
-                    <a href='#'>CHÀO HÈ SÔI NỔI - MỎI TAY SĂN QUÀ - ƯU ĐÃI X3</a>
-                    <button onClick={handleButtonClick}><span>x</span></button>
+                    <a href='/collections/all'>CHÀO HÈ SÔI NỔI - MỎI TAY SĂN QUÀ - ƯU ĐÃI X3</a>
+                    <button type='button' onClick={handleButtonClick} aria-label='Đóng thông báo'><span aria-hidden='true'>×</span></button>
                 </div>
             )}
         </>

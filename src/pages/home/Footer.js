@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as ICONFORTAWESOME from '@fortawesome/free-solid-svg-icons';
 
@@ -12,8 +12,6 @@ const Footer = () => {
         // if(menuSelect){
         //     menuSelect[0].style.display = "flex";
         // }
-        console.log(openMenu_1);
-        console.log(openMenu_2);
         if(className==='ul-poli')
         {
             setOpenMenu_1(!openMenu_1);
@@ -55,8 +53,8 @@ const Footer = () => {
                                 </div> 
                                 <div id="copyright" className="fot_copyright mt-3">                               
                                     <span className="text-footer">
-                                    © Bản quyền thuộc về <a className='text-footer-3' href="https://egany.com" rel="nofollow" target="_blank">EGANY</a>
-                                    | Cung cấp bởi <a className='text-footer-3' href="https://www.haravan.com/?utm_campaign=poweredby&utm_medium=haravan&utm_source=onlinestore" rel="nofollow" title="Haravan" target="_blank">Haravan</a>
+                                    © Bản quyền thuộc về <a className='text-footer-3' href="https://egany.com" rel="nofollow noopener noreferrer" target="_blank">EGANY</a>
+                                    | Cung cấp bởi <a className='text-footer-3' href="https://www.haravan.com/?utm_campaign=poweredby&utm_medium=haravan&utm_source=onlinestore" rel="nofollow noopener noreferrer" title="Haravan" target="_blank">Haravan</a>
                                     </span>
                                 </div> 
                             </div>
@@ -117,12 +115,12 @@ const Footer = () => {
                                     <div className="footer-block dfl-start-column">
                                         <h3 className="text-footer-4">ĐĂNG KÝ NHẬN TIN</h3>
                                         <div className="form_register ">
-                                            <form accept-charset='UTF-8' action='/account/contact' className='contact-form' method='post'>
+                                            <form acceptCharset='UTF-8' action='/account/contact' className='contact-form' method='post'>
                                                 <input name='form_type' type='hidden' value='customer'/>
                                                 <input name='utf8' type='hidden' value='✓'/>
                                                 <div className="input-group">
                                                     <input type="hidden" id="newsletter-tags" name="contact[tags]" value="khách hàng tiềm năng, bản tin" />     
-                                                    <input className="form-control" aria-label="Địa chỉ Email" type="email" placeholder="Nhập địa chỉ email"  id="newsletter-email" name="contact[email]"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="off" />
+                                                    <input className="form-control" aria-label="Địa chỉ Email" type="email" placeholder="Nhập địa chỉ email"  id="newsletter-email" name="contact[email]"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autoComplete="off" />
                                                     <div className="btn-action dflex-center-row">
                                                         <button className='text-footer' type="submit" aria-label="Đăng ký nhận tin" name="subscribe">Đăng ký</button>
                                                     </div> 

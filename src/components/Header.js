@@ -275,7 +275,7 @@ const Header = () => {
                                         <div className="list-menu-mobile">
                                             <ul>
                                                 {navs.map((item, index)=>(
-                                                    <>
+                                                    <React.Fragment key={index}>
                                                         {item.submenu ? (
                                                             <>
                                                                 <li className="text-font-1em">
@@ -292,7 +292,7 @@ const Header = () => {
                                                                 </a>
                                                             </li>
                                                         )}
-                                                    </>
+                                                    </React.Fragment>
 
                                                 ))}
                                             </ul>

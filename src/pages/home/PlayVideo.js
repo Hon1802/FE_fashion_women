@@ -1,5 +1,5 @@
 import ModalVideo from "react-modal-video";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Grow } from "@material-ui/core";
 
 const PlayVideo = (props) => {

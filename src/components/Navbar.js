@@ -5,7 +5,6 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {icon_menu} from '../assets/logo'
 
-import { hover } from '@testing-library/user-event/dist/hover';
 const navs = [
     {
         id: "/",
@@ -263,7 +262,6 @@ const Navbar = () => {
         updateState(0, displayedItems)
         setIsFirstItem(true);
         setIsLastItem(false);  
-        console.log(window.innerWidth)
         setClicked(!clicked);
     };
 
@@ -311,14 +309,10 @@ const Navbar = () => {
     const handleShowRemainingItemsNext = () => {
         const displayedNavsLength = displayedNavs.length;
         const navsLength = navs.length;
-        console.log(displayedNavsLength, navsLength)
         let numberPrev = displayedNavsLength;
         let numberNext = navsLength;
-        console.log(displayedNavs);
-        console.log();
        
         numberPrev = navs.indexOf(displayedNavs[displayedNavsLength - 1]) + 1;
-        console.log('1', numberPrev)
         if((displayedNavsLength + numberPrev) > navsLength)
         {
             numberNext = navsLength;
@@ -327,7 +321,6 @@ const Navbar = () => {
             numberNext = displayedNavsLength + numberPrev;
         }
         
-        console.log(numberPrev, numberNext)
         updateState(numberPrev, numberNext)
         setClicked(!clicked);
     };
@@ -340,18 +333,18 @@ const Navbar = () => {
                 <ul className="navbar-navb">
                     {displayedNavs.map((nav, index) => {
                         return (
-                            <>
+                            <React.Fragment key={index}>
                                 {nav.submenu ? (
                                     <li className="navb-item" key={index} style={{ cursor: "pointer" }}>
                                         <a className="navb-link" >
-                                            <span><img src={nav.icon}></img>{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
+                                            <span><img src={nav.icon} alt="" aria-hidden="true" />{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
                                         </a>
 
                                         {nav.subchill ? (
                                             <div className='dropdown2'>
                                                 {nav.submenu.map((submenu, index) =>(
-                                                    <div className='grid-item'>
-                                                        <a key={index} href={submenu.url}><span>{submenu.title}</span></a>
+                                                    <div className='grid-item' key={index}>
+                                                        <a href={submenu.url}><span>{submenu.title}</span></a>
                                                         <ul>
                                                             {submenu.submenuchill.map((chillmenu, index2)=>(
                                                                 <li key={index2}>
@@ -381,7 +374,7 @@ const Navbar = () => {
                                     </li>
                                 )
                                 }
-                            </>
+                            </React.Fragment>
                         );
                     })}
                 </ul>

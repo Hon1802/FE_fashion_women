@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import React, { useState } from 'react';
+import React from 'react';
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 
 const postsList = [
     {
@@ -53,19 +54,7 @@ const News = () => {
         <div id="news-page" className="dflex-center-column">
                 <div className="w85-per">
                     <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">Tin tức</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <Breadcrumb items={[{ label: "Tin tức" }]} />
                     </div>
                     
                     <div>

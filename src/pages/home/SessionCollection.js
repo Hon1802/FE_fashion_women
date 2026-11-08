@@ -88,7 +88,6 @@ const SessionCollection = () => {
         updateState(0, displayedItems)
         setIsFirstItem(true);
         setIsLastItem(false);  
-        console.log(window.innerWidth)
         setClicked(!clicked);
     };
 
@@ -158,7 +157,7 @@ const SessionCollection = () => {
                     {displayedcollection.map((coll, index) => (
                         <div className="session-item" key={index}>
                             <div className="session-image">
-                                <img src={coll.img}></img>
+                                <img src={coll.img} alt={coll.title} loading="lazy" />
                             </div>
                             <div className="session-title">
                                 <h2>{coll.title}</h2>

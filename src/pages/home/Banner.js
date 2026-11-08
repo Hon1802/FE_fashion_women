@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { slider1, slider2 } from "../../assets/home";
 const Banner = () => {
     const [slideIndex, setSlideIndex] = useState(1);

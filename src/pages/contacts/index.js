@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as ICONSFONT from '@fortawesome/free-solid-svg-icons';
 import { Button, Form, Input, Space } from 'antd';
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 const SubmitButton = ({ form, children }) => {
     const [submittable, setSubmittable] = React.useState(false);
   
@@ -29,19 +30,7 @@ const ContactUS = () => {
         <div id="shop-system-page" className="dflex-center-column">
                 <div className="w85-per">
                     <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">Liên hệ</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <Breadcrumb items={[{ label: "Liên hệ" }]} />
                     </div>
                     <div className="d-flex justify-content-center align-items-center" >
                         <h3 className="title-page">Công ty TNHH EGANY</h3>
@@ -132,7 +121,7 @@ const ContactUS = () => {
                                 src={`https://www.google.com/maps/place/150+Nguy%E1%BB%85n+Duy+Cung,+Ph%C6%B0%E1%BB%9Dng+12,+G%C3%B2+V%E1%BA%A5p,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+727010/@10.8394699,106.6423993,17z/data=!3m1!4b1!4m6!3m5!1s0x3175299cc282f5d9:0x7a1a1342b1de2f3f!8m2!3d10.8394699!4d106.6423993!16s%2Fg%2F11j8g_7ysr?entry=ttu`}
                                 allowfullscreen=""
                                 aria-hidden="false"
-                                tabindex="0"
+                                tabIndex="0"
                             ></iframe>
                         </div>
                     </div>

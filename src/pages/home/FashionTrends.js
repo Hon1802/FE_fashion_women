@@ -138,7 +138,6 @@ const FashionTrends = () => {
         updateState(0, displayedItems)
         setIsFirstItem(true);
         setIsLastItem(false);  
-        console.log(window.innerWidth)
         setClicked(!clicked);
     };
 
@@ -279,7 +278,6 @@ const FashionTrends = () => {
                     </h2>
                     <div className='body-outstanding-brand'>
                         {displayedcollection.map((coll, index) => (
-                            <> 
                                 <div className="item " key={index}>
                                     <a href="/collections/all" 
                                     title={coll.title}
@@ -292,7 +290,6 @@ const FashionTrends = () => {
                                             height="67"/>
                                     </a>
                                 </div> 
-                            </>
                         ))}
                         
                         <button 
@@ -358,7 +355,7 @@ const FashionTrends = () => {
                             </div> 
                             <div className="post-list">
                                 {postsList.map((post, index)=>(
-                                    <div className='post-item'>
+                                    <div className='post-item' key={index}>
                                         <a href={post.href}>
                                             <img loading="lazy" className="img-fluid" src={post.img} alt={post.alt}/>
                                         </a> 

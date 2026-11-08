@@ -6,6 +6,7 @@ import { Tag } from 'antd';
 import { Pagination } from 'antd';
 import CartHome from "../../components/carts/Home/CartHome";
 import { Select } from 'antd';
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 
 const { Option } = Select;
 const ListInfor =
@@ -715,7 +716,6 @@ const CollectionAll = (props) => {
       };
     const randomColors = checkedValues.map(() => colors[Math.floor(Math.random() * colors.length)]);
     const handleChange=(value)=>{
-        console.log(value.value)
         if(value.value === 'increase'){
             const sortedList = currentItems.slice().sort((a, b) => {
                 const titleA = a.price; 
@@ -759,19 +759,7 @@ const CollectionAll = (props) => {
             <div id="shop-system-page" className="dflex-center-column">
                 <div className="w85-per">
                     <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">Tất cả sản phẩm</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <Breadcrumb items={[{ label: "Tất cả sản phẩm" }]} />
                     </div>
                     <a href="/collections/all" >
                         <img className="image-top" alt="top" src={IMAGECOLLECTION.img_top}/>

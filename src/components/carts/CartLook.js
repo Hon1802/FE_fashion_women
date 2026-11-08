@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React from 'react';
 const CartLook = (props) => {
     const {item} = props;
     let statebefore = 'dot_99';
@@ -37,7 +37,7 @@ const CartLook = (props) => {
                         <img alt="top" src={item.img}/>
                     </div>
                     {item.position.map((dot, index) =>(
-                        <>
+                        <React.Fragment key={index}>
                             <div className={` dot_btn`} style= {{top: `${dot.pos_y}`, left: `${dot.pos_x}`}}>
                                 <i className= {`${dot.id} item_dot rotate-on-click`} onClick={()=>handleClick(`${dot.id}`)}>
                                     <svg
@@ -65,7 +65,7 @@ const CartLook = (props) => {
                                     </div>
                                 </div>
                             </div>
-                        </>
+                        </React.Fragment>
                     ))}
                     <h3 className='text' style={{fontSize: '24px'}}>Set đồ tập Yoga Xuân Hè 2022</h3>
                     <a className='text' style={{fontSize: '16px'}} href={`/products/${item.id}`}>Xem chi tiết </a>

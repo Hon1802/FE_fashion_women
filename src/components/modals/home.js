@@ -1,35 +1,45 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
-import ListProduct from '../../datas/data_product';
+import { Link } from 'react-router-dom';
+import { Modal } from 'antd';
 import { img29 } from '../../assets/home';
-const ModalHome = (props) => {
-  const {isOpen} = props;
-  const randomList = ['001', '002', '003', '004','005', '006', '007', '008' ];
-  const findProductById = (productId) => {
-    return ListProduct.find(product => product.id === productId);
-    };
 
-// Sử dụng hàm findProductById để tìm sản phẩm với id cụ thể
-  const product = findProductById(randomList[Math.floor(Math.random() * randomList.length)]);
+const STORAGE_KEY = 'home_promo_popup_seen';
 
-  const [isModalOpen, setIsModalOpen] = useState(isOpen);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
+// Chỉ hiển thị popup khuyến mãi một lần trong mỗi phiên truy cập
+const shouldShowPopup = () => {
+  try {
+    return sessionStorage.getItem(STORAGE_KEY) !== '1';
+  } catch (e) {
+    return true;
+  }
+};
+
+const ModalHome = ({ isOpen = true }) => {
+  const [isModalOpen, setIsModalOpen] = useState(() => Boolean(isOpen) && shouldShowPopup());
+
+  const handleClose = () => {
     setIsModalOpen(false);
+    try {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+    } catch (e) {
+      // sessionStorage không khả dụng (chế độ ẩn danh...), bỏ qua
+    }
   };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+
   return (
-    <>
-      <Modal open={isModalOpen} 
-        onOk={handleOk} 
-        onCancel={handleCancel}>
-        <img alt='img-banner' src={img29} style={{width:'100%'}}/>
-      </Modal>
-    </>
+    <Modal
+      open={isModalOpen}
+      onCancel={handleClose}
+      footer={null}
+      centered
+      width={480}
+      className="home-promo-modal"
+      destroyOnHidden
+    >
+      <Link to="/collections/all" onClick={handleClose} aria-label="Xem chương trình khuyến mãi">
+        <img alt="Chương trình khuyến mãi" src={img29} className="home-promo-modal-img" />
+      </Link>
+    </Modal>
   );
 };
 export default ModalHome;
