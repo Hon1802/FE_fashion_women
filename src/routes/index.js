@@ -2,7 +2,6 @@ import React from "react"
 import Oders from "../pages/orders"
 import ShopSystem from "../pages/shopSystems"
 import AboutUs from "../pages/abouts"
-import BlackDay from "../pages/promotions/blackDay"
 import ContactUS from "../pages/contacts"
 import CheckOut from "../pages/checkout"
 import News from "../pages/news"
@@ -18,6 +17,8 @@ const ProductDetail = React.lazy(() => import("../pages/products"))
 // other page components...
 const Unauthorized = React.lazy(() => import("../pages/403"))
 const PageNotFound = React.lazy(() => import("../pages/404"))
+const PolicyPage = React.lazy(() => import("../pages/policies"))
+const NewsDetail = React.lazy(() => import("../pages/news/detail"))
 const routes = [
     { path: "/", element: <Home /> },
     { path: "/account/login", element: <Login /> },
@@ -31,14 +32,16 @@ const routes = [
     { path: "/products/:param", element: <ProductDetail /> },
     { path: "/pages/kiem-tra-don-hang", element: <Oders /> },
     { path: "/pages/about-us", element: <AboutUs /> },
-    { path: "/pages/landing-page-black-friday", element: <BlackDay /> },
+    { path: "/pages/landing-page-black-friday", element: <CollectionAll /> },
     { path: "/pages/landing-page-xmas", element: <CollectionAll /> },
     { path: "/pages/landing-page-onepage", element: <CollectionAll /> },
     { path: "/blogs/news", element: <News /> },
+    { path: "/blogs/news/:slug", element: <NewsDetail /> },
     { path: "/pages/he-thong-cua-hang", element: <ShopSystem /> },
     { path: "/pages/lien-he", element: <ContactUS /> }, 
     { path: "/pages/wishlist", element: <WishList /> }, 
     { path: "/cart", element: <Carts /> },
+    { path: "/pages/:slug", element: <PolicyPage /> },
     // other mappings ...
     { path: "/unauthorized", element: <Unauthorized /> },
     { path: "*", element: <PageNotFound /> }
