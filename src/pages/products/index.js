@@ -2,132 +2,25 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck as regularCheck, faTruck as solidTruck, faMoneyBillTrendUp as solidMoney, faWallet as solidWallet } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
-import ListProduct from "../../datas/data_product"
+import ListProduct, { PRODUCT_GROUPS } from "../../datas/data_product"
+import { SHOP, SHOP_POLICIES, COUPONS } from "../../constants/shop-config"
+import PageNotFound from "../404"
+import { CUTOUT_BY_PRODUCT, getProductTheme } from "../../datas/data_themes"
 import { icon_promo } from '../../assets/logo';
 import NumberInput from '../../components/inputs/NumberInput'
 
 // 
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // 
-import { Modal, Button, Result } from 'antd';
+import { Modal, Result } from 'antd';
 // 
 import * as IMAGE_LIST from "../../assets/home";
 import CartHome from '../../components/carts/Home/CartHome';
-const listItem_2 =  [
-    {
-        id: '001',
-        img_1: IMAGE_LIST.img1,
-        img_2: IMAGE_LIST.img2,
-        like: '0',
-        vendor: 'EGANY',
-        title: 'Váy Catarina',
-        url:'/products/vay-easty-maxi',
-        rating: '2',
-        price: '2,350,000',
-        compare_price: '4,700,000',
-        discount: '50%',
-        item_color_chosen:[{
-            color: 'Xanh',
-            img: IMAGE_LIST.img1,
-        }],
-        product_promo_tag_img: '',
-        percentCompleted: '67',
-        number: '543',
-        size:[
-            {
-                sizeId: 'S',
-                category: '0'
-            },
-            {
-                sizeId: 'L',
-                category: '1'
-            },
-            {
-                sizeId: 'M',
-                category: '1'
-            },
-        ],
-        add_Info:[{
-            code: 'EGANY',
-            condition_1: 'Hỗ trợ 10.000 phí Ship cho đơn hàng từ 200.000đ',
-            condition_2: 'Miễn phí Ship cho đơn hàng từ 300.000đ',
-            condition_3: 'Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì',
-        }]
-    },
-    {
-        id: '002',
-        img_1: IMAGE_LIST.img3,
-        img_2: IMAGE_LIST.img4,
-        like: '1',
-        vendor: 'EGANY',
-        title: 'Đầm xoè Taylor',
-        url:'/products/vay-easty-maxi',
-        rating: '',
-        price: '3,550,000',
-        compare_price: '7,100,000',
-        discount: '50%',
-        item_color_chosen:[{
-            color: 'Xanh',
-            img: IMAGE_LIST.img3,
-        }],
-        product_promo_tag_img: '',
-        percentCompleted: '57',
-        number: '323'
-    },
-    {
-        id: '003',
-        img_1: IMAGE_LIST.img5,
-        img_2: IMAGE_LIST.img10,
-        like: '1',
-        vendor: 'EGANY',
-        title: 'Váy East Maxi',
-        url:'/products/vay-easty-maxi',
-        rating: '',
-        price: '2,150,000',
-        compare_price: '4,300,000',
-        discount: '50%',
-        item_color_chosen:[{
-            color: 'Hồng',
-            img: IMAGE_LIST.img5,
-        }],
-        product_promo_tag_img: '',
-        percentCompleted: '12',
-        number: '33',
-        size:[
-            {
-                sizeId: 'S',
-                category: '0'
-            },
-            {
-                sizeId: 'M',
-                category: '1'
-            },
-        ],
-    },
-    {
-        id: '004',
-        img_1: IMAGE_LIST.img11,
-        img_2: IMAGE_LIST.img12,
-        like: '0',
-        vendor: "Levi's",
-        title: 'Đầm Ngọc San Hô AYDA',
-        url:'/products/dam-ngoc-san-ho-ayda',
-        rating: '',
-        price: '8,400,000',
-        compare_price: '16,800,000',
-        discount: '50%',
-        item_color_chosen:[{
-            color: 'Xanh',
-            img: IMAGE_LIST.img11,
-        }],
-        product_promo_tag_img: '',
-        percentCompleted: '23',
-        number: '6'
-    },]
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+const listItem_2 = PRODUCT_GROUPS.recentlyViewed;
 
 const ProductDetail = (props) => {
     const [ModalText, setModalText] = React.useState('Content of the modal');
@@ -218,70 +111,43 @@ const ProductDetail = (props) => {
         
         setvisible(false)
     };
-// 
+    if (!product) {
+        return <PageNotFound />
+    }
+
+    const toNumber = (text) => Number(String(text).replace(/[^0-9]/g, ''))
+    const savings = product.compare_price ? (toNumber(product.compare_price) - toNumber(product.price)).toLocaleString('en-US') + '₫' : ''
+    const theme = getProductTheme(product)
+    const cutout = CUTOUT_BY_PRODUCT[product.id]
+    const categorySlug = { "Đầm": "dam", "Đồ tập": "do-tap", "Đồ đi biển": "do-di-bien", "Phụ kiện": "phu-kien" }[product.category]
+    const sameCategory = ListProduct.filter((item) => item.category === product.category && item.id !== product.id).slice(0, 4)
+
     return (
         <>
         <div>
-            <div className="cont-detail dflex-center-column">
-                <div className="w85-per flex-column">
-                    <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/collections/all">
-                                    <span className="text" style={{color:"#000000"}}>Tất cả sản phẩm</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">{product.title}</span>
-                                </a>
-                            </li>
-                        </ul>                    
+            <div className={`cont-detail theme-page theme-page--${theme.tone}`}>
+                    <div className="theme-breadcrumb content-top-page">
+                        <Breadcrumb items={[{ label: "Tất cả sản phẩm", to: "/collections/all" }, { label: product.category, to: `/collections/${categorySlug}` }, { label: product.title }]} />
                     </div>
-                    <div className='container-product-detail row'>
-                        <div className='col-6 row row-img' style={{maxHeight: '700px'}}>
-                            <div className='col-3 image-list'>
-                            <ul className='image-list-ul'>
-                                <li>
-                                    <button onClick={()=>choseItemClick_2(product.img_1, product.id)}>
-                                        <img className='image-list-left' alt='' src={product.img_1} />
-                                    </button>
-                                </li>
-                                <li>
-                                    <button onClick={()=>choseItemClick_2(product.img_2, product.id)}>
-                                        <img className='image-list-left' alt='' src={product.img_2} />
-                                    </button>
-                                </li>
-                                <li>
-                                    <button onClick={()=>choseItemClick_2(product.img_1, product.id)}>
-                                        <img className='image-list-left' alt='' src={product.img_1} />
-                                    </button>
-                                </li>
-                                <li>
-                                    <button onClick={()=>choseItemClick_2(product.img_2, product.id)}>
-                                        <img className='image-list-left' alt='' src={product.img_2}/>
-                                    </button>
-                                </li>
+                    <div className='pd'>
+                        <div className='pd-stage'>
+                            <span className='pd-word' aria-hidden='true'>{product.category}</span>
+                            <img id='image-main-left' className={`pd-main popup_MSP${product.id}`} alt={product.title} src={cutout || product.img_1} />
+                            <ul className='pd-thumbs'>
+                                {[cutout || product.img_1, product.img_2].map((image, index) => (
+                                    <li key={image}>
+                                        <button type='button' aria-label={`Xem ảnh ${index + 1}`} onClick={()=>choseItemClick_2(image, product.id)}>
+                                            <img alt='' src={index === 0 && cutout ? product.img_1 : image} />
+                                        </button>
+                                    </li>
+                                ))}
                             </ul>
-                            </div>
-                            <div className='col-9 image-main'>
-                                <img id='image-main-left' className={`popup_MSP${product.id}`}  alt='' src={product.img_1} />
-                            </div>
                         </div>
-                        <div className='col-6'>
+                        <div className='pd-info'>
                             <div className='content-right'>
-                                <a href={`/products/${product.id}`} className='text'>
-                                    {product.title}
-                                </a>
+                                <h1 className='pd-title'>{product.title}</h1>
                                 <div className='left_vend text'>
-                                    <p>Thương hiệu: <span>{product.vendor}</span> | Mã sản phẩm: <span>{product.id}</span> </p>
+                                    <p>Thương hiệu: <span>{product.vendor}</span> | Mã sản phẩm: <span>{product.sku}</span> </p>
                                 </div>
                                 <span style={{ visibility: product.rating ? 'visible' : 'hidden' , paddingLeft: '5px' }}>({product.rating} đánh giá)</span>
                                 <div className='quickview-info'>
@@ -293,15 +159,7 @@ const ProductDetail = (props) => {
                                         )}
                                     </div>
                                 </div>
-                                <div className='left_vend text'>
-                                    <p>
-                                        (Tiết kiệm: {
-                                            (Number(product.compare_price.replace(/\D/g,'')) - Number(product.price.replace(/\D/g,'')))
-                                                .toLocaleString()
-                                        })
-                                    </p>
-                                    
-                                </div>
+                                {savings && (<div className='left_vend text'><p>(Tiết kiệm: {savings})</p></div>)}
                                 <div className='product-promotion hidden'>
                                     {product.product_promo_tag_img  && product.product_promo_tag_img.trim() !== '' &&(
                                         <div style={{display: 'flex'}}>
@@ -313,18 +171,17 @@ const ProductDetail = (props) => {
                                 <div className='group-promotion'>
                                     <span><i><img src={icon_promo} alt='icon promotion'/></i>KHUYẾN MÃI - ƯU ĐÃI</span>
                                     <ul>
-                                        <li className='text'>Nhập mã EGANY thêm 5% đơn hàng <button onClick={(e) => handleCopy(product.title, e)}>Sao chép</button> </li>
-                                        <li className='text'></li>
-                                        <li className='text'>Hỗ trợ 10.000 phí Ship cho đơn hàng từ 200.000đ</li>
-                                        <li className='text'>Miễn phí Ship cho đơn hàng từ 300.000đ</li>
-                                        <li className='text'>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì</li>
+                                        <li className='text'>Nhập mã <strong>{COUPONS[0].code}</strong>: {COUPONS[0].desc} <button onClick={(e) => handleCopy(COUPONS[0].code, e)}>Sao chép</button> </li>
+                                        <li className='text'>{SHOP_POLICIES.shipSupport}</li>
+                                        <li className='text'>{SHOP_POLICIES.freeShip}</li>
+                                        <li className='text'>{SHOP_POLICIES.returnPolicy}</li>
                                     </ul>
                                 </div>
                                 <div className='size-product'>
                                     <span className='text'>Kích thước:</span>
                                     <div className='radio-button'>
-                                        {product.size && product.size.map((size, category)=>(
-                                                <div>
+                                        {product.size && product.size.map((size)=>(
+                                                <div key={size.sizeId}>
                                                     <button name="size-chose" onClick={()=>choseItemClick(size.sizeId)}>
                                                         {size.sizeId}
                                                     </button>
@@ -340,7 +197,7 @@ const ProductDetail = (props) => {
                                     <div className='item-color-chosen'>
                                         <ul>
                                             {product.item_color_chosen.map((item_color, index)=>(
-                                                <li ><img key={index} className={selectedItem === index + 1 ? "select-item" : ""} title={item_color.color} alt={item_color.color} src={item_color.img} onClick={() => handleItemClick(index + 1, item_color.img, product.id)} /></li>
+                                                <li key={index}><img className={selectedItem === index + 1 ? "select-item" : ""} title={item_color.color} alt={item_color.color} src={item_color.img} onClick={() => handleItemClick(index + 1, item_color.img, product.id)} /></li>
                                                 ))}
                                         </ul>
                                     </div>
@@ -352,7 +209,7 @@ const ProductDetail = (props) => {
                                 <a href={`/checkout/${product.id}`} className='buy-now text d-flex justify-content-center align-items-center'>
                                     MUA NGAY
                                 </a>
-                                <span>Gọi đặt mua 1800.0000 (7:30 - 22:00)</span>
+                                <span>Gọi đặt mua <a href={SHOP.hotlineHref}>{SHOP.hotline}</a> ({SHOP.workingHours})</span>
                                 <div className='row delive-con'>
                                     <div className='col-4 row'>
                                         <span className='col-3 d-flex align-items-center color-t-red'><FontAwesomeIcon icon={solidTruck} /></span>
@@ -377,7 +234,13 @@ const ProductDetail = (props) => {
                                         Mô tả sản phẩm
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        Venus Dress là sản phẩm thời trang quần áo chủ đạo trong BST "Chào hè 2022" năm nay của nhà thiết kế D.K Rain. Một trong những nhà thiết kế nổi tiếng của Việt Nam, BST được lấy ý tưởng từ hoa thuỷ tiên đỏ, loài hoa nhỏ nhắn dịu dàng nhưng cũng không kém phần trang nhã, với tông chủ đạo đỏ đô, thiết kế nhẹ nhàng đơn giản nhưng cũng không kém phần sang trọng, chất liệu thoáng mát mềm mại, dễ thấm hút sẽ giúp bạn thoải mái hoạt động mà không sợ ướt mồ hôi. BST "Chào hè 2022" sẽ được tổ chức tại TPHCM vào tháng 09/2022. Mọi thông tin cần biết xin liên hệ nhận vé: 0999999999
+                                        <p>{product.description}</p>
+                                        <ul className="product-spec">
+                                            <li>Mã sản phẩm: {product.sku}</li>
+                                            <li>Danh mục: {product.category}</li>
+                                            <li>Kích thước: {product.size.map((size) => size.sizeId).join(', ')}</li>
+                                            <li>Màu sắc: {product.item_color_chosen.map((c) => c.color).join(', ')}</li>
+                                        </ul>
                                         </AccordionDetails>
                                     </Accordion>
                                     <Accordion>
@@ -389,9 +252,8 @@ const ProductDetail = (props) => {
                                         Chính sách giao hàng
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        EGA Style có dịch vụ giao hàng tận nơi trên toàn quốc, áp dụng cho khách mua hàng trên website, fanpage và gọi điện thoại, không áp dụng cho khách mua trực tiếp tại cửa hàng.
-
-Đơn hàng sẽ được chuyển phát đến tận địa chỉ khách hàng cung cấp thông qua công ty vận chuyển trung gian.
+                                        <p>{SHOP.name} giao hàng toàn quốc qua các đơn vị vận chuyển đối tác. Nội thành TP.HCM nhận hàng trong 1-2 ngày, các tỉnh thành khác 2-5 ngày làm việc.</p>
+                                        <p>{SHOP_POLICIES.shipSupport}. {SHOP_POLICIES.freeShip}.</p>
                                         </AccordionDetails>
                                     </Accordion>
                                     <Accordion>
@@ -403,103 +265,46 @@ const ProductDetail = (props) => {
                                         Chính sách đổi trả
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                    1. Điều kiện đổi trả
-
-Quý Khách hàng cần kiểm tra tình trạng hàng hóa và có thể đổi hàng/ trả lại hàng ngay tại thời điểm giao/nhận hàng trong những trường hợp sau:
-
-Hàng không đúng chủng loại, mẫu mã trong đơn hàng đã đặt hoặc như trên website tại thời điểm đặt hàng.
-Không đủ số lượng, không đủ bộ như trong đơn hàng.
-Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, bể vỡ…
- Khách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn thành việc hoàn trả/đổi trả hàng hóa. 
+                                        <p>{SHOP_POLICIES.returnPolicy}.</p>
+                                        <ul className="product-spec">
+                                            <li>Sản phẩm còn nguyên tem mác, chưa qua sử dụng hoặc giặt.</li>
+                                            <li>Đồ bơi và phụ kiện đã bóc niêm phong không áp dụng đổi trả.</li>
+                                            <li>Liên hệ hotline {SHOP.hotline} hoặc email {SHOP.email} để được hỗ trợ.</li>
+                                        </ul>
                                         </AccordionDetails>
                                     </Accordion>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='row'>
-                       <div className='col-1'>
-                            <img alt='' src={product.img_1} style={{width: '100%'}} />                     
-                       </div>
-                       <div className='col-5'>
-                            <div className='quickview-info'>
-                                <p className='text'>{product.price}</p>
-                                <p className='text'>{product.compare_price}</p>
-                                <div className='discount text'>
-                                        {product.discount  && product.discount.trim() !== '' &&(
-                                            <div>-{product.discount}</div>
-                                        )}
+                    <div className='pd-below'>
+                        {sameCategory.length > 0 && (
+                            <div className='seen'>
+                                <h3 className='text section-heading'>Sản phẩm cùng loại</h3>
+                                <div className="flash-body">
+                                    <div className="tab_first">
+                                        {sameCategory.map((item) => (
+                                            <CartHome key={item.id} item={item}/>
+                                        ))}
                                     </div>
+                                </div>
                             </div>
-                            <div className='left_vend text'>
-                                <p>
-                                    (Tiết kiệm: {
-                                        (Number(product.compare_price.replace(/\D/g,'')) - Number(product.price.replace(/\D/g,'')))
-                                            .toLocaleString()
-                                    })
-                                </p>                                
-                            </div>
-                        </div>
-                       <div className='cs-moblie-2 col-6 d-inline-flex justify-content-center align-items-center' style={{gap: '20px'}}>
-                            <NumberInput/>
-                            <button className='btn-add' onClick={showModal}>THÊM VÀO GIỎ HÀNG</button>
-                       </div>
-                        <div className='fe-back d-flex align-items-center text'>
-                            Đánh giá sản phẩm
-                        </div>
-                        <div className='fe-back d-flex align-items-center text'>
-                            Hỏi đáp, bình luận
-                        </div>
+                        )}
                         <div className='seen'>
-                            <h3 className='text' style={{fontSize:'32px', fontWeight:'500'}}>Sản phẩm cùng phân khúc</h3>
-                            <div className="flash-body"> 
-                            <div className="tab_first">
-                                {listItem_2.map((item, index)=>(
-
-                                    <CartHome item={item}/>
-                                ))}
-                            </div>
-                        </div>
-                        
-                        <div className='seen'>
-                            <h3 className='text' style={{fontSize:'32px', fontWeight:'500'}}>Sản phẩm cùng phân khúc</h3>
-                            <div className="flash-body"> 
+                            <h3 className='text section-heading'>Sản phẩm đã xem</h3>
+                            <div className="flash-body">
                                 <div className="tab_first">
-                                    {listItem_2.map((item, index)=>(
-
-                                        <CartHome item={item}/>
+                                    {listItem_2.filter((item) => item.id !== product.id).map((item) => (
+                                        <CartHome key={item.id} item={item}/>
                                     ))}
                                 </div>
                             </div>
-                        </div>
-                        <div className='seen'>
-                            <h3 className='text' style={{fontSize:'32px', fontWeight:'500'}}>Sản phẩm cùng loại</h3>
-                            <div className="flash-body"> 
-                                <div className="tab_first">
-                                    {listItem_2.map((item, index)=>(
-
-                                        <CartHome item={item}/>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        <div className='seen'>
-                            <h3 className='text' style={{fontSize:'32px', fontWeight:'500'}}>Sản phẩm đã xem</h3>
-                            <div className="flash-body"> 
-                                <div className="tab_first">
-                                    {listItem_2.map((item, index)=>(
-
-                                        <CartHome item={item}/>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
                         </div>
 
                         <div>
                             <Modal
                             title="Thêm vào giỏ hàng"
-                            visible={visible}
+                            open={visible}
                             onOk={handleOk}
                             onCancel={handleCancel}
                             >
@@ -533,7 +338,6 @@ Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, b�
                     </div>
                 </div>
             </div>
-        </div>
         </>
     )
 }

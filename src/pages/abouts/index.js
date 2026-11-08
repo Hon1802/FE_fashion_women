@@ -1,58 +1,67 @@
+import { Link } from "react-router-dom"
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb"
+import { img15 as about1, img19 as about2 } from "../../assets/home"
+import { SHOP } from "../../constants/shop-config"
+
+const STATS = [
+    { value: "10+", label: "Năm kinh nghiệm" },
+    { value: "9", label: "Cửa hàng toàn quốc" },
+    { value: "500+", label: "Mẫu thiết kế mỗi năm" },
+    { value: "24/7", label: "Hỗ trợ khách hàng" },
+]
 
 const AboutUs = () => {
-    return ( 
-        <div className="dflex-center-column">
-            <div className="w85-per">
-                <div>
-                    <ul className="d-inline-flex g-2"> 
-                        <li>
-                            <a href="/">
-                                <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                            </a>
-                        </li> 
-                        <p>/</p>
-                        <li>
-                            <a href="/login">
-                                <span style={{color:"#BFBFBF"}} className="text">Giới thiệu</span>
-                            </a>
-                        </li>
-                    </ul>
+    return (
+        <section id="about-page" className="static-page">
+            <Breadcrumb items={[{ label: "Giới thiệu" }]} />
+            <h1 className="static-page-title">Giới thiệu</h1>
+
+            <div className="about-section">
+                <div className="about-section-media">
+                    <img src={about1} alt="Đầm cổ vuông hoa nhí Laura" loading="lazy" />
                 </div>
-                <div>
-                    <h3 className="text" style={{fontSize: '24px', fontWeight:'500'}}>Giới thiệu</h3>
-                    <h4 className="text">
-                    Trang giới thiệu giúp khách hàng hiểu rõ hơn về cửa hàng của bạn. Hãy cung cấp thông tin cụ thể về việc kinh doanh, về cửa hàng, thông tin liên hệ. Điều này sẽ giúp khách hàng cảm thấy tin tưởng khi mua hàng trên website của bạn.
-                    </h4>
-                    <h4 className="text">Một vài gợi ý cho nội dung trang Giới thiệu:</h4>
-                    <ul>
-                        <li style={{listStyleType: 'disc'}}>
-                            Bạn là ai
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Giá trị kinh doanh của bạn là gì
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Địa chỉ cửa hàng                            
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Bạn đã kinh doanh trong ngành hàng này bao lâu rồi
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Bạn kinh doanh ngành hàng online được bao lâu
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Đội ngũ của bạn gồm những ai
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Thông tin liên hệ
-                        </li>
-                        <li style={{listStyleType: 'disc'}}>
-                            Liên kết đến các trang mạng xã hội (Twitter, Facebook)
-                        </li>
-                    </ul>
+                <div className="about-section-body">
+                    <p className="about-section-eyebrow">Câu chuyện thương hiệu</p>
+                    <h2 className="about-section-heading">{SHOP.tagline}</h2>
+                    <p className="about-section-text">
+                        Chúng tôi mang đến những thiết kế thanh lịch, dễ mặc và phù hợp với nhịp sống
+                        hằng ngày của phụ nữ Việt — từ công sở, dạo phố đến những buổi tiệc quan trọng.
+                    </p>
+                    <p className="about-section-text">
+                        Mỗi sản phẩm đều được chọn lựa kỹ về chất liệu, form dáng và đường may để bạn luôn
+                        tự tin trong mọi khoảnh khắc.
+                    </p>
                 </div>
             </div>
-        </div> 
+
+            <ul className="about-stats">
+                {STATS.map((stat) => (
+                    <li key={stat.label} className="about-stats-item">
+                        <span className="about-stats-value">{stat.value}</span>
+                        <span className="about-stats-label">{stat.label}</span>
+                    </li>
+                ))}
+            </ul>
+
+            <div className="about-section about-section--reverse">
+                <div className="about-section-media">
+                    <img src={about2} alt="Bộ sưu tập đồ đi biển" loading="lazy" />
+                </div>
+                <div className="about-section-body">
+                    <p className="about-section-eyebrow">Cam kết</p>
+                    <h2 className="about-section-heading">Chất lượng và dịch vụ tận tâm</h2>
+                    <p className="about-section-text">
+                        Sản phẩm được kiểm định trước khi đến tay khách hàng, hỗ trợ đổi trả linh hoạt và
+                        giao hàng nhanh trên toàn quốc. Đội ngũ tư vấn luôn sẵn sàng giúp bạn chọn được
+                        trang phục ưng ý nhất.
+                    </p>
+                    <div className="about-actions">
+                        <Link to="/collections/all" className="page-btn">Xem sản phẩm</Link>
+                        <Link to="/pages/lien-he" className="page-btn page-btn--outline">Liên hệ</Link>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
 export default AboutUs;

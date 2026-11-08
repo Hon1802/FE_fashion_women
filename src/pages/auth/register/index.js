@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle as iconGG, faFacebook as iconFA } from "@fortawesome/free-brands-svg-icons"
 import { Button, Form, Input, Space } from 'antd';
+import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
 
 const SubmitButton = ({ form, children }) => {
     const [submittable, setSubmittable] = React.useState(false);
@@ -30,19 +31,7 @@ const Register = () => {
         <div id="register-page" className="dflex-center-column">
             <div className="w85-per">
                 <div>
-                    <ul className="d-inline-flex g-2"> 
-                        <li>
-                            <a href="/">
-                                <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                            </a>
-                        </li> 
-                        <p>/</p>
-                        <li>
-                            <a href="/login">
-                                <span style={{color:"#BFBFBF"}} className="text">Đăng ký</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <Breadcrumb items={[{ label: "Đăng ký" }]} />
                 </div>
                 <div>
                     <div className="container">

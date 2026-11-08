@@ -33,7 +33,7 @@ instances.interceptors.response.use(
           // ** Remove user, accessToken & refreshToken from localStorage
           localStorage.removeItem(jwtDefaultConfig.storageUserData)
           localStorage.removeItem(jwtDefaultConfig.storageTokenKeyName)
-          window.location.href = "/login"
+          window.location.href = "/account/login"
         } else {
           return Promise.reject(error)
         }
@@ -44,13 +44,15 @@ instances.interceptors.response.use(
         // Something happened in setting up the request that triggered an Error
         console.log("Error", error.message)
       }
+      return Promise.reject(error)
     } catch (e) {
       if (e?.response?.data?.error?.statusCode === 401) {
         // ** Remove user, accessToken & refreshToken from localStorage
         localStorage.removeItem(jwtDefaultConfig.storageUserData)
         localStorage.removeItem(jwtDefaultConfig.storageTokenKeyName)
-        window.location.href = "/login"
+        window.location.href = "/account/login"
       }
+      return Promise.reject(e)
     }
   }
 )

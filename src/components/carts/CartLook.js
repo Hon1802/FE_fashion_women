@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React from 'react';
 const CartLook = (props) => {
     const {item} = props;
     let statebefore = 'dot_99';
@@ -34,10 +34,10 @@ const CartLook = (props) => {
             <div id="cart-look">
                 <div className="container-cart">
                     <div className="cart-image">
-                        <img alt="top" src={item.img}/>
+                        <img alt={item.title} src={item.img} loading="lazy"/>
                     </div>
                     {item.position.map((dot, index) =>(
-                        <>
+                        <React.Fragment key={index}>
                             <div className={` dot_btn`} style= {{top: `${dot.pos_y}`, left: `${dot.pos_x}`}}>
                                 <i className= {`${dot.id} item_dot rotate-on-click`} onClick={()=>handleClick(`${dot.id}`)}>
                                     <svg
@@ -54,7 +54,7 @@ const CartLook = (props) => {
                                     <div>
                                         <img src={dot.img} alt='info'/>
                                         <div>
-                                            <h4 className='text'>{dot.title}</h4>
+                                            <h4 className='text'><a href={dot.url}>{dot.title}</a></h4>
                                             <div>
                                                 <span className='text'>{dot.price}</span>
                                                 {dot.o_price  && dot.o_price.trim() !== '' &&(
@@ -65,10 +65,10 @@ const CartLook = (props) => {
                                     </div>
                                 </div>
                             </div>
-                        </>
+                        </React.Fragment>
                     ))}
-                    <h3 className='text' style={{fontSize: '24px'}}>Set đồ tập Yoga Xuân Hè 2022</h3>
-                    <a className='text' style={{fontSize: '16px'}} href={`/products/${item.id}`}>Xem chi tiết </a>
+                    <h3 className='text' style={{fontSize: '24px'}}>{item.title}</h3>
+                    <a className='text' style={{fontSize: '16px'}} href={item.url}>Xem bộ sưu tập</a>
                 </div>
             </div>
         </>

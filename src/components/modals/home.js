@@ -1,35 +1,68 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
-import ListProduct from '../../datas/data_product';
-import { img29 } from '../../assets/home';
-const ModalHome = (props) => {
-  const {isOpen} = props;
-  const randomList = ['001', '002', '003', '004','005', '006', '007', '008' ];
-  const findProductById = (productId) => {
-    return ListProduct.find(product => product.id === productId);
-    };
+import { Link } from 'react-router-dom';
+import { Modal } from 'antd';
+import toast from 'react-hot-toast';
+import { img15 } from '../../assets/home';
+import { COUPONS } from '../../constants/shop-config';
 
-// Sử dụng hàm findProductById để tìm sản phẩm với id cụ thể
-  const product = findProductById(randomList[Math.floor(Math.random() * randomList.length)]);
+const STORAGE_KEY = 'home_promo_popup_seen';
+const welcomeCoupon = COUPONS.find((coupon) => coupon.code === 'NEWMIRA');
 
-  const [isModalOpen, setIsModalOpen] = useState(isOpen);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
+// Chỉ hiển thị popup khuyến mãi một lần trong mỗi phiên truy cập
+const shouldShowPopup = () => {
+  try {
+    return sessionStorage.getItem(STORAGE_KEY) !== '1';
+  } catch (e) {
+    return true;
+  }
+};
+
+const ModalHome = ({ isOpen = true }) => {
+  const [isModalOpen, setIsModalOpen] = useState(() => Boolean(isOpen) && shouldShowPopup());
+
+  const handleClose = () => {
     setIsModalOpen(false);
+    try {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+    } catch (e) {
+      // sessionStorage không khả dụng (chế độ ẩn danh...), bỏ qua
+    }
   };
-  const handleCancel = () => {
-    setIsModalOpen(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(welcomeCoupon.code);
+      toast.success(`Đã sao chép mã ${welcomeCoupon.code}`);
+    } catch (e) {
+      toast.error('Không thể sao chép, vui lòng nhập mã thủ công');
+    }
   };
+
   return (
-    <>
-      <Modal open={isModalOpen} 
-        onOk={handleOk} 
-        onCancel={handleCancel}>
-        <img alt='img-banner' src={img29} style={{width:'100%'}}/>
-      </Modal>
-    </>
+    <Modal
+      open={isModalOpen}
+      onCancel={handleClose}
+      footer={null}
+      centered
+      width={720}
+      className="home-promo-modal"
+      destroyOnHidden
+    >
+      <div className="promo-modal">
+        <div className="promo-modal-media">
+          <img src={img15} alt="Đầm cổ vuông hoa nhí Laura" />
+        </div>
+        <div className="promo-modal-body">
+          <h2>Tặng bạn {welcomeCoupon.value}</h2>
+          <p>{welcomeCoupon.desc}. {welcomeCoupon.condition2}.</p>
+          <button type="button" className="promo-modal-code" onClick={handleCopy} title="Sao chép mã">
+            {welcomeCoupon.code}
+            <span>Sao chép</span>
+          </button>
+          <Link to="/collections/all" className="page-btn" onClick={handleClose}>Mua sắm ngay</Link>
+        </div>
+      </div>
+    </Modal>
   );
 };
 export default ModalHome;

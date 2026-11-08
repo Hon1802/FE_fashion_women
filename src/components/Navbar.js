@@ -5,7 +5,6 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {icon_menu} from '../assets/logo'
 
-import { hover } from '@testing-library/user-event/dist/hover';
 const navs = [
     {
         id: "/",
@@ -161,19 +160,19 @@ const navs = [
         icon: icon_menu,
         submenu: [
             {
-                title: 'Landing Page - Flash Sale',
+                title: 'Flash Sale giờ vàng',
                 url: '/collections/flash-sale',
             },
             {
-                title: 'Landing Page - Black Friday',
+                title: 'Black Friday',
                 url: '/pages/landing-page-black-friday',
             },
             {
-                title: 'Landing Page - Xmas',
+                title: 'Ưu đãi Giáng sinh',
                 url: '/pages/landing-page-xmas',
             },
             {
-                title: 'Landing Page - OnePage',
+                title: 'Sản phẩm đồng giá',
                 url: '/pages/landing-page-onepage',
             }
         ],
@@ -215,27 +214,7 @@ const Navbar = () => {
 
     const [btnState, setBtnState] = useState(false);
     // combine size with displayitem
-    const combineDisplayedItems = (winsize) => {
-   
-        switch (true) {
-            case window.innerWidth <= 900:
-                return 1;
-            case window.innerWidth <= 1200:
-                return 2;
-            case window.innerWidth <= 1350:
-                return 3;
-            case window.innerWidth <= 1450:
-                return 4;
-            case window.innerWidth <= 1700:
-                return 5;
-            case window.innerWidth <= 1900:
-                return 6;
-            case window.innerWidth <= 2100:
-                return 7;
-            default:
-                return 8;
-        }
-    };
+    const combineDisplayedItems = () => navs.length;
     const [displayedItems, setDisplayedItems] = useState(combineDisplayedItems(window.innerWidth)); 
     // 
     
@@ -263,7 +242,6 @@ const Navbar = () => {
         updateState(0, displayedItems)
         setIsFirstItem(true);
         setIsLastItem(false);  
-        console.log(window.innerWidth)
         setClicked(!clicked);
     };
 
@@ -311,14 +289,10 @@ const Navbar = () => {
     const handleShowRemainingItemsNext = () => {
         const displayedNavsLength = displayedNavs.length;
         const navsLength = navs.length;
-        console.log(displayedNavsLength, navsLength)
         let numberPrev = displayedNavsLength;
         let numberNext = navsLength;
-        console.log(displayedNavs);
-        console.log();
        
         numberPrev = navs.indexOf(displayedNavs[displayedNavsLength - 1]) + 1;
-        console.log('1', numberPrev)
         if((displayedNavsLength + numberPrev) > navsLength)
         {
             numberNext = navsLength;
@@ -327,7 +301,6 @@ const Navbar = () => {
             numberNext = displayedNavsLength + numberPrev;
         }
         
-        console.log(numberPrev, numberNext)
         updateState(numberPrev, numberNext)
         setClicked(!clicked);
     };
@@ -340,18 +313,18 @@ const Navbar = () => {
                 <ul className="navbar-navb">
                     {displayedNavs.map((nav, index) => {
                         return (
-                            <>
+                            <React.Fragment key={index}>
                                 {nav.submenu ? (
                                     <li className="navb-item" key={index} style={{ cursor: "pointer" }}>
                                         <a className="navb-link" >
-                                            <span><img src={nav.icon}></img>{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
+                                            <span>{nav.icon && <img src={nav.icon} alt="" aria-hidden="true" />}{nav.value} <ExpandMoreIcon sx={{ fontSize: 20 }} /></span>
                                         </a>
 
                                         {nav.subchill ? (
                                             <div className='dropdown2'>
                                                 {nav.submenu.map((submenu, index) =>(
-                                                    <div className='grid-item'>
-                                                        <a key={index} href={submenu.url}><span>{submenu.title}</span></a>
+                                                    <div className='grid-item' key={index}>
+                                                        <a href={submenu.url}><span>{submenu.title}</span></a>
                                                         <ul>
                                                             {submenu.submenuchill.map((chillmenu, index2)=>(
                                                                 <li key={index2}>
@@ -381,7 +354,7 @@ const Navbar = () => {
                                     </li>
                                 )
                                 }
-                            </>
+                            </React.Fragment>
                         );
                     })}
                 </ul>

@@ -1,3 +1,4 @@
+import React from 'react';
 
 import * as IMAGELIST from "../../assets/profile";
 import {img1, img3, img5} from "../../assets/home"
@@ -11,7 +12,7 @@ const listItem_1 =  [
         rating:'5',
         content:'Sản phẩm chất lượng, chất vải mềm mát mặc vào rất thoải mái và ôm sát người giúp khoe được điểm mạnh của tôi, giá cả hợp lý, giao hàng nhanh',
         add_Info:[{
-            name_product: 'Catarina',
+            name_product: 'Đầm midi hoa nhí Catarina',
             img: img1,
             url: '/products/001'
         }]
@@ -23,7 +24,7 @@ const listItem_1 =  [
         rating:'5',
         content:'Sản phẩm đẹp, chất liệu mát, mặc vừa người, nhân viên phục vụ rất tận tình và chu đáo, quá tốt',
         add_Info:[{
-            name_product: 'Taylor',
+            name_product: 'Đầm xoè tay phồng Taylor',
             img: img3,
             url: '/products/002'
         }]
@@ -33,9 +34,9 @@ const listItem_1 =  [
         avatar: IMAGELIST.ava3,
         name:'Thu Hằng',
         rating:'4.5',
-        content:'Giao hàng nhanh, anh shipper dễ thương, váy xuất sắc, mặc đẹp lắm, sẽ ửng hộ shop dài dài.Tốt!!!',
+        content:'Giao hàng nhanh, anh shipper dễ thương, váy xuất sắc, mặc đẹp lắm, sẽ ủng hộ shop dài dài.',
         add_Info:[{
-            name_product: 'Maxi',
+            name_product: 'Đầm maxi cổ yếm Eastie',
             img:img5,
             url: '/products/003'
         }]
@@ -51,7 +52,7 @@ const Comments = () => {
                 </h2>
                 <div className="body">
                     {listItem_1.map((item, index)=>( 
-                        <div className="content-cover">
+                        <div className="content-cover" key={index}>
                             <div  style={{display: 'inline-flex', gap: '20px', marginBottom: '20px'}}>
                                 <div className="img-top">
                                     <img alt="avata" src={item.avatar}/>
@@ -115,7 +116,7 @@ const Comments = () => {
                             </p>
                             <div style={{borderTop: '1px solid #000000', paddingTop:'5px'}}>
                             {item.add_Info.map((product, index)=>(
-                                <>                                    
+                                <React.Fragment key={index}>                                    
                                     <div  style={{display: 'inline-flex', gap: '20px', marginBottom: '20px'}}>
                                         <div className="img-bottom">
                                             <img alt="product" src={product.img}/>
@@ -126,7 +127,7 @@ const Comments = () => {
                                             </a>
                                         </div>
                                     </div>
-                                </>
+                                </React.Fragment>
                             ))}
                             </div>
                         </div>  

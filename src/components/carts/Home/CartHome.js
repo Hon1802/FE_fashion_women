@@ -7,9 +7,8 @@ import * as ICONFORTAWESOME  from '@fortawesome/free-solid-svg-icons';
 import imgFire from '../../../assets/home/fire-icon.svg'; 
 import { icon_promo } from '../../../assets/logo';
 import React, { useState, useRef, useEffect } from 'react';
-import { display } from '@mui/system';
 import NumberInput from '../../inputs/NumberInput'
-import { Modal, Result } from 'antd';
+import { COUPONS, SHOP_POLICIES } from '../../../constants/shop-config';
 const CartHome = (props) => {
     const {item} = props;
     const [visible, setvisible] = useState(false);
@@ -96,9 +95,8 @@ const CartHome = (props) => {
     let currentIndex = 0;
     const printNextImage=()=>{
         if (currentIndex < images_list.length) {
-            console.log(images_list[0]); 
             const image_change = document.getElementById('image-main-left');
-            image_change.src = images_list[currentIndex].src;
+            if (image_change) image_change.src = images_list[currentIndex].src;
             currentIndex++;
         } else {
             currentIndex = 0;
@@ -131,21 +129,19 @@ const CartHome = (props) => {
                 <div className='detail-item'>
                     <div className='product-thumbnail'>
                         <a href={`/products/${item.id}`}>
-                            <img className={`img_1 MSP${item.id}`} alt='product' src={item.img_1} />
+                            <img className={`img_1 MSP${item.id}`} alt={item.title} src={item.img_1} loading='lazy' />
                         </a>
                         <a href={`/products/${item.id}`}>
-                            <img className={`img_2 MSP${item.id}`} alt='product'  src={item.img_2} />
+                            <img className={`img_2 MSP${item.id}`} alt='' aria-hidden='true' src={item.img_2} loading='lazy' />
                         </a>
                         <div className='action-bar'>
                             <div className='anchor'>
-                                <a href={`/products/${item.id}`}>
+                                <a href={`/products/${item.id}`} aria-label='Thêm vào giỏ hàng' title='Thêm vào giỏ hàng'>
                                     <FontAwesomeIcon icon={shoppingCart}/>
                                 </a>
-                                <a>
-                                    <button onClick={() => togglePopup(item.id)}>
-                                        <FontAwesomeIcon icon={solidEyes}/>
-                                    </button>
-                                </a>                            
+                                <button type='button' onClick={() => togglePopup(item.id)} aria-label='Xem nhanh' title='Xem nhanh'>
+                                    <FontAwesomeIcon icon={solidEyes}/>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -188,7 +184,7 @@ const CartHome = (props) => {
                         <div className='item-color-chosen'>
                             <ul>
                                 {item.item_color_chosen.map((item_color, index)=>(
-                                    <li ><img key={index} className={selectedItem === index + 1 ? "select-item" : ""} title={item_color.color} alt={item_color.color} src={item_color.img} onClick={() => handleItemClick(index + 1, item_color.img, item.id)} /></li>
+                                    <li key={index}><img className={selectedItem === index + 1 ? "select-item" : ""} title={item_color.color} alt={item_color.color} src={item_color.img} onClick={() => handleItemClick(index + 1, item_color.img, item.id)} /></li>
                                     ))}
                             </ul>
                         </div>
@@ -254,7 +250,7 @@ const CartHome = (props) => {
                                         {item.title}
                                     </a>
                                     <div className='left_vend text'>
-                                        <p>Thương hiệu: <span>{item.vendor}</span> | Mã sản phẩm: <span>{item.id}</span> </p>
+                                        <p>Thương hiệu: <span>{item.vendor}</span> | Mã sản phẩm: <span>{item.sku}</span> </p>
                                     </div>
                                     <span style={{ visibility: item.rating ? 'visible' : 'hidden' , paddingLeft: '5px' }}>({item.rating} đánh giá)</span>
                                     <div className='quickview-info'>
@@ -277,8 +273,8 @@ const CartHome = (props) => {
                                     <div className='size-product'>
                                         <span className='text'>Kích thước:</span>
                                         <div className='radio-button'>
-                                            {item.size && item.size.map((size, category)=>(
-                                                    <div>
+                                            {item.size && item.size.map((size)=>(
+                                                    <div key={size.sizeId}>
                                                         <button name="size-chose" onClick={()=>choseItemClick(size.sizeId)}>
                                                             {size.sizeId}
                                                         </button>
@@ -294,7 +290,7 @@ const CartHome = (props) => {
                                         <div className='item-color-chosen'>
                                             <ul>
                                                 {item.item_color_chosen.map((item_color, index)=>(
-                                                    <li ><img key={index} className={selectedItem === index + 1 ? "select-item" : ""} title={item_color.color} alt={item_color.color} src={item_color.img} onClick={() => handleItemClick(index + 1, item_color.img, item.id)} /></li>
+                                                    <li key={index}><img className={selectedItem === index + 1 ? "select-item" : ""} title={item_color.color} alt={item_color.color} src={item_color.img} onClick={() => handleItemClick(index + 1, item_color.img, item.id)} /></li>
                                                     ))}
                                             </ul>
                                         </div>
@@ -302,11 +298,10 @@ const CartHome = (props) => {
                                     <div className='group-promotion'>
                                         <span><i><img src={icon_promo} alt='icon promotion'/></i>KHUYẾN MÃI - ƯU ĐÃI</span>
                                         <ul>
-                                            <li className='text'>Nhập mã EGANY thêm 5% đơn hàng <button onClick={(e) => handleCopy(item.title, e)}>Sao chép</button> </li>
-                                            <li className='text'></li>
-                                            <li className='text'>Hỗ trợ 10.000 phí Ship cho đơn hàng từ 200.000đ</li>
-                                            <li className='text'>Miễn phí Ship cho đơn hàng từ 300.000đ</li>
-                                            <li className='text'>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì</li>
+                                            <li className='text'>Nhập mã <strong>{COUPONS[0].code}</strong>: {COUPONS[0].desc} <button onClick={(e) => handleCopy(COUPONS[0].code, e)}>Sao chép</button> </li>
+                                            <li className='text'>{SHOP_POLICIES.shipSupport}</li>
+                                            <li className='text'>{SHOP_POLICIES.freeShip}</li>
+                                            <li className='text'>{SHOP_POLICIES.returnPolicy}</li>
                                         </ul>
                                     </div>
                                     <div className='button-bottom'>

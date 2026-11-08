@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Banner from '../../../components/Banner'
 import { banner } from '../../../assets'
-import classnames from 'classnames'
-import avatar from '../../../assets/profile/no_avatar.png'
-import { Row, Col, Label, Input, Form } from 'reactstrap'
+import { Row, Col, Label, Form } from 'reactstrap';
 import { Controller, useForm } from "react-hook-form"
 import Uppy from "@uppy/core"
 import { useDispatch, useSelector } from 'react-redux'
@@ -22,7 +20,7 @@ import { useNavigate } from 'react-router-dom'
 import FormControl from '@mui/material/FormControl'
 import axios from "axios"
 import { configHeader } from '../../../@core/plugin/configHeader'
-import { isObjEmpty, checkPassword } from "../../../utility/Utils"
+import { isObjEmpty } from "../../../utility/Utils";
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { TextField } from '@mui/material'
@@ -174,7 +172,7 @@ const TourDetail = () => {
                                             </div>
                                         </>
                                     )}
-                                    <img className="rounded img-fluid w-100 h-100 object-fit-cover" src={editData?.avatar || `data:image/jpeg;base64, ${store?.avatarBase64}`} alt="Card image" />
+                                    <img className="rounded img-fluid w-100 h-100 object-fit-cover" src={editData?.avatar || `data:image/jpeg;base64, ${store?.avatarBase64}`} alt="Ảnh đại diện" />
                                 </div>
                             </div>
                         </div>

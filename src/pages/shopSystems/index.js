@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Select } from 'antd';
-import Map from "../../components/ggMap";
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 const filterOption = (input, option) =>
   (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 const listStore =[
@@ -78,7 +78,6 @@ const ShopSystem = () => {
     const [addressStore, setAddressStore] = useState('2R75+85W, Láng Hạ, Đống Đa, Hà Nội, Việt Nam')
 
     const onChange = (value) => {
-        console.log(`selected ${value}`);
         const filteredStores = listStore.filter(item => item.province === value);
 
         if (filteredStores.length > 0) {
@@ -91,7 +90,6 @@ const ShopSystem = () => {
         setProvince(value);
       };
     const onChange_2 = (value, long, la) => {
-        console.log(`selected ${value}`);
         const filteredStores = listStore.filter(item => item.value === value);
 
         if (filteredStores.length > 0) {
@@ -104,32 +102,19 @@ const ShopSystem = () => {
         setBranch(value);
       };
     const onSearch = (value) => {
-        console.log('search:', value);
     };
     return (
         <>
         <div id="shop-system-page" className="dflex-center-column">
                 <div className="w85-per">
                     <div className="content-top-page">
-                        <ul className="d-inline-flex g-2"> 
-                            <li>
-                                <a href="/">
-                                    <span className="text" style={{color:"#000000"}}>Trang chủ</span>
-                                </a>
-                            </li> 
-                            <p>/</p>
-                            <li>
-                                <a href="/pages/he-thong-cua-hang">
-                                    <span style={{color:"#BFBFBF"}} className="text">Hệ thống cửa hàng</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <Breadcrumb items={[{ label: "Hệ thống cửa hàng" }]} />
                     </div>
                     <div className="d-flex justify-content-center align-items-center" >
                         <h3 className="title-page">Hệ thống cửa hàng</h3>
                     </div>
                     <div className="row custom-row-shop">
-                        <div class="col-3 col-left">
+                        <div className="col-3 col-left">
                             <h3 className='text'>Tìm cửa hàng</h3>
                             <h4 className='text'>Chọn tỉnh thành</h4>
                             <Select
@@ -172,20 +157,20 @@ const ShopSystem = () => {
                             />
                             <span className='text'> 
                                 Địa chỉ :
-                                {listStore.filter(item => item.value === branch).map(item => (<span> {item.address}</span>))}
+                                {listStore.filter(item => item.value === branch).map(item => (<span key={item.value}> {item.address}</span>))}
                             </span>
                             <p></p>
                         </div>
-                        <div class="col-9">
+                        <div className="col-9">
                             <iframe
                                 title='map'
                                 width="100%"
                                 height="100%"
-                                frameborder="0"
+                                frameBorder="0"
                                 src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31763.945883780425!2d108.2153874!3d16.0698641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183420c6dfab%3A0xd38332774d11f1dc!2z${encodeURIComponent(addressStore)}!5e0!3m2!1sen!2suk!4v1649345807392!5m2!1sen!2suk`}
-                                allowfullscreen=""
+                                allowFullScreen
                                 aria-hidden="false"
-                                tabindex="0"
+                                tabIndex="0"
                             ></iframe>
                         </div>
                     </div>
